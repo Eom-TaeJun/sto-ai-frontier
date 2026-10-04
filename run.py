@@ -32,7 +32,7 @@ def main():
     write_json("disclosure_review.json", reviews)
     fields = ["asset_id", "asset_class", "status", "coverage_ratio", "stressed_coverage_ratio", "issuance_authorized"]
     with (OUT / "asset_screening_result.csv").open("w", encoding="utf-8", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=fields)
+        writer = csv.DictWriter(f, fieldnames=fields, lineterminator="\n")
         writer.writeheader()
         writer.writerows({k: r[k] for k in fields} for r in results)
     counts = dict(Counter(r["status"] for r in results))
