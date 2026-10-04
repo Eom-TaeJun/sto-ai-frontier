@@ -1,0 +1,76 @@
+{
+  "source": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814003361",
+  "as_of": "2026-10-04",
+  "flow_period": "2026-01-01/2026-06-30",
+  "unit": "KRW_100_MILLION",
+  "brokerage_fee_mix": [
+    {
+      "category": "주식",
+      "fee": 786.56,
+      "share_pct": 48.84
+    },
+    {
+      "category": "해외선물",
+      "fee": 688.28,
+      "share_pct": 42.73
+    },
+    {
+      "category": "국내선물",
+      "fee": 66.8,
+      "share_pct": 4.15
+    },
+    {
+      "category": "장내옵션",
+      "fee": 13.92,
+      "share_pct": 0.86
+    },
+    {
+      "category": "기타증권",
+      "fee": 55.08,
+      "share_pct": 3.42
+    }
+  ],
+  "stock_and_overseas_futures_share_pct": 91.57,
+  "net_fee_growth_pct": 81.78,
+  "net_interest_growth_pct": -2.6,
+  "ib_operating_profit_growth_pct": -10.82,
+  "self_and_derivative_operating_profit_sum": 1351.75,
+  "separate_equity": 22406.34,
+  "illustrative_brokerage_fee_pressure": [
+    {
+      "effective_fee_reduction_pct": 5,
+      "revenue_reduction_same_h1_volume": 80.53
+    },
+    {
+      "effective_fee_reduction_pct": 10,
+      "revenue_reduction_same_h1_volume": 161.06
+    },
+    {
+      "effective_fee_reduction_pct": 20,
+      "revenue_reduction_same_h1_volume": 322.13
+    }
+  ],
+  "illustrative_new_fee_scale": [
+    {
+      "issued_amount_trillion_won": 1,
+      "incremental_fee_after_variable_cost_bp": 10,
+      "contribution_before_fixed_cost_and_risk": 10.0
+    },
+    {
+      "issued_amount_trillion_won": 1,
+      "incremental_fee_after_variable_cost_bp": 20,
+      "contribution_before_fixed_cost_and_risk": 20.0
+    },
+    {
+      "issued_amount_trillion_won": 1,
+      "incremental_fee_after_variable_cost_bp": 50,
+      "contribution_before_fixed_cost_and_risk": 50.0
+    }
+  ],
+  "scenario_caveats": [
+    "수수료 압력은 거래량·고객 구성 고정 가정의 반기 매출 민감도다. 이익 감소 전망이 아니다.",
+    "신규 수수료율은 변동비 차감 후 가정. 실제 가격·수요·과금 적법성은 미확인이고 고정비·조달·자본·손실은 추가 차감한다.",
+    "신규 사업 수수료를 기존 고객 수수료로부터 이전한 경우 증분으로 계산하지 않는다."
+  ],
+  "validation": "공시 전사값의 부문·수수료·이자·차입·대차 합계 및 백만원 반올림 대조 통과"
+}

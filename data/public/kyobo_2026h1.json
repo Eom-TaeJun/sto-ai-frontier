@@ -1,0 +1,59 @@
+{
+  "as_of": "2026-10-04",
+  "data_type": "PUBLIC_REPORTED_FINANCIAL_FACTS",
+  "synthetic": false,
+  "company": "교보증권",
+  "report_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814003361",
+  "report_publication_date": "2026-08-14",
+  "report_document_number": "11536829",
+  "flow_period": "2026-01-01/2026-06-30",
+  "prior_flow_period": "2025-01-01/2025-06-30",
+  "stock_date": "2026-06-30",
+  "source_unit": "KRW_THOUSAND_UNLESS_EXPLICITLY_STATED",
+  "extraction": "공개 DART HTML 원문을 직접 읽어 수동 전사. 사업개요와 연결주석 4의 부문표 대조. 검색 뷰어 실패 후 원문 다운로드로 확인.",
+  "connected": {
+    "segment_operating_profit_2026h1": {"위탁매매": 108049352, "자기매매": 242353099, "장내외파생": -107178434, "투자은행": 34004082, "기타": -65349168},
+    "segment_operating_profit_2025h1": {"위탁매매": 24871103, "자기매매": 146198178, "장내외파생": -56723038, "투자은행": 38127614, "기타": -14776664},
+    "operating_profit_2026h1": 211878931,
+    "operating_profit_2025h1": 137697193,
+    "fees_2026h1": {"수탁": 161063668, "인수주선": 11772634, "집합투자증권취급": 5463871, "자산관리": 3490923, "집합투자기구운용": 4383827, "채무보증등": 15656215, "금융자문": 22450834, "신탁": 1955998, "기타": 19132152},
+    "gross_fee_income_2026h1": 245370122,
+    "fee_expense_2026h1": 42695869,
+    "net_fee_income_2026h1": 202674253,
+    "net_fee_income_2025h1": 111492857,
+    "interest_income_2026h1": 255246862,
+    "interest_expense_2026h1": 112080146,
+    "net_interest_income_2026h1": 143166716,
+    "net_interest_income_2025h1": 146990549,
+    "assets": 21988920550,
+    "liabilities": 19714462103,
+    "equity": 2274458447,
+    "borrowings": {"콜머니": 250000000, "차입금": 1586598867, "RP매도": 3306300998, "전자단기사채": 1022656012, "사채": 568695143, "기업어음": 0, "후순위차입금": 6359093},
+    "borrowings_total": 6740610113
+  },
+  "separate": {
+    "assets": 21189462057,
+    "liabilities": 18948828415,
+    "equity": 2240633642,
+    "borrowings_total": 6021523893,
+    "brokerage_fee_breakdown_krw_million": {"주식": 78656, "해외선물": 68828, "국내선물": 6680, "장내옵션": 1392, "기타증권": 5508},
+    "brokerage_fee_total_krw_million": 161064,
+    "trust_balance_krw_million": 20030368
+  },
+  "source_sections": {
+    "connected_segments": "III. 재무에 관한 사항 / 3. 연결재무제표 주석 / 4. 영업부문별 공시; II. 사업의 내용 / 1. 사업의 개요",
+    "connected_fees": "연결주석 25. 순수수료손익",
+    "connected_interest": "연결주석 27. 이자손익",
+    "connected_borrowings": "연결주석 18. 차입부채",
+    "balance_sheets": "2-1. 연결 재무상태표 / 4-1. 재무상태표",
+    "separate_brokerage_and_trust": "II. 사업의 내용 / 2. 영업의 현황 / 투자 중개업무 / 신탁업무"
+  },
+  "caveats": [
+    "수수료·순이자·부문 영업이익은 다른 손익 층위로 서로 더하지 않는다.",
+    "수탁수수료 구성표는 별도·백만원 단위 반올림 수치. 기타증권은 증권계 84164에서 주식 78656을 뺀 잔여액이다.",
+    "자기매매와 파생의 산술 합산은 조직별 수익 또는 정확한 헤지 상쇄액을 뜻하지 않는다. 손익귀속·비용배부 기준 미확인.",
+    "신탁 말잔은 고객 자산이며 회사 고유자산·조달자금·매출이 아니다.",
+    "연결과 별도는 종속기업·SPC 등 범위가 다르다. 회사간 자본 비교는 같은 날짜의 별도로 한정한다.",
+    "아래 분석에서 사용하는 수수료 하락률·추가 수수료율은 가정이며 전망치가 아니다."
+  ]
+}

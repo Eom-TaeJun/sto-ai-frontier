@@ -3,6 +3,10 @@
   "scheduled_effective_date": "2027-02-04",
   "source_url": "https://www.fsc.go.kr/no010101/87650",
   "publication_date": "2026-09-04",
-  "status": "ANNOUNCED_POLICY_AND_FUTURE_EFFECTIVE_DATE",
+  "status": "ANNOUNCED_POLICY_AND_SUBORDINATE_RULES_UNDER_PUBLIC_CONSULTATION",
+  "subordinate_rule_proposal_url": "https://www.fsc.go.kr/no010101/87838",
+  "subordinate_rule_proposal_publication_date": "2026-10-01",
+  "consultation_period": "2026-10-02/2026-11-11",
+  "proposal_constraint": "전자등록용 분산원장 이용의 직접 대가 지급 금지 요건이 예고안에 포함. 실제 별도 서비스 대가와 구별 필요.",
   "note": "개별 상품의 법적 적격성이나 현재 발행 인가를 확인한 값이 아님. 실제 이용 전 최신 법령·하위규정·인가를 재확인해야 함."
 }
