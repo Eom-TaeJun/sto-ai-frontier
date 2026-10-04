@@ -1,21 +1,29 @@
 {
   "as_of": "2026-10-04",
-  "verified_at": "2026-10-04T13:29:40.030828+00:00",
+  "verified_at": "2026-10-04T14:36:34.074370+00:00",
   "artifact": "us-tokenization-kyobo.html",
-  "html_bytes": 3004635,
-  "html_sha256": "7b9f24d6fcdc4a02dc343426ceb25ce5a7f7757aba15211093261b1dbde2a891",
-  "snapshot_sha256": "03c2ec6c55743d9df3c432dbcae5048efffe3188904e589721802761f7f72bc5",
+  "html_bytes": 3023683,
+  "html_sha256": "3d6a510b8cf5951f0581b4a07c88c02f8db2644aa5be9ad44be0eea8febdb4d3",
+  "snapshot_sha256": "14ce7714fc7b266da6b8a95be7c63e092f6492e5fdc0fcff822e9515394920fd",
   "runtime_sha256": "9e3ede84b28aded3c7379b6e6a5611f0d95b9977eb0f781e279ceefabfcbd27e",
+  "editorial_changes": [
+    "Business-strategy purpose, intended audience and primary institutional report format fixed before revision",
+    "Four main chapters; detailed US cases, segment chart and illustrative calculator moved to appendices",
+    "English evidence and maturity badges removed from narrative, source previews and visible case descriptions",
+    "Institutional private-bond arranging and post-issuance management selected as first review candidate, conditional on customers and contracts",
+    "Original financial, policy and assumption rows and stable report identity preserved",
+    "Source attribution, announcement status and uncertainty expressed in prose, dates and references"
+  ],
   "passed": [
     "Canonical installed-runtime authored build with protected-runtime integrity",
     "Canonical export-offline from verified split build",
     "Embedded reviewed snapshot equals completed authored snapshot; digest matches",
-    "No external script dependency in exported HTML",
+    "No external runtime script dependency in exported HTML",
     "12 unique US cases with complete schema; 8 reviewed queries",
     "Kyobo segment and brokerage sums, units and 91.57% fee mix",
-    "Independent content review of rights, dates, current AUM vs cumulative sales, domestic proposal limits",
-    "Native narrative table parser: 8 tables, 36 rows, column count and escaped-pipe preservation",
-    "Contribution arithmetic and input boundary logic (static/computational); base contribution 0 and threshold 1000억원",
+    "Independent content review of business priorities, incremental profit, rights, dates and domestic proposal limits",
+    "Native narrative tables: 10 tables, 36 body rows; consistent column counts",
+    "Illustrative default contribution 0 and threshold 1000억원; input logic preserved",
     "python run.py: 8 synthetic assets and 10 synthetic documents",
     "python -m unittest discover -s tests -v: 22 passed",
     "python analysis/business_baseline.py: reported aggregate/unit checks passed"
@@ -23,13 +31,13 @@
   "not_performed": [
     {
       "check": "Actual browser render, chart visual QA, clicks, DOM interaction and mobile viewport",
-      "reason": "No browser binary. Playwright official Chromium headless download returned invalid/truncated 0MiB ZIP. DOM-emulator packages unavailable."
+      "reason": "No usable browser binary. Previous Playwright official Chromium download returned invalid/truncated ZIP; no successful browser run for this revision."
     }
   ],
   "limits": [
     "Build success does not prove browser interaction or visual quality.",
     "POC tests do not validate US legal effects, Korean permissions or Kyobo commercial profitability.",
-    "Public source summaries and manual transcription are not an audit of original accounting records.",
+    "Public summaries and manual transcription are not an audit of original accounting records.",
     "Scenario inputs are illustrative assumptions, not company forecasts."
   ]
 }

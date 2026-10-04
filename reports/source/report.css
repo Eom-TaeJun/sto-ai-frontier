@@ -351,87 +351,92 @@
 }
 
 /* Authored report content: no runtime chrome overrides. */
-.report-page { --data-app-content-width: 960px; --data-app-layout-intent: authored-report; }
-.report-eyebrow { margin:0; font-size:13px; letter-spacing:.04em; color:var(--secondary); }
-.report-hero h1 { font-size:clamp(30px,4vw,46px); line-height:1.25; word-break:keep-all; }
-.report-table-wrap { width:100%; overflow:auto; }
-.benchmark-table { border-collapse:collapse; width:100%; min-width:620px; font-size:14px; line-height:1.65; }
-.benchmark-table th { text-align:left; padding:12px; background:var(--surface); font-weight:600; border-bottom:2px solid var(--border); }
-.benchmark-table td { padding:16px 12px; vertical-align:top; border-bottom:1px solid var(--border); }
-.benchmark-table th:first-child { width:24%; }
-.benchmark-table a, .case-sources a { color:var(--text); text-underline-offset:3px; }
-.minor { font-size:12px; color:var(--secondary); }
-.benchmark-details { display:grid; gap:0; margin-top:24px; }
-.case-detail { border-bottom:1px solid var(--border); padding:18px 0; scroll-margin-top:90px; }
-.case-detail summary { font-size:16px; font-weight:500; cursor:pointer; }
-.case-detail summary span { margin-left:10px; font-size:12px; color:var(--secondary); }
-.case-detail h3 { font-size:14px; font-weight:600; margin:24px 0 8px; }
-.case-detail p { line-height:1.7; margin:0 0 12px; white-space:pre-line; }
-.case-sources { font-size:12px; overflow-wrap:anywhere; margin-top:20px; }
-.model-inputs { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; margin:24px 0; }
-.model-inputs label { display:grid; gap:8px; font-size:14px; line-height:1.5; }
-.model-inputs span { color:var(--secondary); }
-.model-inputs input { width:100%; border:1px solid var(--border); color:var(--text); background:var(--background); border-radius:6px; padding:10px 12px; font-size:16px; box-sizing:border-box; }
-.model-result { border-left:3px solid var(--text); padding:8px 0 8px 20px; margin:24px 0; }
-.model-result strong { display:block; font-size:30px; font-variant-numeric:tabular-nums; }
-.model-result span { color:var(--secondary); font-size:13px; }
-.model-result p { line-height:1.6; }
-@media(max-width:640px) { .model-inputs { grid-template-columns:1fr; } .case-detail summary { line-height:1.65; } .case-detail summary span { display:block; margin-left:0; } }
-@media print { .case-detail > div { display:block; } .report-table-wrap { overflow:visible; } .benchmark-table { min-width:0; font-size:11px; } .model-inputs { grid-template-columns:repeat(2,1fr); } }
-
-.report-content .report-table-wrap {
-  min-width: 0;
-  max-width: 100%;
-  overscroll-behavior-inline: contain;
+.report-page {
+  --data-app-content-width: 860px;
+  --data-app-layout-intent: authored-report;
+  --data-app-report-body-text: var(--text);
+  --report-chart-radius: 0;
+  --report-chart-shadow: none;
+  --report-chart-border: color-mix(in srgb, var(--text) 14%, transparent);
+  --report-accent: color-mix(in srgb, var(--text) 80%, #496880);
+  padding-top: 44px;
 }
+.report-content { gap: 48px; }
+.report-hero { gap: 12px; padding-bottom: 24px; border-bottom: 2px solid var(--report-accent); }
+.report-eyebrow { margin: 0 0 4px; font-size: 14px; line-height: 1.5; color: var(--secondary); }
+.report-hero h1 { font-size: 34px; line-height: 1.42; font-weight: 600; word-break: keep-all; letter-spacing: -.025em; }
+.report-page .report-deck :is(.rich-narrative-content, .report-rich-editable) { color: var(--secondary); font-size: 18px; line-height: 1.65; }
+.report-page :is(.rich-narrative-content, .report-rich-editable) { font-size: 16px; line-height: 1.85; word-break: keep-all; overflow-wrap: anywhere; }
+.report-page :is(.rich-narrative-content, .report-rich-editable) > :is(p, ul, ol) { margin-bottom: 16px; }
+.report-page :is(.rich-narrative-content, .report-rich-editable) h2 { font-size: 24px; line-height: 1.5; font-weight: 600; color: var(--report-accent); }
+.report-page :is(.rich-narrative-content, .report-rich-editable) h3 { font-size: 19px; line-height: 1.6; font-weight: 600; }
+.report-page :is(.rich-narrative-content, .report-rich-editable) h4 { font-size: 17px; line-height: 1.6; font-weight: 600; }
+.report-page :is(.rich-narrative-content, .report-rich-editable) > :is(h3, h4) { margin-top: 28px; margin-bottom: 14px; }
+.report-page :is(.rich-narrative-content, .report-rich-editable) > :first-child { margin-top: 0; }
+.report-content :is(.report-chapter, .report-appendix) { display: grid; gap: 28px; min-width: 0; scroll-margin-top: 96px; }
+.report-content :is(.report-chapter-title, .report-appendix-title) { margin: 0; padding-bottom: 12px; border-bottom: 1px solid var(--report-chart-border); color: var(--report-accent); font-size: 24px; line-height: 1.5; font-weight: 600; letter-spacing: -.02em; word-break: keep-all; }
+.report-content .report-appendix-title { font-size: 22px; }
+.report-content .report-references { padding-top: 28px; border-top: 1px solid var(--report-chart-border); scroll-margin-top: 96px; min-width: 0; }
+.report-content .report-references :is(.rich-narrative-content, .report-rich-editable) { font-size: 15px; line-height: 1.8; }
+.report-content .report-toc { padding-block: 20px; border-block: 1px solid var(--report-chart-border); }
+.report-content .report-toc-title { margin: 0 0 14px; font-size: 16px; font-weight: 600; color: var(--report-accent); }
+.report-content .report-toc ol { display: grid; gap: 8px; padding: 0; margin: 0; list-style: none; }
+.report-content .report-toc li { margin: 0; font-size: 15px; line-height: 1.6; word-break: keep-all; }
+.report-content .report-toc li:nth-child(5) { margin-top: 8px; }
+.report-content .report-toc a { color: var(--text); text-decoration: none; }
+.report-content .report-toc a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.report-content .report-toc a:focus-visible { outline: 2px solid var(--report-accent); outline-offset: 3px; }
+.report-content .report-table-wrap { width: 100%; min-width: 0; max-width: 100%; overflow: auto; overscroll-behavior-inline: contain; }
+.report-content :is(.benchmark-table, .report-narrative-table) { border-collapse: collapse; width: 100%; min-width: 640px; font-size: 15px; line-height: 1.7; }
+.report-content :is(.benchmark-table, .report-narrative-table) :is(th, td) { text-align: left; padding: 12px; vertical-align: top; border-bottom: 1px solid var(--report-chart-border); overflow-wrap: anywhere; }
+.report-content :is(.benchmark-table, .report-narrative-table) th { background: color-mix(in srgb, var(--text) 4%, var(--background)); font-weight: 600; border-top: 1px solid var(--report-chart-border); border-bottom-width: 2px; }
+.report-content .report-narrative-table .report-cell-number { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.report-content .benchmark-table td { padding-block: 16px; }
+.report-content .benchmark-table th:first-child { width: 24%; }
+.report-content .benchmark-table caption { caption-side: top; padding: 0 0 12px; text-align: left; font-size: 16px; font-weight: 600; color: var(--text); }
+.report-content :is(.benchmark-table, .case-sources) a { color: var(--text); text-underline-offset: 3px; }
+.report-content .minor { font-size: 13px; color: var(--secondary); }
+.report-content .authored-narrative { display: grid; gap: 18px; min-width: 0; }
+.report-content .benchmark-details { display: grid; gap: 0; margin-top: 8px; }
+.report-content .case-detail { border-bottom: 1px solid var(--report-chart-border); padding: 18px 0; scroll-margin-top: 96px; min-width: 0; overflow-wrap: anywhere; }
+.report-content .case-detail summary { font-size: 16px; line-height: 1.7; font-weight: 600; cursor: pointer; word-break: keep-all; }
+.report-content .case-detail summary span { margin-left: 10px; font-size: 13px; font-weight: 400; color: var(--secondary); white-space: nowrap; }
+.report-content .case-detail h3 { font-size: 16px; line-height: 1.6; font-weight: 600; margin: 24px 0 8px; color: var(--report-accent); }
+.report-content .case-detail p { font-size: 16px; line-height: 1.8; margin: 0 0 12px; white-space: pre-line; word-break: keep-all; overflow-wrap: anywhere; }
+.report-content .case-sources { margin-top: 20px; }
+.report-content .case-sources p { font-size: 13px; line-height: 1.7; overflow-wrap: anywhere; }
 .report-content .report-table-wrap:focus-visible,
-.report-content .case-detail summary:focus-visible {
-  outline: 2px solid var(--text);
-  outline-offset: 4px;
-}
-.report-content .case-detail,
-.report-content .benchmark-table :is(th, td) {
-  overflow-wrap: anywhere;
-}
-.report-content .model-inputs label { min-width: 0; }
-.report-content .model-inputs input[aria-invalid="true"] {
-  border-style: dashed;
-}
-.report-content .model-result strong { overflow-wrap: anywhere; }
-.report-content .model-reset {
-  padding: 10px 14px;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  background: var(--background);
-  color: var(--text);
-  font: inherit;
-  font-size: 14px;
-  cursor: pointer;
-}
-.report-content .model-reset:focus-visible {
-  outline: 2px solid var(--text);
-  outline-offset: 3px;
-}
-.report-content .authored-narrative { display: grid; gap: 24px; min-width: 0; }
-.report-content .report-narrative-table {
-  width: 100%;
-  min-width: 640px;
-  border-collapse: collapse;
-  font-size: 14px;
-  line-height: 1.65;
-}
-.report-content .report-narrative-table :is(th, td) {
-  padding: 12px;
-  text-align: left;
-  vertical-align: top;
-  border-bottom: 1px solid var(--border);
-  overflow-wrap: anywhere;
-}
-.report-content .report-narrative-table th {
-  background: var(--surface);
-  font-weight: 600;
-  border-bottom-width: 2px;
+.report-content .case-detail summary:focus-visible { outline: 2px solid var(--report-accent); outline-offset: 4px; }
+.report-content .model-inputs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin: 24px 0; }
+.report-content .model-inputs label { display: grid; min-width: 0; gap: 8px; font-size: 15px; line-height: 1.6; }
+.report-content .model-inputs span { color: var(--secondary); }
+.report-content .model-inputs input { width: 100%; border: 1px solid var(--report-chart-border); color: var(--text); background: var(--background); border-radius: 2px; padding: 10px 12px; font-size: 16px; box-sizing: border-box; font-variant-numeric: tabular-nums; }
+.report-content .model-inputs input[aria-invalid="true"] { border-style: dashed; }
+.report-content .model-result { border-left: 3px solid var(--report-accent); padding: 8px 0 8px 20px; margin: 24px 0; }
+.report-content .model-result strong { display: block; font-size: 30px; line-height: 1.45; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.report-content .model-result span { color: var(--secondary); font-size: 14px; }
+.report-content .model-result p { font-size: 16px; line-height: 1.8; }
+.report-content .model-reset { padding: 10px 14px; border: 1px solid var(--report-chart-border); border-radius: 2px; background: var(--background); color: var(--text); font: inherit; font-size: 14px; cursor: pointer; }
+.report-content .model-reset:focus-visible { outline: 2px solid var(--report-accent); outline-offset: 3px; }
+@media (max-width: 640px) {
+  .report-page { padding-top: 28px; }
+  .report-content { gap: 36px; }
+  .report-hero h1 { font-size: 28px; line-height: 1.45; }
+  .report-page .report-deck :is(.rich-narrative-content, .report-rich-editable) { font-size: 17px; }
+  .report-content :is(.report-chapter, .report-appendix) { gap: 24px; }
+  .report-content :is(.report-chapter-title, .report-appendix-title) { font-size: 21px; line-height: 1.55; }
+  .report-content .report-toc li { font-size: 15px; }
+  .report-content .model-inputs { grid-template-columns: 1fr; }
+  .report-content .case-detail summary span { display: block; margin-left: 0; }
 }
 @media print {
-  .report-content .report-narrative-table { min-width: 0; font-size: 11px; }
+  .report-page { padding-top: 0; }
+  .report-content { gap: 32px; }
+  .report-content .report-toc { display: none; }
+  .report-content .report-chapter-title,
+  .report-content .report-appendix-title { break-after: avoid; }
+  .report-content .report-table-wrap { overflow: visible; }
+  .report-content :is(.benchmark-table, .report-narrative-table) { min-width: 0; font-size: 11px; }
+  .report-content .case-detail > div { display: block; }
+  .report-content .model-inputs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
