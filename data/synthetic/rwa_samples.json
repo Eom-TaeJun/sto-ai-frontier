@@ -1,0 +1,228 @@
+[
+  {
+    "asset_id": "RWA-001",
+    "synthetic": true,
+    "asset_class": "renewable_receivables",
+    "name": "합성 시나리오 1",
+    "data_as_of": "2026-09-30",
+    "investor_type": "review_required",
+    "offering": "review_required",
+    "gates": {
+      "rights_verified": null,
+      "unencumbered": true,
+      "servicing_defined": true,
+      "investor_route_defined": true,
+      "custody_reconciliation_defined": true,
+      "debtor_confirmation": true
+    },
+    "evidence": {
+      "rights_verified": "SYN-RWA-001-rights_verified",
+      "unencumbered": "SYN-RWA-001-unencumbered",
+      "servicing_defined": "SYN-RWA-001-servicing_defined",
+      "investor_route_defined": "SYN-RWA-001-investor_route_defined",
+      "custody_reconciliation_defined": "SYN-RWA-001-custody_reconciliation_defined",
+      "debtor_confirmation": "SYN-RWA-001-debtor_confirmation"
+    },
+    "cash_available_won": 160000000,
+    "debt_service_won": 100000000,
+    "financial_source_ref": "SYN-RWA-001-cashflow"
+  },
+  {
+    "asset_id": "RWA-002",
+    "synthetic": true,
+    "asset_class": "luxury",
+    "name": "합성 시나리오 2",
+    "data_as_of": "2026-09-30",
+    "investor_type": "review_required",
+    "offering": "review_required",
+    "gates": {
+      "rights_verified": true,
+      "unencumbered": true,
+      "servicing_defined": true,
+      "investor_route_defined": true,
+      "custody_reconciliation_defined": true,
+      "authenticity_verified": true,
+      "valuation_verified": false,
+      "physical_custody_verified": true
+    },
+    "evidence": {
+      "rights_verified": "SYN-RWA-002-rights_verified",
+      "unencumbered": "SYN-RWA-002-unencumbered",
+      "servicing_defined": "SYN-RWA-002-servicing_defined",
+      "investor_route_defined": "SYN-RWA-002-investor_route_defined",
+      "custody_reconciliation_defined": "SYN-RWA-002-custody_reconciliation_defined",
+      "authenticity_verified": "SYN-RWA-002-authenticity_verified",
+      "valuation_verified": "SYN-RWA-002-valuation_verified",
+      "physical_custody_verified": "SYN-RWA-002-physical_custody_verified"
+    }
+  },
+  {
+    "asset_id": "RWA-003",
+    "synthetic": true,
+    "asset_class": "content_ip",
+    "name": "합성 시나리오 3",
+    "data_as_of": "2026-09-30",
+    "investor_type": "review_required",
+    "offering": "review_required",
+    "gates": {
+      "rights_verified": true,
+      "unencumbered": true,
+      "servicing_defined": true,
+      "investor_route_defined": true,
+      "custody_reconciliation_defined": true,
+      "ip_chain_verified": true,
+      "revenue_waterfall_defined": null
+    },
+    "evidence": {
+      "rights_verified": "SYN-RWA-003-rights_verified",
+      "unencumbered": "SYN-RWA-003-unencumbered",
+      "servicing_defined": "SYN-RWA-003-servicing_defined",
+      "investor_route_defined": "SYN-RWA-003-investor_route_defined",
+      "custody_reconciliation_defined": "SYN-RWA-003-custody_reconciliation_defined",
+      "ip_chain_verified": "SYN-RWA-003-ip_chain_verified",
+      "revenue_waterfall_defined": "SYN-RWA-003-revenue_waterfall_defined"
+    }
+  },
+  {
+    "asset_id": "RWA-004",
+    "synthetic": true,
+    "asset_class": "corporate_bond",
+    "name": "합성 시나리오 4",
+    "data_as_of": "2026-09-30",
+    "investor_type": "institutional",
+    "offering": "private",
+    "gates": {
+      "rights_verified": true,
+      "unencumbered": true,
+      "servicing_defined": true,
+      "investor_route_defined": true,
+      "custody_reconciliation_defined": true,
+      "debt_terms_verified": true
+    },
+    "evidence": {
+      "rights_verified": "SYN-RWA-004-rights_verified",
+      "unencumbered": "SYN-RWA-004-unencumbered",
+      "servicing_defined": "SYN-RWA-004-servicing_defined",
+      "investor_route_defined": "SYN-RWA-004-investor_route_defined",
+      "custody_reconciliation_defined": "SYN-RWA-004-custody_reconciliation_defined",
+      "debt_terms_verified": "SYN-RWA-004-debt_terms_verified"
+    },
+    "cash_available_won": 160000000,
+    "debt_service_won": 100000000,
+    "financial_source_ref": "SYN-RWA-004-cashflow"
+  },
+  {
+    "asset_id": "RWA-005",
+    "synthetic": true,
+    "asset_class": "fractional_art",
+    "name": "합성 시나리오 5",
+    "data_as_of": "2026-09-30",
+    "investor_type": "review_required",
+    "offering": "review_required",
+    "gates": {
+      "rights_verified": true,
+      "unencumbered": true,
+      "servicing_defined": true,
+      "investor_route_defined": true,
+      "custody_reconciliation_defined": true,
+      "authenticity_verified": true,
+      "valuation_verified": true,
+      "physical_custody_verified": false
+    },
+    "evidence": {
+      "rights_verified": "SYN-RWA-005-rights_verified",
+      "unencumbered": "SYN-RWA-005-unencumbered",
+      "servicing_defined": "SYN-RWA-005-servicing_defined",
+      "investor_route_defined": "SYN-RWA-005-investor_route_defined",
+      "custody_reconciliation_defined": "SYN-RWA-005-custody_reconciliation_defined",
+      "authenticity_verified": "SYN-RWA-005-authenticity_verified",
+      "valuation_verified": "SYN-RWA-005-valuation_verified",
+      "physical_custody_verified": "SYN-RWA-005-physical_custody_verified"
+    }
+  },
+  {
+    "asset_id": "RWA-006",
+    "synthetic": true,
+    "asset_class": "mmf_token",
+    "name": "합성 시나리오 6",
+    "data_as_of": "2026-09-30",
+    "investor_type": "institutional",
+    "offering": "private",
+    "gates": {
+      "rights_verified": true,
+      "unencumbered": true,
+      "servicing_defined": true,
+      "investor_route_defined": true,
+      "custody_reconciliation_defined": true,
+      "nav_reconciled": true,
+      "redemption_terms_verified": true,
+      "liquidity_plan_verified": true
+    },
+    "evidence": {
+      "rights_verified": "SYN-RWA-006-rights_verified",
+      "unencumbered": "SYN-RWA-006-unencumbered",
+      "servicing_defined": "SYN-RWA-006-servicing_defined",
+      "investor_route_defined": "SYN-RWA-006-investor_route_defined",
+      "custody_reconciliation_defined": "SYN-RWA-006-custody_reconciliation_defined",
+      "nav_reconciled": "SYN-RWA-006-nav_reconciled",
+      "redemption_terms_verified": "SYN-RWA-006-redemption_terms_verified",
+      "liquidity_plan_verified": "SYN-RWA-006-liquidity_plan_verified"
+    }
+  },
+  {
+    "asset_id": "RWA-007",
+    "synthetic": true,
+    "asset_class": "renewable_receivables",
+    "name": "합성 시나리오 7",
+    "data_as_of": "2026-09-30",
+    "investor_type": "review_required",
+    "offering": "review_required",
+    "gates": {
+      "rights_verified": true,
+      "unencumbered": false,
+      "servicing_defined": true,
+      "investor_route_defined": true,
+      "custody_reconciliation_defined": true,
+      "debtor_confirmation": true
+    },
+    "evidence": {
+      "rights_verified": "SYN-RWA-007-rights_verified",
+      "unencumbered": "SYN-RWA-007-unencumbered",
+      "servicing_defined": "SYN-RWA-007-servicing_defined",
+      "investor_route_defined": "SYN-RWA-007-investor_route_defined",
+      "custody_reconciliation_defined": "SYN-RWA-007-custody_reconciliation_defined",
+      "debtor_confirmation": "SYN-RWA-007-debtor_confirmation"
+    },
+    "cash_available_won": 160000000,
+    "debt_service_won": 100000000,
+    "financial_source_ref": "SYN-RWA-007-cashflow"
+  },
+  {
+    "asset_id": "RWA-008",
+    "synthetic": true,
+    "asset_class": "corporate_bond",
+    "name": "합성 시나리오 8",
+    "data_as_of": "2026-01-01",
+    "investor_type": "institutional",
+    "offering": "private",
+    "gates": {
+      "rights_verified": true,
+      "unencumbered": true,
+      "servicing_defined": true,
+      "investor_route_defined": true,
+      "custody_reconciliation_defined": true,
+      "debt_terms_verified": true
+    },
+    "evidence": {
+      "rights_verified": "SYN-RWA-008-rights_verified",
+      "unencumbered": "SYN-RWA-008-unencumbered",
+      "servicing_defined": "SYN-RWA-008-servicing_defined",
+      "investor_route_defined": "SYN-RWA-008-investor_route_defined",
+      "custody_reconciliation_defined": "SYN-RWA-008-custody_reconciliation_defined",
+      "debt_terms_verified": "SYN-RWA-008-debt_terms_verified"
+    },
+    "cash_available_won": 160000000,
+    "debt_service_won": 100000000,
+    "financial_source_ref": "SYN-RWA-008-cashflow"
+  }
+]

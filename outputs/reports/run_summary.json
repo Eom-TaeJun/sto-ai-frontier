@@ -1,0 +1,14 @@
+{
+  "scope": "SYNTHETIC_CASES_ONLY",
+  "as_of": "2026-10-04",
+  "assets": 8,
+  "status_counts": {
+    "NEEDS_REVIEW": 3,
+    "HOLD": 3,
+    "READY_FOR_INTERNAL_REVIEW": 2
+  },
+  "documents": 10,
+  "rule_findings": 7,
+  "issuance_approvals": 0,
+  "disclosure_approvals": 0
+}

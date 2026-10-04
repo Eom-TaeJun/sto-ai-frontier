@@ -1,0 +1,84 @@
+[
+  {
+    "text": "발행규모 120억원.",
+    "expected_amount_won": 10000000000,
+    "amount_source_ref": "SYN-issue-terms",
+    "expected_codes": [
+      "AMOUNT_MISMATCH"
+    ],
+    "document_id": "DOC-001",
+    "synthetic": true
+  },
+  {
+    "text": "발행규모 100억원, 투자한도 2억원.",
+    "expected_amount_won": 10000000000,
+    "amount_source_ref": "SYN-issue-terms",
+    "expected_codes": [],
+    "document_id": "DOC-002",
+    "synthetic": true
+  },
+  {
+    "text": "토큰증권과 가상자산은 동일합니다.",
+    "expected_codes": [
+      "TERM_EQUIVALENCE_REVIEW"
+    ],
+    "document_id": "DOC-003",
+    "synthetic": true
+  },
+  {
+    "text": "토큰증권과 가상자산은 동일하지 않습니다.",
+    "expected_codes": [],
+    "document_id": "DOC-004",
+    "synthetic": true
+  },
+  {
+    "text": "원금과 수익을 보장합니다.",
+    "expected_codes": [
+      "GUARANTEE_REVIEW"
+    ],
+    "document_id": "DOC-005",
+    "synthetic": true
+  },
+  {
+    "text": "수익을 보장하지 않습니다.",
+    "expected_codes": [],
+    "document_id": "DOC-006",
+    "synthetic": true
+  },
+  {
+    "text": "DSCR: 0.85",
+    "expected_dscr": 0.85,
+    "dscr_source_ref": "SYN-cashflow",
+    "expected_codes": [
+      "COVERAGE_SHORTFALL"
+    ],
+    "document_id": "DOC-007",
+    "synthetic": true
+  },
+  {
+    "text": "DSCR: 1.40",
+    "expected_dscr": 1.25,
+    "dscr_source_ref": "SYN-cashflow",
+    "expected_codes": [
+      "DSCR_MISMATCH"
+    ],
+    "document_id": "DOC-008",
+    "synthetic": true
+  },
+  {
+    "text": "발행규모 100억원.",
+    "expected_codes": [
+      "AMOUNT_EVIDENCE_MISSING"
+    ],
+    "document_id": "DOC-009",
+    "synthetic": true
+  },
+  {
+    "text": "DSCR: 1.30",
+    "expected_codes": [
+      "DSCR_EVIDENCE_MISSING"
+    ],
+    "document_id": "DOC-010",
+    "synthetic": true
+  }
+]

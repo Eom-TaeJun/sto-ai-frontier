@@ -1,0 +1,9 @@
+asset_id,asset_class,status,coverage_ratio,stressed_coverage_ratio,issuance_authorized
+RWA-001,renewable_receivables,NEEDS_REVIEW,1.6,1.28,False
+RWA-002,luxury,HOLD,,,False
+RWA-003,content_ip,NEEDS_REVIEW,,,False
+RWA-004,corporate_bond,READY_FOR_INTERNAL_REVIEW,1.6,1.28,False
+RWA-005,fractional_art,HOLD,,,False
+RWA-006,mmf_token,READY_FOR_INTERNAL_REVIEW,,,False
+RWA-007,renewable_receivables,HOLD,1.6,1.28,False
+RWA-008,corporate_bond,NEEDS_REVIEW,1.6,1.28,False

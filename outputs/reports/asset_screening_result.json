@@ -1,0 +1,425 @@
+[
+  {
+    "asset_id": "RWA-001",
+    "asset_class": "renewable_receivables",
+    "synthetic": true,
+    "status": "NEEDS_REVIEW",
+    "hold_reasons": [],
+    "review_reasons": [
+      "rights_verified"
+    ],
+    "coverage_ratio": 1.6,
+    "stressed_coverage_ratio": 1.28,
+    "coverage_applicability": "DEBT_CASHFLOW_ONLY",
+    "data_age_days": 4,
+    "checks": [
+      {
+        "check": "rights_verified",
+        "status": "UNKNOWN",
+        "evidence_ref": "SYN-RWA-001-rights_verified"
+      },
+      {
+        "check": "unencumbered",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-001-unencumbered"
+      },
+      {
+        "check": "servicing_defined",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-001-servicing_defined"
+      },
+      {
+        "check": "investor_route_defined",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-001-investor_route_defined"
+      },
+      {
+        "check": "custody_reconciliation_defined",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-001-custody_reconciliation_defined"
+      },
+      {
+        "check": "debtor_confirmation",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-001-debtor_confirmation"
+      }
+    ],
+    "financial_source_ref": "SYN-RWA-001-cashflow",
+    "issuance_authorized": false,
+    "next_owner": "상품·법무·준법·운영 담당자"
+  },
+  {
+    "asset_id": "RWA-002",
+    "asset_class": "luxury",
+    "synthetic": true,
+    "status": "HOLD",
+    "hold_reasons": [
+      "valuation_verified"
+    ],
+    "review_reasons": [],
+    "coverage_ratio": null,
+    "stressed_coverage_ratio": null,
+    "coverage_applicability": "NOT_APPLICABLE",
+    "data_age_days": 4,
+    "checks": [
+      {
+        "check": "rights_verified",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-002-rights_verified"
+      },
+      {
+        "check": "unencumbered",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-002-unencumbered"
+      },
+      {
+        "check": "servicing_defined",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-002-servicing_defined"
+      },
+      {
+        "check": "investor_route_defined",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-002-investor_route_defined"
+      },
+      {
+        "check": "custody_reconciliation_defined",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-002-custody_reconciliation_defined"
+      },
+      {
+        "check": "authenticity_verified",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-002-authenticity_verified"
+      },
+      {
+        "check": "valuation_verified",
+        "status": "FAILED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-002-valuation_verified"
+      },
+      {
+        "check": "physical_custody_verified",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-002-physical_custody_verified"
+      }
+    ],
+    "financial_source_ref": null,
+    "issuance_authorized": false,
+    "next_owner": "상품·법무·준법·운영 담당자"
+  },
+  {
+    "asset_id": "RWA-003",
+    "asset_class": "content_ip",
+    "synthetic": true,
+    "status": "NEEDS_REVIEW",
+    "hold_reasons": [],
+    "review_reasons": [
+      "revenue_waterfall_defined"
+    ],
+    "coverage_ratio": null,
+    "stressed_coverage_ratio": null,
+    "coverage_applicability": "NOT_APPLICABLE",
+    "data_age_days": 4,
+    "checks": [
+      {
+        "check": "rights_verified",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-003-rights_verified"
+      },
+      {
+        "check": "unencumbered",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-003-unencumbered"
+      },
+      {
+        "check": "servicing_defined",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-003-servicing_defined"
+      },
+      {
+        "check": "investor_route_defined",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-003-investor_route_defined"
+      },
+      {
+        "check": "custody_reconciliation_defined",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-003-custody_reconciliation_defined"
+      },
+      {
+        "check": "ip_chain_verified",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-003-ip_chain_verified"
+      },
+      {
+        "check": "revenue_waterfall_defined",
+        "status": "UNKNOWN",
+        "evidence_ref": "SYN-RWA-003-revenue_waterfall_defined"
+      }
+    ],
+    "financial_source_ref": null,
+    "issuance_authorized": false,
+    "next_owner": "상품·법무·준법·운영 담당자"
+  },
+  {
+    "asset_id": "RWA-004",
+    "asset_class": "corporate_bond",
+    "synthetic": true,
+    "status": "READY_FOR_INTERNAL_REVIEW",
+    "hold_reasons": [],
+    "review_reasons": [],
+    "coverage_ratio": 1.6,
+    "stressed_coverage_ratio": 1.28,
+    "coverage_applicability": "DEBT_CASHFLOW_ONLY",
+    "data_age_days": 4,
+    "checks": [
+      {
+        "check": "rights_verified",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-004-rights_verified"
+      },
+      {
+        "check": "unencumbered",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-004-unencumbered"
+      },
+      {
+        "check": "servicing_defined",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-004-servicing_defined"
+      },
+      {
+        "check": "investor_route_defined",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-004-investor_route_defined"
+      },
+      {
+        "check": "custody_reconciliation_defined",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-004-custody_reconciliation_defined"
+      },
+      {
+        "check": "debt_terms_verified",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-004-debt_terms_verified"
+      }
+    ],
+    "financial_source_ref": "SYN-RWA-004-cashflow",
+    "issuance_authorized": false,
+    "next_owner": "상품·법무·준법·운영 담당자"
+  },
+  {
+    "asset_id": "RWA-005",
+    "asset_class": "fractional_art",
+    "synthetic": true,
+    "status": "HOLD",
+    "hold_reasons": [
+      "physical_custody_verified"
+    ],
+    "review_reasons": [],
+    "coverage_ratio": null,
+    "stressed_coverage_ratio": null,
+    "coverage_applicability": "NOT_APPLICABLE",
+    "data_age_days": 4,
+    "checks": [
+      {
+        "check": "rights_verified",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-005-rights_verified"
+      },
+      {
+        "check": "unencumbered",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-005-unencumbered"
+      },
+      {
+        "check": "servicing_defined",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-005-servicing_defined"
+      },
+      {
+        "check": "investor_route_defined",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-005-investor_route_defined"
+      },
+      {
+        "check": "custody_reconciliation_defined",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-005-custody_reconciliation_defined"
+      },
+      {
+        "check": "authenticity_verified",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-005-authenticity_verified"
+      },
+      {
+        "check": "valuation_verified",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-005-valuation_verified"
+      },
+      {
+        "check": "physical_custody_verified",
+        "status": "FAILED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-005-physical_custody_verified"
+      }
+    ],
+    "financial_source_ref": null,
+    "issuance_authorized": false,
+    "next_owner": "상품·법무·준법·운영 담당자"
+  },
+  {
+    "asset_id": "RWA-006",
+    "asset_class": "mmf_token",
+    "synthetic": true,
+    "status": "READY_FOR_INTERNAL_REVIEW",
+    "hold_reasons": [],
+    "review_reasons": [],
+    "coverage_ratio": null,
+    "stressed_coverage_ratio": null,
+    "coverage_applicability": "NOT_APPLICABLE",
+    "data_age_days": 4,
+    "checks": [
+      {
+        "check": "rights_verified",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-006-rights_verified"
+      },
+      {
+        "check": "unencumbered",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-006-unencumbered"
+      },
+      {
+        "check": "servicing_defined",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-006-servicing_defined"
+      },
+      {
+        "check": "investor_route_defined",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-006-investor_route_defined"
+      },
+      {
+        "check": "custody_reconciliation_defined",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-006-custody_reconciliation_defined"
+      },
+      {
+        "check": "nav_reconciled",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-006-nav_reconciled"
+      },
+      {
+        "check": "redemption_terms_verified",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-006-redemption_terms_verified"
+      },
+      {
+        "check": "liquidity_plan_verified",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-006-liquidity_plan_verified"
+      }
+    ],
+    "financial_source_ref": null,
+    "issuance_authorized": false,
+    "next_owner": "상품·법무·준법·운영 담당자"
+  },
+  {
+    "asset_id": "RWA-007",
+    "asset_class": "renewable_receivables",
+    "synthetic": true,
+    "status": "HOLD",
+    "hold_reasons": [
+      "unencumbered"
+    ],
+    "review_reasons": [],
+    "coverage_ratio": 1.6,
+    "stressed_coverage_ratio": 1.28,
+    "coverage_applicability": "DEBT_CASHFLOW_ONLY",
+    "data_age_days": 4,
+    "checks": [
+      {
+        "check": "rights_verified",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-007-rights_verified"
+      },
+      {
+        "check": "unencumbered",
+        "status": "FAILED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-007-unencumbered"
+      },
+      {
+        "check": "servicing_defined",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-007-servicing_defined"
+      },
+      {
+        "check": "investor_route_defined",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-007-investor_route_defined"
+      },
+      {
+        "check": "custody_reconciliation_defined",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-007-custody_reconciliation_defined"
+      },
+      {
+        "check": "debtor_confirmation",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-007-debtor_confirmation"
+      }
+    ],
+    "financial_source_ref": "SYN-RWA-007-cashflow",
+    "issuance_authorized": false,
+    "next_owner": "상품·법무·준법·운영 담당자"
+  },
+  {
+    "asset_id": "RWA-008",
+    "asset_class": "corporate_bond",
+    "synthetic": true,
+    "status": "NEEDS_REVIEW",
+    "hold_reasons": [],
+    "review_reasons": [
+      "data_freshness"
+    ],
+    "coverage_ratio": 1.6,
+    "stressed_coverage_ratio": 1.28,
+    "coverage_applicability": "DEBT_CASHFLOW_ONLY",
+    "data_age_days": 276,
+    "checks": [
+      {
+        "check": "rights_verified",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-008-rights_verified"
+      },
+      {
+        "check": "unencumbered",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-008-unencumbered"
+      },
+      {
+        "check": "servicing_defined",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-008-servicing_defined"
+      },
+      {
+        "check": "investor_route_defined",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-008-investor_route_defined"
+      },
+      {
+        "check": "custody_reconciliation_defined",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-008-custody_reconciliation_defined"
+      },
+      {
+        "check": "debt_terms_verified",
+        "status": "CONFIRMED_IN_SCENARIO",
+        "evidence_ref": "SYN-RWA-008-debt_terms_verified"
+      }
+    ],
+    "financial_source_ref": "SYN-RWA-008-cashflow",
+    "issuance_authorized": false,
+    "next_owner": "상품·법무·준법·운영 담당자"
+  }
+]
