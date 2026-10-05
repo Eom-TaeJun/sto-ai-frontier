@@ -10,6 +10,7 @@
 
 | 읽을 내용 | 자료 |
 |---|---|
+| 금융환경·세계 규제·미국과 한국 기관 대응을 AI 에이전트와 증권업의 수익구조로 연결 | [통합 보고서 · 2026-10-05 개정 2.0](reports/digital-finance-agentic-securities.html) · [웹 미리보기](https://htmlpreview.github.io/?https://raw.githubusercontent.com/Eom-TaeJun/sto-ai-frontier/main/reports/digital-finance-agentic-securities.html) |
 | 제도 시행에 대비한 교보의 수익 방어·초기 진입·투자 확대 조건 검토 | [단일 HTML 보고서](reports/us-tokenization-kyobo.html) · [열기·출처·검증 안내](reports/README.md) |
 | 지금 교보의 위치·메인 사업·수익·돈의 흐름은 어떠한가 | [현재 사업 기준선](docs/KYOBO_BUSINESS_BASELINE.md) |
 | 경쟁사·파트너와 어떤 관계이며 자본과 조달 차이는 무엇인가 | [경쟁사 비교](docs/PEER_COMPARISON.md) |

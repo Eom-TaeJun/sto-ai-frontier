@@ -32,3 +32,15 @@
 [verification.json](verification.json)에 검증 및 미실시 항목을 기록했다. 빌드·오프라인 내보내기, 데이터 구조·단위·합계, 표와 계산 산식을 확인했다. 저장소의 합성데이터 실행과 22개 테스트도 통과했다. 이 테스트는 미국 사례의 법률 효과나 교보의 실제 수익성을 검증하지 않는다.
 
 현재 실행 환경에는 사용할 수 있는 브라우저 바이너리가 없어 실제 화면·클릭·모바일 동작 검증을 실시하지 못했다. 빌드 성공을 화면 검증의 통과로 표시하지 않았다.
+
+## 디지털 금융환경과 AI 에이전트 시대의 증권업 통합 보고서
+
+**[디지털 자산과 AI 에이전트가 바꾸는 증권업의 수익구조](digital-finance-agentic-securities.html)** · 기록일·자료 기준일 **2026-10-05**, 통합 개정 **2.0**.
+
+기존 증권업·교보증권 분석에 [금융환경과 기관 대응 보고서](financial-environment-response.html)의 경제 원리, 자산 권리, 세계 규제, 미국·한국 기관, 거시 자금 전파, AI 위임·지급·수탁·반환, 실행·관측 기준과 근거 부록을 해당 장에 통합했다. 기존 제목·목차 경로·주석과 출처를 보존하며 같은 사실의 반복 설명은 줄인다. 환경 보고서는 통합에 사용한 별도 자료로 유지한다.
+
+[브라우저 미리보기](https://htmlpreview.github.io/?https://raw.githubusercontent.com/Eom-TaeJun/sto-ai-frontier/main/reports/digital-finance-agentic-securities.html). 다운로드한 HTML에서도 본문·검색·자산 및 시나리오 비교·기관 필터·근거 펼치기·인쇄가 작동한다.
+
+[통합 생성 스크립트](../scripts/merge_financial_reports.py)는 기존 보고서 스냅샷과 환경 보고서로 동일 HTML을 재생성한다. 저장소 루트에서 `python scripts/merge_financial_reports.py`를 실행한다. 이전 스냅샷이 없는 얕은 복제에서는 스크립트에 명시된 기준 커밋을 먼저 가져오거나 `--base`로 해당 원본 HTML을 전달한다. 원본·보고서 생성·통합 작업은 새 법률 조사나 기관 수익성 검증을 뜻하지 않는다.
+
+[통합 검증 기록](digital-finance-agentic-securities.verification.json)은 원본 보존·중복 ID·내부 연결·화면과 기능·기존 프로토타입 검사의 범위를 구분한다. 자료 기준일을 실제 검사 시각으로 바꾸지 않는다.
