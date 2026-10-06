@@ -3,31 +3,32 @@
   "initial_source_as_of": "2026-10-05",
   "added_case_verified_date": "2026-10-06",
   "deepening_verified_date": "2026-10-07",
-  "version": "2.2",
-  "verified_at_utc": "2026-10-06T15:30:48.415Z",
+  "securities_closure_verified_date": "2026-10-07",
+  "version": "2.3",
+  "verified_at_utc": "2026-10-06T15:57:36.583Z",
   "artifact": "reports/digital-finance-agentic-securities.html",
-  "html_bytes": 277941,
-  "html_sha256": "7027191853d52c322a35154fa379ee9a67d0c6d3e09f45c8f72e416c268f48d5",
+  "html_bytes": 295535,
+  "html_sha256": "0b8ba6fbaa4c7cfad2a9a69a34456a375bb90196c640f158a40074740cf570e3",
   "previous_artifact": {
-    "commit": "16526a58ca6b253c51b870827952820587e80364",
-    "version": "2.1",
-    "html_sha256": "eedb7134e74cd507e6d2921ebc85d06def4357ca5f5550091767899871a82d14",
-    "verified_at_utc": "2026-10-06T14:49:19.179Z",
+    "commit": "b59eb18d96e4ea35e9da9a042871c99629d66347",
+    "version": "2.2",
+    "html_sha256": "7027191853d52c322a35154fa379ee9a67d0c6d3e09f45c8f72e416c268f48d5",
+    "verified_at_utc": "2026-10-06T15:30:48.415Z",
     "verification_path": "reports/digital-finance-agentic-securities.verification.json",
-    "scope": "Revision 2.1 checks and company source review retain their original dates. Current checks cover the changed deepening and research preservation, not a new complete research census."
+    "scope": "Prior company, lecture and theory source reviews retain their dates. This revision adds bounded current product/press-release reads and a securities-role closure."
   },
   "generation": {
     "base_commit": "7d4c0ec16d24e903b5e68d1cb1d52e0e545ac24c",
     "base_path": "reports/digital-finance-agentic-securities.html",
     "environment_path": "reports/financial-environment-response.html",
-    "base_sha256": "3a59ec687429785e232dbcd86481db868bddf92c52dac02b34cdef24d535cfa9",
+    "base_sha256": "55a6e828560ee5e06b82840cb459bfc12f7a911a0412a9027ecc7633d8ef0bf4",
     "environment_sha256": "b05d83c11e01b3447f46e090242b3f9061eae52d5a0dfdf0731c3b6c8c483916",
-    "result_sha256": "7027191853d52c322a35154fa379ee9a67d0c6d3e09f45c8f72e416c268f48d5",
-    "bytes": 277941,
+    "result_sha256": "0b8ba6fbaa4c7cfad2a9a69a34456a375bb90196c640f158a40074740cf570e3",
+    "bytes": 295535,
     "base_paragraphs_preserved": 50,
     "original_anchors_preserved": true,
     "main_chapters": 7,
-    "result_external_urls": 151,
+    "result_external_urls": 153,
     "missing_source_urls": [],
     "duplicate_ids": [],
     "missing_targets": [],
@@ -49,12 +50,17 @@
         "https://www.richmondfed.org/-/media/richmondfedorg/publications/research/economic_quarterly/1996/summer/pdf/diamond.pdf",
         "https://github.com/cschung7/2026-class-UG-AIFinance/blob/3200cf6953b1b45257fcd25a3c7c961942f7bff7/agent_lecture_2006-spring.html",
         "https://github.com/cschung7/2026-2nd/blob/f031aa16ba6a99eec875c8a543db99208be598d5/hermes-agent-economics-lecture.html",
-        "https://github.com/cschung7/2026-class-UG-AIFinance/blob/3200cf6953b1b45257fcd25a3c7c961942f7bff7/blockchain/blockchain-lecture.html"
+        "https://github.com/cschung7/2026-class-UG-AIFinance/blob/3200cf6953b1b45257fcd25a3c7c961942f7bff7/blockchain/blockchain-lecture.html",
+        "https://stripe.com/blog/machine-payments-protocol",
+        "https://docs.cdp.coinbase.com/agentic-wallet/welcome",
+        "https://www.interactivebrokers.com/campus/ibkr-api-page/webapi-doc/",
+        "https://www.fsc.go.kr/no010101/87838",
+        "https://www.fsc.go.kr/no010101/87650"
       ]
     }
   },
   "deterministic_generation": {
-    "default_git_snapshot_and_saved_base_output_identical": true,
+    "default_git_snapshot_and_saved_original_base_output_identical": true,
     "command": "python scripts/merge_financial_reports.py"
   },
   "browser_checks": [
@@ -102,7 +108,7 @@
         "lostIds": [],
         "lostUrls": [],
         "lostParagraphs": [],
-        "externalUrls": 151,
+        "externalUrls": 153,
         "caseTables": 7,
         "newDetailTables": 2,
         "replacement": false
@@ -114,7 +120,7 @@
       "detail": null
     },
     {
-      "name": "date/version 통합 개정 2.2",
+      "name": "date/version 통합 개정 2.3",
       "passed": true,
       "detail": null
     },
@@ -169,6 +175,51 @@
       "detail": null
     },
     {
+      "name": "securities closure 기관이 에이전트에",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "securities closure 작성자의 조건부 적용",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "securities closure 정보 서비스 대금과 SPC 증권의 매매·상환대금",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "securities closure 예탁원 토큰증권 시스템",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "securities closure 같은 총비용과 회복 가능성",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "roles and scenario tables",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "three product comparison rows",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "bounded product evidence count",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "bounded current review date",
+      "passed": true,
+      "detail": null
+    },
+    {
       "name": "desktop layout width",
       "passed": true,
       "detail": null
@@ -184,7 +235,7 @@
       "detail": null
     },
     {
-      "name": "search selection reveals new collapsed detail",
+      "name": "search selection reveals new Korea evidence",
       "passed": true,
       "detail": null
     },
@@ -219,6 +270,16 @@
       "detail": null
     },
     {
+      "name": "new role and scenario tables printed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new Korea evidence printed",
+      "passed": true,
+      "detail": null
+    },
+    {
       "name": "reader detail state restored after printing",
       "passed": true,
       "detail": null
@@ -235,7 +296,7 @@
     "lostIds": [],
     "lostUrls": [],
     "lostParagraphs": [],
-    "externalUrls": 151,
+    "externalUrls": 153,
     "caseTables": 7,
     "newDetailTables": 2,
     "replacement": false
@@ -243,50 +304,50 @@
   "javascript_errors": [],
   "visual_review": {
     "inspected": [
-      "desktop state-information/value flow",
-      "desktop benefit and value capture table",
-      "mobile 390px state-information/value flow"
+      "desktop securities roles and partner boundaries",
+      "mobile 390px securities conclusion"
     ],
     "viewports_layout_checked": [
       1440,
       390,
       320
     ],
-    "result": "No overlap or document horizontal overflow in inspected changed components",
-    "scope": "Affected new components, not every report row or all printed pages"
+    "result": "No overlap or document horizontal overflow in inspected changed components; wide tables use their existing scroll container.",
+    "scope": "Affected additions only; not every report row or all printed pages."
   },
   "print_checks": {
-    "pages": 59,
-    "empty_pages": [],
-    "case_tables_visible": 7,
-    "deep_detail_and_sources_printed": true,
-    "reader_state_restored": true,
-    "scope": "Print visibility and text extraction. All 59 printed pages were not visually reviewed."
+    "new_role_scenario_tables_visible": 2,
+    "new_Korea_evidence_expanded": true,
+    "existing_case_tables_visible": 7,
+    "reader_detail_state_restored": true,
+    "scope": "Print-media visibility checks; no new full-report PDF or printed-page visual review. Prior revision PDF verification is retained at its commit."
   },
   "repository_checks": {
     "run_py": "passed; synthetic cases only, 8 assets and 10 documents",
     "unit_tests": "22 passed with python -X utf8 -m unittest discover -s tests -v"
   },
   "source_checks": {
-    "retained_company_evidence": {
-      "financial_disclosures": "Official 2026H1 DART sections 4 and 25 re-read; connected cumulative values reconciled with the prior October 4 transcription",
-      "recruitment": "Issuer DCM2 recruitment task scope checked; no time or efficiency measurement inferred",
-      "rating_report": "Text pp1–3 reviewed. Screenshot API returned cache miss. No statement that PDF image was visually verified.",
-      "independent_review": "Two delegated reviews found no material financial or scope error"
-    },
-    "lecture_materials": "2026 student notes: all 1838 body paragraphs and two images; 2025 notes: all 712 body/table paragraphs. Hashes matched original provenance. Paragraph locators are extraction IDs, not rendered pages.",
-    "public_lectures": "Specific original teaching sections read at fixed commits/blobs; no current financial-news claims copied from them.",
-    "economic_theory": "Coase 1937 original scan pp5–7/9–10 and Diamond 1996 official author article pp1–4; SPC application is analyst interpretation.",
-    "attached_txt": "All 477 lines read; eight explicit source paths matched repository snapshots. Latest environment note fully read; earlier AI maturity labels were retrieval leads, not verified operations.",
-    "independent_review": "Attribution, period/cost/capture model, and new case draft independently reviewed; no empirical performance audit."
+    "retained_review": "Company review 2026-10-06; DOCX/lecture/theory review 2026-10-07. Original source review receipt retained in version 2.2.",
+    "current_product_reads": [
+      "Stripe MPP announcement 2026-03-18, body 277–290/316–320",
+      "Coinbase Agentic Wallet overview 120–145; publication/revision date absent",
+      "IBKR Web API Getting Started 295–342 and Orders 586–662; publication/revision date absent"
+    ],
+    "current_policy_reads": [
+      "FSC 2026-10-01 STO lower-regulation consultation press-release body 296–354",
+      "FSC 2026-09-04 STO policy-direction body 337–379",
+      "FSC 2026-06-18 financial AI press release re-read; its existing citation retained"
+    ],
+    "independent_review": "New conclusion economics/attribution and new legal/authority boundaries reviewed independently. One consultation wording narrowed to the exact purpose: electronic-registration use of a distributed ledger.",
+    "scope": "Product documentation and press-release statements are not verified market-scale operations, executed contract terms, full subordinate draft review or a complete legal update."
   },
   "limits": [
-    "One analyst-proposed Kyobo SPC servicing workflow; not an official company/professor plan or production deployment.",
-    "SPC-specific fee, actual unit cost, customer willingness to pay, active duty and redistribution rights remain unknown.",
-    "Current post-maturity repayment/extension of the historical transaction is unverified.",
-    "Internal review is not legal-right certification, audit assurance, collateral eligibility or a credit rating.",
-    "External API, agent payment, onchain operating status and attributable profit were not confirmed for this proposed service.",
-    "No new worldwide legal census, private finance repository, Pages or automation update in this revision.",
-    "Public preview render and remote commit readback are separate checks; local browser acceptance alone does not verify the deployed preview."
+    "One proposed Kyobo SPC servicing workflow; external institution-agent information supply is conditional.",
+    "SPC-specific fee, actual unit cost, data-use/redistribution rights and paid demand remain unknown.",
+    "Historical transaction post-maturity repayment/extension remains unverified.",
+    "Information service payment is distinct from securities purchase/redemption; agent identity is distinct from legal customer and authority.",
+    "SPC administrative servicing does not establish digital-asset custody, key control, legal title, investment execution or payment authorization.",
+    "No new universal maturity grade, worldwide legal census, finance private repository, Pages or automation update.",
+    "Local browser checks verify current compiled content. Deployed htmlpreview rendering is separate and was not independently tested."
   ]
 }

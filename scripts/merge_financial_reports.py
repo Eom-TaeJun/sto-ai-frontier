@@ -546,6 +546,18 @@ def apply_kyobo_case(result, manifest, case):
     doc = Document(result)
     summary = doc.by_id("summary")
     result = result[:summary.inner_end]+"\n"+case["summary_html"]+"\n"+result[summary.inner_end:]
+    for field, target_id in [("agent_evidence_html", "agents"), ("securities_closure_html", "outlook")]:
+        addition = case.get(field, "")
+        if not addition:
+            continue
+        if re.search(r"<script|\son\w+=", addition, re.I) or "{{" in addition:
+            raise ValueError("Reviewed report addition contains executable markup or placeholders")
+        target = Document(result).by_id(target_id)
+        if field == "securities_closure_html":
+            heading = next(node for node in target.children if node.tag == "h2")
+            result = result[:heading.end]+"\n"+addition+"\n"+result[heading.end:]
+        else:
+            result = result[:target.inner_end]+"\n"+addition+"\n"+result[target.inner_end:]
     items = []
     for source in case["sources"]:
         link = '<a target="_blank" rel="noopener noreferrer" href="'+escape(source["url"], quote=True)+'">'+escape(source["title"])+"</a>"
@@ -559,8 +571,12 @@ def apply_kyobo_case(result, manifest, case):
     revision_dates = " · 교보 사례 추가 확인 " + case.get("company_sources_verified_date", case["verified_date"])
     if case.get("deepening_verified_date"):
         revision_dates += " · 경제·운영 분석 보강 " + case["deepening_verified_date"]
+    if case.get("securities_closure_verified_date"):
+        revision_dates += " · 증권사 대응·제품 문서 확인 " + case["securities_closure_verified_date"]
     result = result.replace("자료 기준일 2026-10-05 · 기록일 2026-10-05 · " + revision, "초기 자료 기준일 2026-10-05 · 기록일 2026-10-05 · " + revision + revision_dates, 1)
     result = result.replace('<a href="#kyobo">6. 교보증권에 적용할 방향</a>', '<a href="#kyobo">6. 교보증권에 적용할 방향</a><a class="toc-sub" href="#kyobo-spc-case">유동화SPC 사후관리 한 업무</a>', 1)
+    if case.get("securities_closure_html"):
+        result = result.replace('<a href="#outlook">7. 전망을 바꿀 조건</a>', '<a href="#outlook">7. 전망을 바꿀 조건</a><a class="toc-sub" href="#securities-agent-conclusion">증권사의 역할과 교보의 최종 제안</a>', 1)
     result = result.rstrip()+"\n"
     final_doc = Document(result)
     ids = [node.attrs["id"] for node in final_doc.nodes if "id" in node.attrs]
