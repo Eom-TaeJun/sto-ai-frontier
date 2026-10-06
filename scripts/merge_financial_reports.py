@@ -554,8 +554,12 @@ def apply_kyobo_case(result, manifest, case):
     doc = Document(result)
     sources = doc.by_id("sources")
     result = result[:sources.inner_end]+"\n"+evidence+"\n"+result[sources.inner_end:]
-    result = result.replace("통합 개정 2.0", "통합 개정 2.1")
-    result = result.replace("자료 기준일 2026-10-05 · 기록일 2026-10-05 · 통합 개정 2.1", "초기 자료 기준일 2026-10-05 · 기록일 2026-10-05 · 통합 개정 2.1 · 교보 사례 추가 확인 2026-10-06", 1)
+    revision = "통합 개정 " + case["version"]
+    result = result.replace("통합 개정 2.0", revision)
+    revision_dates = " · 교보 사례 추가 확인 " + case.get("company_sources_verified_date", case["verified_date"])
+    if case.get("deepening_verified_date"):
+        revision_dates += " · 경제·운영 분석 보강 " + case["deepening_verified_date"]
+    result = result.replace("자료 기준일 2026-10-05 · 기록일 2026-10-05 · " + revision, "초기 자료 기준일 2026-10-05 · 기록일 2026-10-05 · " + revision + revision_dates, 1)
     result = result.replace('<a href="#kyobo">6. 교보증권에 적용할 방향</a>', '<a href="#kyobo">6. 교보증권에 적용할 방향</a><a class="toc-sub" href="#kyobo-spc-case">유동화SPC 사후관리 한 업무</a>', 1)
     result = result.rstrip()+"\n"
     final_doc = Document(result)
@@ -566,7 +570,7 @@ def apply_kyobo_case(result, manifest, case):
         value = node.attrs.get("href", "")
         if value.startswith("#") and value[1:] not in ids:
             raise ValueError("Unresolved case source anchor "+value)
-    manifest.update({"version":"통합 개정 2.1", "result_sha256":hashlib.sha256(result.encode("utf-8")).hexdigest(), "bytes":len(result.encode("utf-8")), "result_external_urls":len(external_links(final_doc)), "decision_case":{"source_path":CASE_PATH,"verified_date":case["verified_date"],"selected_business":case["selected_business"],"scope":"One proposed Kyobo workflow; financial disclosures are not this product's earnings; no fabricated cost or client data", "source_urls":[source["url"] for source in case["sources"]]}})
+    manifest.update({"version":revision, "result_sha256":hashlib.sha256(result.encode("utf-8")).hexdigest(), "bytes":len(result.encode("utf-8")), "result_external_urls":len(external_links(final_doc)), "decision_case":{"source_path":CASE_PATH,"verified_date":case["verified_date"],"company_sources_verified_date":case.get("company_sources_verified_date", case["verified_date"]),"deepening_verified_date":case.get("deepening_verified_date"),"selected_business":case["selected_business"],"scope":"One proposed Kyobo workflow; financial disclosures are not this product's earnings; no fabricated cost or client data. Lecture frameworks and original economic research inform the analyst's conditional application, not an attributed company or professor business plan.", "source_urls":[source["url"] for source in case["sources"]]}})
     return result, manifest
 
 

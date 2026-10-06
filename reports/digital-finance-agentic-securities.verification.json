@@ -2,46 +2,54 @@
   "report_date": "2026-10-05",
   "initial_source_as_of": "2026-10-05",
   "added_case_verified_date": "2026-10-06",
-  "version": "2.1",
-  "verified_at_utc": "2026-10-06T14:49:19.179Z",
+  "deepening_verified_date": "2026-10-07",
+  "version": "2.2",
+  "verified_at_utc": "2026-10-06T15:30:48.415Z",
   "artifact": "reports/digital-finance-agentic-securities.html",
-  "html_bytes": 258624,
-  "html_sha256": "eedb7134e74cd507e6d2921ebc85d06def4357ca5f5550091767899871a82d14",
+  "html_bytes": 277941,
+  "html_sha256": "7027191853d52c322a35154fa379ee9a67d0c6d3e09f45c8f72e416c268f48d5",
   "previous_artifact": {
-    "commit": "586f97e6fe1bdc55f39c97987ecb14c811e84cf9",
-    "version": "2.0",
-    "html_sha256": "085c8ac6f550e44d269200509716b234eeffe131023ce0b54bf4977cdb99f717",
-    "verified_at_utc": "2026-10-05T15:34:39.677Z",
+    "commit": "16526a58ca6b253c51b870827952820587e80364",
+    "version": "2.1",
+    "html_sha256": "eedb7134e74cd507e6d2921ebc85d06def4357ca5f5550091767899871a82d14",
+    "verified_at_utc": "2026-10-06T14:49:19.179Z",
     "verification_path": "reports/digital-finance-agentic-securities.verification.json",
-    "scope": "Previous 34 browser checks belong to revision 2.0 and were not represented as newly rerun."
+    "scope": "Revision 2.1 checks and company source review retain their original dates. Current checks cover the changed deepening and research preservation, not a new complete research census."
   },
   "generation": {
     "base_commit": "7d4c0ec16d24e903b5e68d1cb1d52e0e545ac24c",
     "base_path": "reports/digital-finance-agentic-securities.html",
     "environment_path": "reports/financial-environment-response.html",
-    "base_sha256": "55a6e828560ee5e06b82840cb459bfc12f7a911a0412a9027ecc7633d8ef0bf4",
+    "base_sha256": "3a59ec687429785e232dbcd86481db868bddf92c52dac02b34cdef24d535cfa9",
     "environment_sha256": "b05d83c11e01b3447f46e090242b3f9061eae52d5a0dfdf0731c3b6c8c483916",
-    "result_sha256": "eedb7134e74cd507e6d2921ebc85d06def4357ca5f5550091767899871a82d14",
-    "bytes": 258624,
+    "result_sha256": "7027191853d52c322a35154fa379ee9a67d0c6d3e09f45c8f72e416c268f48d5",
+    "bytes": 277941,
     "base_paragraphs_preserved": 50,
     "original_anchors_preserved": true,
     "main_chapters": 7,
-    "result_external_urls": 146,
+    "result_external_urls": 151,
     "missing_source_urls": [],
     "duplicate_ids": [],
     "missing_targets": [],
     "source_report_unchanged": true,
     "decision_case": {
       "source_path": "reports/source/kyobo_spc_case.json",
-      "verified_date": "2026-10-06",
+      "verified_date": "2026-10-07",
+      "company_sources_verified_date": "2026-10-06",
+      "deepening_verified_date": "2026-10-07",
       "selected_business": "유동화SPC의 정기 보고·기일·현금흐름 대조를 돕는 AI 에이전트",
-      "scope": "One proposed Kyobo workflow; financial disclosures are not this product's earnings; no fabricated cost or client data",
+      "scope": "One proposed Kyobo workflow; financial disclosures are not this product's earnings; no fabricated cost or client data. Lecture frameworks and original economic research inform the analyst's conditional application, not an attributed company or professor business plan.",
       "source_urls": [
         "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260814003361&dcmNo=11536829&eleId=26&offset=868657&length=49807&dtd=dart4.xsd",
         "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260814003361&dcmNo=11536829&eleId=47&offset=2279532&length=40634&dtd=dart4.xsd",
         "https://kofia.or.kr/brd/m_96/view.do?company_cd=&company_nm=&itm_seq_1=0&itm_seq_2=0&multi_itm_seq=0&seq=37195&srchFr=&srchTo=&srchTp=&srchWord=",
         "https://www.fsc.go.kr/no010101/87142",
-        "https://m.kisrating.com/fileDown.do?fileName=rs20260212-30.pdf&gubun=2&menuCd=R8"
+        "https://m.kisrating.com/fileDown.do?fileName=rs20260212-30.pdf&gubun=2&menuCd=R8",
+        "https://faculty.washington.edu/mfan/is582/articles/Coase1937.pdf",
+        "https://www.richmondfed.org/-/media/richmondfedorg/publications/research/economic_quarterly/1996/summer/pdf/diamond.pdf",
+        "https://github.com/cschung7/2026-class-UG-AIFinance/blob/3200cf6953b1b45257fcd25a3c7c961942f7bff7/agent_lecture_2006-spring.html",
+        "https://github.com/cschung7/2026-2nd/blob/f031aa16ba6a99eec875c8a543db99208be598d5/hermes-agent-economics-lecture.html",
+        "https://github.com/cschung7/2026-class-UG-AIFinance/blob/3200cf6953b1b45257fcd25a3c7c961942f7bff7/blockchain/blockchain-lecture.html"
       ]
     }
   },
@@ -56,128 +64,167 @@
       "detail": []
     },
     {
-      "name": "fragment links resolve",
+      "name": "valid fragment targets",
       "passed": true,
       "detail": []
     },
     {
-      "name": "all previous anchors retained",
+      "name": "previous anchors retained",
       "passed": true,
       "detail": []
     },
     {
-      "name": "all previous source URLs retained",
+      "name": "previous source URLs retained",
       "passed": true,
       "detail": []
     },
     {
-      "name": "all previous research paragraphs retained",
+      "name": "previous research paragraphs retained",
       "passed": true,
       "detail": []
     },
     {
-      "name": "valid Korean text",
+      "name": "valid UTF8 Korean text",
       "passed": true,
       "detail": null
     },
     {
-      "name": "four decision tables",
-      "passed": true,
-      "detail": 4
-    },
-    {
-      "name": "one title",
+      "name": "one main report title",
       "passed": true,
       "detail": null
     },
     {
-      "name": "record and verification dates separated",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "reviewed content 340.0억원",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "reviewed content 117.7억원",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "reviewed content 224.5억원",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "reviewed content 156.6억원",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "reviewed content N × (c₀ − c₁)",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "reviewed content 실제 보고주기 1개",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "reviewed content 현재 진행 거래로 가정하지 않고",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "desktop page width",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "new decision content searchable",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "new source anchor reveals evidence",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "mobile page width 390",
+      "name": "four prior and three new case tables",
       "passed": true,
       "detail": {
-        "width": 390,
-        "scroll": 390
+        "duplicateIds": [],
+        "brokenAnchors": [],
+        "lostIds": [],
+        "lostUrls": [],
+        "lostParagraphs": [],
+        "externalUrls": 151,
+        "caseTables": 7,
+        "newDetailTables": 2,
+        "replacement": false
       }
     },
     {
-      "name": "mobile page width 320",
-      "passed": true,
-      "detail": {
-        "width": 320,
-        "scroll": 320
-      }
-    },
-    {
-      "name": "new evidence included in print",
+      "name": "date/version 기록일 2026-10-05",
       "passed": true,
       "detail": null
     },
     {
-      "name": "decision tables included in print",
+      "name": "date/version 통합 개정 2.2",
       "passed": true,
       "detail": null
     },
     {
-      "name": "source state restored after print",
+      "name": "date/version 추가 확인 2026-10-06",
       "passed": true,
       "detail": null
     },
     {
-      "name": "no JavaScript errors",
+      "name": "date/version 분석 보강 2026-10-07",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "content boundary Rᵧ − m × (w × h + v) − k − F/n",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "content boundary N = n × m",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "content boundary 그 이론의 분산투자",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "content boundary 요구수익률이 오를 수",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "content boundary 자료 미도착",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "content boundary 조회 위임과 투자",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "content boundary 현재 이 SPC 서비스의 외부 API 계약",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "content boundary 중대 누락·오경보",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop layout width",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new detail initially collapsed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new detail toggle opens",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "search selection reveals new collapsed detail",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new theoretical source opens evidence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile layout width 390",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile layout width 320",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new detail printed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all seven case tables printed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "expanded source list printed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reader detail state restored after printing",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no browser JavaScript errors",
       "passed": true,
       "detail": []
     }
@@ -188,48 +235,58 @@
     "lostIds": [],
     "lostUrls": [],
     "lostParagraphs": [],
-    "urls": 146,
-    "newCaseTables": 4,
+    "externalUrls": 151,
+    "caseTables": 7,
+    "newDetailTables": 2,
     "replacement": false
   },
   "javascript_errors": [],
   "visual_review": {
     "inspected": [
-      "desktop comparison and cost conditions",
-      "mobile 390px case introduction"
+      "desktop state-information/value flow",
+      "desktop benefit and value capture table",
+      "mobile 390px state-information/value flow"
     ],
     "viewports_layout_checked": [
       1440,
       390,
       320
     ],
-    "scope": "Changed case; no claim of exhaustive review of all report rows or all printed pages",
-    "result": "No overlapping text or page horizontal overflow in inspected changed components"
+    "result": "No overlap or document horizontal overflow in inspected changed components",
+    "scope": "Affected new components, not every report row or all printed pages"
   },
   "print_checks": {
-    "pages": 54,
+    "pages": 59,
     "empty_pages": [],
-    "case_tables_visible": 4,
-    "case_evidence_printed": true,
+    "case_tables_visible": 7,
+    "deep_detail_and_sources_printed": true,
     "reader_state_restored": true,
-    "scope": "Print visibility and text extraction; all 54 printed pages were not visually reviewed"
+    "scope": "Print visibility and text extraction. All 59 printed pages were not visually reviewed."
   },
   "repository_checks": {
     "run_py": "passed; synthetic cases only, 8 assets and 10 documents",
     "unit_tests": "22 passed with python -X utf8 -m unittest discover -s tests -v"
   },
   "source_checks": {
-    "financial_disclosures": "Official 2026H1 DART sections 4 and 25 re-read; connected cumulative values reconciled with the prior October 4 transcription",
-    "recruitment": "Issuer DCM2 recruitment task scope checked; no time or efficiency measurement inferred",
-    "rating_report": "Text pp1–3 reviewed. Screenshot API returned cache miss. No statement that PDF image was visually verified.",
-    "independent_review": "Two delegated reviews found no material financial or scope error"
+    "retained_company_evidence": {
+      "financial_disclosures": "Official 2026H1 DART sections 4 and 25 re-read; connected cumulative values reconciled with the prior October 4 transcription",
+      "recruitment": "Issuer DCM2 recruitment task scope checked; no time or efficiency measurement inferred",
+      "rating_report": "Text pp1–3 reviewed. Screenshot API returned cache miss. No statement that PDF image was visually verified.",
+      "independent_review": "Two delegated reviews found no material financial or scope error"
+    },
+    "lecture_materials": "2026 student notes: all 1838 body paragraphs and two images; 2025 notes: all 712 body/table paragraphs. Hashes matched original provenance. Paragraph locators are extraction IDs, not rendered pages.",
+    "public_lectures": "Specific original teaching sections read at fixed commits/blobs; no current financial-news claims copied from them.",
+    "economic_theory": "Coase 1937 original scan pp5–7/9–10 and Diamond 1996 official author article pp1–4; SPC application is analyst interpretation.",
+    "attached_txt": "All 477 lines read; eight explicit source paths matched repository snapshots. Latest environment note fully read; earlier AI maturity labels were retrieval leads, not verified operations.",
+    "independent_review": "Attribution, period/cost/capture model, and new case draft independently reviewed; no empirical performance audit."
   },
   "limits": [
-    "One proposed Kyobo workflow, not an approved company plan or production deployment.",
-    "SPC-specific fee, cost, active contract list, authority and customer demand remain unknown, represented by null inputs.",
-    "Historical rating is not the executed contract; repayment or extension after scheduled September 29 maturity was not verified.",
-    "Management automation does not remove credit, liquidity or capital obligations.",
-    "No worldwide legal census or private finance repository/Page update was performed.",
-    "Local browser inspection passed; public htmlpreview render and remote commit readback are separate checks."
+    "One analyst-proposed Kyobo SPC servicing workflow; not an official company/professor plan or production deployment.",
+    "SPC-specific fee, actual unit cost, customer willingness to pay, active duty and redistribution rights remain unknown.",
+    "Current post-maturity repayment/extension of the historical transaction is unverified.",
+    "Internal review is not legal-right certification, audit assurance, collateral eligibility or a credit rating.",
+    "External API, agent payment, onchain operating status and attributable profit were not confirmed for this proposed service.",
+    "No new worldwide legal census, private finance repository, Pages or automation update in this revision.",
+    "Public preview render and remote commit readback are separate checks; local browser acceptance alone does not verify the deployed preview."
   ]
 }
