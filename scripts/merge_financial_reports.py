@@ -576,7 +576,8 @@ def apply_kyobo_case(result, manifest, case):
     result = result.replace("자료 기준일 2026-10-05 · 기록일 2026-10-05 · " + revision, "초기 자료 기준일 2026-10-05 · 기록일 2026-10-05 · " + revision + revision_dates, 1)
     result = result.replace('<a href="#kyobo">6. 교보증권에 적용할 방향</a>', '<a href="#kyobo">6. 교보증권에 적용할 방향</a><a class="toc-sub" href="#kyobo-spc-case">유동화SPC 사후관리 한 업무</a>', 1)
     if case.get("securities_closure_html"):
-        result = result.replace('<a href="#outlook">7. 전망을 바꿀 조건</a>', '<a href="#outlook">7. 전망을 바꿀 조건</a><a class="toc-sub" href="#securities-agent-conclusion">증권사의 역할과 교보의 최종 제안</a>', 1)
+        result = result.replace('<a href="#outlook">7. 전망을 바꿀 조건</a>', '<a href="#outlook">7. 전망을 바꿀 조건</a><a class="toc-sub" href="#securities-agent-conclusion">증권사의 역할과 교보의 대응 방향</a>', 1)
+    result = result.replace("환경·인프라 분석과 기관 대응 연구, 지원서 논의를 종합한 초판이다.", "환경·인프라 분석과 기관 대응 연구를 종합한 보고서다.", 1)
     result = result.rstrip()+"\n"
     final_doc = Document(result)
     ids = [node.attrs["id"] for node in final_doc.nodes if "id" in node.attrs]

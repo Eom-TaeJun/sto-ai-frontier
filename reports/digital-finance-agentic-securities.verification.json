@@ -4,18 +4,17 @@
   "added_case_verified_date": "2026-10-06",
   "deepening_verified_date": "2026-10-07",
   "securities_closure_verified_date": "2026-10-07",
-  "version": "2.3",
-  "verified_at_utc": "2026-10-06T15:57:36.583Z",
   "artifact": "reports/digital-finance-agentic-securities.html",
-  "html_bytes": 295535,
-  "html_sha256": "0b8ba6fbaa4c7cfad2a9a69a34456a375bb90196c640f158a40074740cf570e3",
+  "version": "2.3.1",
+  "verified_at_utc": "2026-10-06T16:24:43.068Z",
+  "html_bytes": 295546,
+  "html_sha256": "cc18726fa226f531f6eaf1d797115a670cfd358633358d1935a97480a83eb01c",
   "previous_artifact": {
-    "commit": "b59eb18d96e4ea35e9da9a042871c99629d66347",
-    "version": "2.2",
-    "html_sha256": "7027191853d52c322a35154fa379ee9a67d0c6d3e09f45c8f72e416c268f48d5",
-    "verified_at_utc": "2026-10-06T15:30:48.415Z",
+    "commit": "0971cb6f1025f45b7fb056b74117cafb8549ec69",
+    "version": "2.3",
+    "html_sha256": "0b8ba6fbaa4c7cfad2a9a69a34456a375bb90196c640f158a40074740cf570e3",
     "verification_path": "reports/digital-finance-agentic-securities.verification.json",
-    "scope": "Prior company, lecture and theory source reviews retain their dates. This revision adds bounded current product/press-release reads and a securities-role closure."
+    "scope": "Extended interaction, print and economics/source reviews remain at this commit. This revision changes only approved narrative wording and version metadata."
   },
   "generation": {
     "base_commit": "7d4c0ec16d24e903b5e68d1cb1d52e0e545ac24c",
@@ -23,8 +22,8 @@
     "environment_path": "reports/financial-environment-response.html",
     "base_sha256": "55a6e828560ee5e06b82840cb459bfc12f7a911a0412a9027ecc7633d8ef0bf4",
     "environment_sha256": "b05d83c11e01b3447f46e090242b3f9061eae52d5a0dfdf0731c3b6c8c483916",
-    "result_sha256": "0b8ba6fbaa4c7cfad2a9a69a34456a375bb90196c640f158a40074740cf570e3",
-    "bytes": 295535,
+    "result_sha256": "cc18726fa226f531f6eaf1d797115a670cfd358633358d1935a97480a83eb01c",
+    "bytes": 295546,
     "base_paragraphs_preserved": 50,
     "original_anchors_preserved": true,
     "main_chapters": 7,
@@ -59,287 +58,82 @@
       ]
     }
   },
-  "deterministic_generation": {
-    "default_git_snapshot_and_saved_original_base_output_identical": true,
-    "command": "python scripts/merge_financial_reports.py"
+  "wording_checks": {
+    "only_reviewed_wording_and_version_changes": true,
+    "replacement_counts": {
+      "version metadata": 3,
+      "summary framing": 1,
+      "case and summary links": 2,
+      "contents navigation": 1,
+      "securities conclusion": 1,
+      "report background": 1
+    },
+    "source_facts_dates_unchanged": true,
+    "external_urls": 153,
+    "html_sha256": "cc18726fa226f531f6eaf1d797115a670cfd358633358d1935a97480a83eb01c"
   },
   "browser_checks": [
     {
-      "name": "unique IDs",
-      "passed": true,
-      "detail": []
+      "name": "forbiddenPurposeTermsAbsent",
+      "passed": true
     },
     {
-      "name": "valid fragment targets",
-      "passed": true,
-      "detail": []
+      "name": "conclusionPresent",
+      "passed": true
     },
     {
-      "name": "previous anchors retained",
-      "passed": true,
-      "detail": []
+      "name": "summaryPresent",
+      "passed": true
     },
     {
-      "name": "previous source URLs retained",
-      "passed": true,
-      "detail": []
+      "name": "tocPresent",
+      "passed": true
     },
     {
-      "name": "previous research paragraphs retained",
-      "passed": true,
-      "detail": []
+      "name": "dateRetained",
+      "passed": true
     },
     {
-      "name": "valid UTF8 Korean text",
-      "passed": true,
-      "detail": null
+      "name": "versionPresent",
+      "passed": true
     },
     {
-      "name": "one main report title",
-      "passed": true,
-      "detail": null
+      "name": "noDocumentOverflow",
+      "passed": true
     },
     {
-      "name": "four prior and three new case tables",
-      "passed": true,
-      "detail": {
-        "duplicateIds": [],
-        "brokenAnchors": [],
-        "lostIds": [],
-        "lostUrls": [],
-        "lostParagraphs": [],
-        "externalUrls": 153,
-        "caseTables": 7,
-        "newDetailTables": 2,
-        "replacement": false
-      }
-    },
-    {
-      "name": "date/version 기록일 2026-10-05",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "date/version 통합 개정 2.3",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "date/version 추가 확인 2026-10-06",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "date/version 분석 보강 2026-10-07",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "content boundary Rᵧ − m × (w × h + v) − k − F/n",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "content boundary N = n × m",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "content boundary 그 이론의 분산투자",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "content boundary 요구수익률이 오를 수",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "content boundary 자료 미도착",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "content boundary 조회 위임과 투자",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "content boundary 현재 이 SPC 서비스의 외부 API 계약",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "content boundary 중대 누락·오경보",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "securities closure 기관이 에이전트에",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "securities closure 작성자의 조건부 적용",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "securities closure 정보 서비스 대금과 SPC 증권의 매매·상환대금",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "securities closure 예탁원 토큰증권 시스템",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "securities closure 같은 총비용과 회복 가능성",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "roles and scenario tables",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "three product comparison rows",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "bounded product evidence count",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "bounded current review date",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "desktop layout width",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "new detail initially collapsed",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "new detail toggle opens",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "search selection reveals new Korea evidence",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "new theoretical source opens evidence",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "mobile layout width 390",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "mobile layout width 320",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "new detail printed",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "all seven case tables printed",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "expanded source list printed",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "new role and scenario tables printed",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "new Korea evidence printed",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "reader detail state restored after printing",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "no browser JavaScript errors",
-      "passed": true,
-      "detail": []
+      "name": "mobile 390px no document overflow",
+      "passed": true
     }
   ],
-  "content_audit": {
-    "duplicateIds": [],
-    "brokenAnchors": [],
-    "lostIds": [],
-    "lostUrls": [],
-    "lostParagraphs": [],
-    "externalUrls": 153,
-    "caseTables": 7,
-    "newDetailTables": 2,
-    "replacement": false
-  },
   "javascript_errors": [],
   "visual_review": {
     "inspected": [
-      "desktop securities roles and partner boundaries",
-      "mobile 390px securities conclusion"
+      "mobile 390px changed conclusion"
     ],
-    "viewports_layout_checked": [
-      1440,
-      390,
-      320
-    ],
-    "result": "No overlap or document horizontal overflow in inspected changed components; wide tables use their existing scroll container.",
-    "scope": "Affected additions only; not every report row or all printed pages."
-  },
-  "print_checks": {
-    "new_role_scenario_tables_visible": 2,
-    "new_Korea_evidence_expanded": true,
-    "existing_case_tables_visible": 7,
-    "reader_detail_state_restored": true,
-    "scope": "Print-media visibility checks; no new full-report PDF or printed-page visual review. Prior revision PDF verification is retained at its commit."
+    "scope": "Changed wording only; prior report layout is unchanged. Local current HTML was checked; deployed htmlpreview rendering was not independently tested."
   },
   "repository_checks": {
     "run_py": "passed; synthetic cases only, 8 assets and 10 documents",
     "unit_tests": "22 passed with python -X utf8 -m unittest discover -s tests -v"
   },
   "source_checks": {
-    "retained_review": "Company review 2026-10-06; DOCX/lecture/theory review 2026-10-07. Original source review receipt retained in version 2.2.",
-    "current_product_reads": [
-      "Stripe MPP announcement 2026-03-18, body 277–290/316–320",
-      "Coinbase Agentic Wallet overview 120–145; publication/revision date absent",
-      "IBKR Web API Getting Started 295–342 and Orders 586–662; publication/revision date absent"
-    ],
-    "current_policy_reads": [
-      "FSC 2026-10-01 STO lower-regulation consultation press-release body 296–354",
-      "FSC 2026-09-04 STO policy-direction body 337–379",
-      "FSC 2026-06-18 financial AI press release re-read; its existing citation retained"
-    ],
-    "independent_review": "New conclusion economics/attribution and new legal/authority boundaries reviewed independently. One consultation wording narrowed to the exact purpose: electronic-registration use of a distributed ledger.",
-    "scope": "Product documentation and press-release statements are not verified market-scale operations, executed contract terms, full subordinate draft review or a complete legal update."
+    "retained_reviews": {
+      "retained_review": "Company review 2026-10-06; DOCX/lecture/theory review 2026-10-07. Original source review receipt retained in version 2.2.",
+      "current_product_reads": [
+        "Stripe MPP announcement 2026-03-18, body 277–290/316–320",
+        "Coinbase Agentic Wallet overview 120–145; publication/revision date absent",
+        "IBKR Web API Getting Started 295–342 and Orders 586–662; publication/revision date absent"
+      ],
+      "current_policy_reads": [
+        "FSC 2026-10-01 STO lower-regulation consultation press-release body 296–354",
+        "FSC 2026-09-04 STO policy-direction body 337–379",
+        "FSC 2026-06-18 financial AI press release re-read; its existing citation retained"
+      ],
+      "independent_review": "New conclusion economics/attribution and new legal/authority boundaries reviewed independently. One consultation wording narrowed to the exact purpose: electronic-registration use of a distributed ledger.",
+      "scope": "Product documentation and press-release statements are not verified market-scale operations, executed contract terms, full subordinate draft review or a complete legal update."
+    },
+    "scope": "No new source research or financial/legal claims in this wording revision. All sources, factual inputs and evidence review dates are retained."
   },
   "limits": [
     "One proposed Kyobo SPC servicing workflow; external institution-agent information supply is conditional.",
