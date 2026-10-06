@@ -35,12 +35,14 @@
 
 ## 디지털 금융환경과 AI 에이전트 시대의 증권업 통합 보고서
 
-**[디지털 자산과 AI 에이전트가 바꾸는 증권업의 수익구조](digital-finance-agentic-securities.html)** · 기록일·자료 기준일 **2026-10-05**, 통합 개정 **2.0**.
+**[디지털 자산과 AI 에이전트가 바꾸는 증권업의 수익구조](digital-finance-agentic-securities.html)** · 기록일·초기 자료 기준일 **2026-10-05**, 통합 개정 **2.1** · 교보 사례 추가 원문 확인 **2026-10-06**.
 
 기존 증권업·교보증권 분석에 [금융환경과 기관 대응 보고서](financial-environment-response.html)의 경제 원리, 자산 권리, 세계 규제, 미국·한국 기관, 거시 자금 전파, AI 위임·지급·수탁·반환, 실행·관측 기준과 근거 부록을 해당 장에 통합했다. 기존 제목·목차 경로·주석과 출처를 보존하며 같은 사실의 반복 설명은 줄인다. 환경 보고서는 통합에 사용한 별도 자료로 유지한다.
 
+개정 2.1은 6장에 **유동화SPC의 정기 보고·기일·현금흐름 대조**라는 한 업무의 검증 제안을 추가한다. 교보의 2026년 반기 연결 공시, 공개 담당업무와 과거 거래의 관리·수탁 역할을 확인하고 기존 API·규칙 방식과 AI 추가 방식의 원가·완료시간·위험을 비교한다. 관리계약·자료권한·보수·예외 원가는 미확인 입력으로 남기고, 손익분기·확대·중단 및 향후 온체인 연결 조건을 제시한다. [작성 근거와 사례 소스](source/kyobo_spc_case.json)는 제안·확인 사실·미확인 값을 구분한다. 회사의 확정 계획이나 AI의 실측 수익성을 뜻하지 않는다.
+
 [브라우저 미리보기](https://htmlpreview.github.io/?https://raw.githubusercontent.com/Eom-TaeJun/sto-ai-frontier/main/reports/digital-finance-agentic-securities.html). 다운로드한 HTML에서도 본문·검색·자산 및 시나리오 비교·기관 필터·근거 펼치기·인쇄가 작동한다.
 
-[통합 생성 스크립트](../scripts/merge_financial_reports.py)는 기존 보고서 스냅샷과 환경 보고서로 동일 HTML을 재생성한다. 저장소 루트에서 `python scripts/merge_financial_reports.py`를 실행한다. 이전 스냅샷이 없는 얕은 복제에서는 스크립트에 명시된 기준 커밋을 먼저 가져오거나 `--base`로 해당 원본 HTML을 전달한다. 원본·보고서 생성·통합 작업은 새 법률 조사나 기관 수익성 검증을 뜻하지 않는다.
+[통합 생성 스크립트](../scripts/merge_financial_reports.py)는 기존 보고서 스냅샷·환경 보고서·교보 단일 사례 소스로 동일 HTML을 재생성한다. 저장소 루트에서 `python scripts/merge_financial_reports.py`를 실행한다. 이전 스냅샷이 없는 얕은 복제에서는 스크립트에 명시된 기준 커밋을 먼저 가져오거나 `--base`로 해당 원본 HTML을 전달한다. 사례 소스는 `--case`로 지정할 수 있다. 생성 작업 자체는 새 법률 조사나 기관 수익성 검증을 뜻하지 않는다.
 
 [통합 검증 기록](digital-finance-agentic-securities.verification.json)은 원본 보존·중복 ID·내부 연결·화면과 기능·기존 프로토타입 검사의 범위를 구분한다. 자료 기준일을 실제 검사 시각으로 바꾸지 않는다.

@@ -21,6 +21,7 @@ BASE_COMMIT = "7d4c0ec16d24e903b5e68d1cb1d52e0e545ac24c"
 REPORT_PATH = "reports/digital-finance-agentic-securities.html"
 SOURCE_PATH = "reports/financial-environment-response.html"
 SOURCE_DATE = "2026-10-05"
+CASE_PATH = "reports/source/kyobo_spc_case.json"
 VOID = set("area base br col embed hr img input link meta param source track wbr".split())
 
 
@@ -523,6 +524,52 @@ def build(base, environment):
     return result,manifest
 
 
+def apply_kyobo_case(result, manifest, case):
+    """Add the reviewed single-business decision without replacing the research."""
+    if case["record_date"] != SOURCE_DATE:
+        raise ValueError("The requested report record date must stay October 5")
+    body = case["content_html"]
+    if re.search(r"<script|\son\w+=", body, re.I):
+        raise ValueError("Reviewed case content must not introduce executable markup")
+    rows = []
+    for fact in case["financial_facts"]:
+        amount = fact["value_krw_thousand"]
+        rows.append("<tr><td>"+escape(fact["label"])+"</td><td>"+f"{amount/100000:.1f}"+"억원</td><td>"+escape(fact["boundary"])+"</td></tr>")
+    body = body.replace("{{financial_rows}}", "\n".join(rows))
+    if "{{" in body:
+        raise ValueError("Unresolved case content placeholder")
+    doc = Document(result)
+    chapter = doc.by_id("kyobo")
+    first_p = next(node for node in chapter.children if node.tag == "p")
+    result = result[:first_p.end]+"\n"+body+"\n"+result[first_p.end:]
+    result = result.replace("6. 교보증권에는 상품 공급과 관리비용의 연결이 중요하다", case["chapter_title"], 1)
+    doc = Document(result)
+    summary = doc.by_id("summary")
+    result = result[:summary.inner_end]+"\n"+case["summary_html"]+"\n"+result[summary.inner_end:]
+    items = []
+    for source in case["sources"]:
+        link = '<a target="_blank" rel="noopener noreferrer" href="'+escape(source["url"], quote=True)+'">'+escape(source["title"])+"</a>"
+        items.append('<li id="'+escape(source["id"], quote=True)+'">'+link+"<p>"+escape(source["location"])+"</p><p>"+escape(source["scope"])+"</p><p>공개일 "+escape(source["published_date"])+" · 원문 확인일 "+escape(source["verified_date"])+"</p></li>")
+    evidence = '<div class="enrich"><details class="source-directory" id="kyobo-spc-evidence"><summary>교보증권 단일 업무의 확인 근거와 미확인 항목</summary><div class="evidence-body"><ol>'+"\n".join(items)+"</ol><p>"+escape(case["unknowns_note"])+"</p></div></details></div>"
+    doc = Document(result)
+    sources = doc.by_id("sources")
+    result = result[:sources.inner_end]+"\n"+evidence+"\n"+result[sources.inner_end:]
+    result = result.replace("통합 개정 2.0", "통합 개정 2.1")
+    result = result.replace("자료 기준일 2026-10-05 · 기록일 2026-10-05 · 통합 개정 2.1", "초기 자료 기준일 2026-10-05 · 기록일 2026-10-05 · 통합 개정 2.1 · 교보 사례 추가 확인 2026-10-06", 1)
+    result = result.replace('<a href="#kyobo">6. 교보증권에 적용할 방향</a>', '<a href="#kyobo">6. 교보증권에 적용할 방향</a><a class="toc-sub" href="#kyobo-spc-case">유동화SPC 사후관리 한 업무</a>', 1)
+    result = result.rstrip()+"\n"
+    final_doc = Document(result)
+    ids = [node.attrs["id"] for node in final_doc.nodes if "id" in node.attrs]
+    if len(ids) != len(set(ids)):
+        raise ValueError("Duplicate IDs after adding the case")
+    for node in final_doc.nodes:
+        value = node.attrs.get("href", "")
+        if value.startswith("#") and value[1:] not in ids:
+            raise ValueError("Unresolved case source anchor "+value)
+    manifest.update({"version":"통합 개정 2.1", "result_sha256":hashlib.sha256(result.encode("utf-8")).hexdigest(), "bytes":len(result.encode("utf-8")), "result_external_urls":len(external_links(final_doc)), "decision_case":{"source_path":CASE_PATH,"verified_date":case["verified_date"],"selected_business":case["selected_business"],"scope":"One proposed Kyobo workflow; financial disclosures are not this product's earnings; no fabricated cost or client data", "source_urls":[source["url"] for source in case["sources"]]}})
+    return result, manifest
+
+
 def main():
     repo = Path(__file__).resolve().parents[1]
     parser=argparse.ArgumentParser(description=__doc__)
@@ -530,6 +577,7 @@ def main():
     parser.add_argument("--environment",type=Path,default=repo/SOURCE_PATH)
     parser.add_argument("--output",type=Path,default=repo/REPORT_PATH)
     parser.add_argument("--manifest",type=Path,help="Optional local verification manifest")
+    parser.add_argument("--case",type=Path,default=repo/CASE_PATH,help="Reviewed Kyobo single-business case")
     args=parser.parse_args()
     if args.base:
         base=args.base.read_text(encoding="utf-8")
@@ -537,6 +585,8 @@ def main():
         base=subprocess.run(["git","-c",f"safe.directory={repo.as_posix()}","show",f"{BASE_COMMIT}:{REPORT_PATH}"],cwd=repo,check=True,capture_output=True,encoding="utf-8").stdout
     environment=args.environment.read_text(encoding="utf-8")
     result,manifest=build(base,environment)
+    case=json.loads(args.case.read_text(encoding="utf-8"))
+    result,manifest=apply_kyobo_case(result,manifest,case)
     args.output.parent.mkdir(parents=True,exist_ok=True)
     args.output.write_text(result,encoding="utf-8",newline="\n")
     if args.manifest:
