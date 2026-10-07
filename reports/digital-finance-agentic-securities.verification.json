@@ -1,37 +1,45 @@
 {
+  "artifact": "reports/digital-finance-agentic-securities.html",
+  "version": "2.5",
   "report_date": "2026-10-05",
   "initial_source_as_of": "2026-10-05",
-  "added_case_verified_date": "2026-10-06",
-  "deepening_verified_date": "2026-10-07",
-  "securities_closure_verified_date": "2026-10-07",
-  "artifact": "reports/digital-finance-agentic-securities.html",
-  "version": "2.4",
-  "adaptive_outlook_verified_date": "2026-10-07",
-  "verified_at_utc": "2026-10-07T04:40:09.208Z",
-  "html_bytes": 312411,
-  "html_sha256": "e59f6611966f5bad808c5772da7740f23093ae737f5810a7dbece33b8261a581",
+  "company_sources_verified_date": "2026-10-06",
+  "added_research_sources_checked_date": "2026-10-07",
+  "judgment_seed_created_date": "2026-10-07",
+  "final_validation_local_date": "2026-10-08",
+  "verified_at_utc": "2026-10-07T15:07:49.795916+00:00",
+  "html_bytes": 337532,
+  "html_sha256": "252380bb990d88c162e19bd7e884509397d7c568bcbcb3d572d1d97c6b35dcb8",
   "previous_artifact": {
-    "commit": "d0b3f6c50a77c72a9045767bd820f5e577720fd4",
-    "version": "2.3.1",
-    "html_sha256": "cc18726fa226f531f6eaf1d797115a670cfd358633358d1935a97480a83eb01c",
-    "verification_path": "reports/digital-finance-agentic-securities.verification.json"
+    "commit": "d388a43a0cc4b9e035a4b5ef43830147d2bab17e",
+    "version": "2.4",
+    "html_sha256": "e59f6611966f5bad808c5772da7740f23093ae737f5810a7dbece33b8261a581"
   },
   "generation": {
-    "base_commit": "7d4c0ec16d24e903b5e68d1cb1d52e0e545ac24c",
-    "base_path": "reports/digital-finance-agentic-securities.html",
-    "environment_path": "reports/financial-environment-response.html",
     "base_sha256": "55a6e828560ee5e06b82840cb459bfc12f7a911a0412a9027ecc7633d8ef0bf4",
     "environment_sha256": "b05d83c11e01b3447f46e090242b3f9061eae52d5a0dfdf0731c3b6c8c483916",
-    "result_sha256": "e59f6611966f5bad808c5772da7740f23093ae737f5810a7dbece33b8261a581",
-    "bytes": 312411,
+    "result_sha256": "252380bb990d88c162e19bd7e884509397d7c568bcbcb3d572d1d97c6b35dcb8",
+    "bytes": 337532,
+    "version": "통합 개정 2.5",
     "base_paragraphs_preserved": 50,
     "original_anchors_preserved": true,
     "main_chapters": 7,
-    "result_external_urls": 154,
+    "result_external_urls": 163,
     "missing_source_urls": [],
     "duplicate_ids": [],
     "missing_targets": [],
     "source_report_unchanged": true,
+    "adaptive_outlook": {
+      "review_date": "2026-10-07",
+      "revised_sections": [
+        "securities",
+        "policy",
+        "macro",
+        "macro"
+      ],
+      "source_path": "reports/source/kyobo_spc_case.json",
+      "scope": "Conditional economic hypotheses and adaptive response; six securities functions and one SPC customer task. No actual cost trial or company plan asserted."
+    },
     "decision_case": {
       "source_path": "reports/source/kyobo_spc_case.json",
       "verified_date": "2026-10-07",
@@ -55,231 +63,263 @@
         "https://www.interactivebrokers.com/campus/ibkr-api-page/webapi-doc/",
         "https://www.fsc.go.kr/no010101/87838",
         "https://www.fsc.go.kr/no010101/87650",
-        "https://www.bis.org/publications/working-paper-1363-macroeconomics-stablecoins.pdf"
+        "https://www.bis.org/publications/working-paper-1363-macroeconomics-stablecoins.pdf",
+        "https://www.newyorkfed.org/research/staff_reports/sr1185",
+        "https://www.bis.org/committees/bcbs/basel-framework/standard/sco/60/inforce/2026-01-01/published/2024-11-27",
+        "https://www.bis.org/publications/aer-2026/anchoring-trust-money"
       ]
     },
-    "adaptive_outlook": {
-      "review_date": "2026-10-07",
-      "revised_sections": [
-        "securities",
-        "policy"
+    "learning_ledger": {
+      "source_path": "reports/source/adaptive_research_ledger.json",
+      "version": "1.0",
+      "judgment_records": [
+        "J-20261007-001-v1",
+        "J-20261007-002-v1",
+        "J-20261007-003-v1",
+        "J-20261007-004-v1"
       ],
-      "source_path": "reports/source/kyobo_spc_case.json",
-      "scope": "Conditional economic hypotheses and adaptive response; six securities functions and one SPC customer task. No actual cost trial or company plan asserted."
+      "source_ids": [
+        "FED-SFOS-202509-Q16Q17-v20251203",
+        "NYFED-SR1185-v202602",
+        "NASDAQ-4Q2023-QA-CORRECTED-p13",
+        "CIRCLE-Q22026-v20260805",
+        "COIN-10Q-20260630-000167978826000088",
+        "COIN-Q226-DECK-000167978826000087"
+      ],
+      "scope": "First reviewed analyst revision history; follow-up outcomes and operational trials remain unobserved. Rendering is not autonomous research or decision execution."
     }
   },
-  "content_checks": {
+  "preservation": {
+    "full_document_scoped_comparison": true,
+    "all_prior_anchors_and_urls_preserved": true,
+    "prior_company_facts_dates_and_cost_unknowns_preserved": true,
+    "unrelated_sections_exact_match": [
+      "change",
+      "agents",
+      "securities",
+      "kyobo",
+      "summary"
+    ],
+    "source_report_unchanged": true
+  },
+  "static_validation": {
+    "passed": 56,
     "checks": {
-      "one baseline source block content_html": true,
-      "one baseline source block summary_html": true,
-      "one baseline source block securities_closure_html": true,
-      "one scoped patch securities": true,
-      "one scoped patch policy": true,
-      "one prior last evidence item": true,
-      "entire HTML contains only scoped approved changes": true,
-      "retained source field record_date": true,
-      "retained source field verified_date": true,
-      "retained source field selected_business": true,
-      "retained source field chapter_title": true,
-      "retained source field financial_scope": true,
-      "retained source field financial_facts": true,
-      "retained source field economic_unit": true,
-      "retained source field cost_inputs": true,
-      "retained source field classification": true,
-      "retained source field unknowns_note": true,
-      "retained source field company_sources_verified_date": true,
-      "retained source field deepening_verified_date": true,
-      "retained source field deepening_basis": true,
-      "retained source field securities_closure_verified_date": true,
-      "retained source field agent_evidence_html": true,
-      "retained source field securities_closure_basis": true,
-      "all old source records unchanged": true,
-      "unrelated chapter intact change": true,
-      "unrelated chapter intact actors": true,
-      "unrelated chapter intact agents": true,
-      "no duplicate ids": true,
-      "all previous anchors preserved": true,
+      "retained case field record_date": true,
+      "retained case field verified_date": true,
+      "retained case field selected_business": true,
+      "retained case field chapter_title": true,
+      "retained case field summary_html": true,
+      "retained case field financial_scope": true,
+      "retained case field financial_facts": true,
+      "retained case field content_html": true,
+      "retained case field economic_unit": true,
+      "retained case field cost_inputs": true,
+      "retained case field classification": true,
+      "retained case field unknowns_note": true,
+      "retained case field company_sources_verified_date": true,
+      "retained case field deepening_verified_date": true,
+      "retained case field deepening_basis": true,
+      "retained case field securities_closure_verified_date": true,
+      "retained case field agent_evidence_html": true,
+      "retained case field securities_closure_basis": true,
+      "retained case field adaptive_outlook_verified_date": true,
+      "retained case field outlook_title": true,
+      "existing sources and scope preserved": true,
+      "prior scoped revisions preserved": true,
+      "unchanged unrelated section change": true,
+      "unchanged unrelated section agents": true,
+      "unchanged unrelated section securities": true,
+      "unchanged unrelated section kyobo": true,
+      "unchanged unrelated section summary": true,
+      "single newly scoped patch <p>원화코인의 존재만으로 달러 자산의 수익률·안전자산·무역 결": true,
+      "single newly scoped patch <h3 id=\"env-heading-8\">자금 이동이 거시경제로": true,
+      "entire report contains only reviewed scopes": true,
+      "unique ids": true,
+      "all previous anchors remain": true,
       "all internal and accessibility targets resolve": true,
-      "all previous external URLs preserved": true,
-      "154 actual distinct external URLs": true,
-      "one four-hypothesis map": true,
-      "six securities functions": true,
-      "one securities function table": true,
-      "separate starting and recurring-use decisions": true,
-      "no excluded purpose framing reports/digital-finance-agentic-securities.html": true,
-      "no excluded purpose framing reports/source/kyobo_spc_case.json": true,
-      "no excluded purpose framing reports/README.md": true,
-      "prior economic derivation unchanged": true,
-      "current manifest version string": true,
-      "current result SHA256": true,
-      "environment source unchanged": true,
-      "default immutable Git source and saved source reproduce identical bytes": true
+      "all previous source URLs remain": true,
+      "exactly four scenario hypotheses": true,
+      "four initial judgment records": true,
+      "no fabricated execution": true,
+      "all followup results remain unobserved": true,
+      "five inherited context links clearly bounded": true,
+      "pending evidence for H1 and H4": true,
+      "survey counts and denominator retained": true,
+      "financial source conflict not hidden": true,
+      "excluded framing absent reports/digital-finance-agentic-securities.html": true,
+      "no stray non-Korean prose reports/digital-finance-agentic-securities.html": true,
+      "excluded framing absent reports/source/kyobo_spc_case.json": true,
+      "no stray non-Korean prose reports/source/kyobo_spc_case.json": true,
+      "excluded framing absent reports/source/adaptive_research_ledger.json": true,
+      "no stray non-Korean prose reports/source/adaptive_research_ledger.json": true,
+      "excluded framing absent reports/README.md": true,
+      "no stray non-Korean prose reports/README.md": true,
+      "default source regeneration identical bytes": true,
+      "manifest current version and digest": true,
+      "environment source preserved": true,
+      "reject unknown source": true,
+      "reject unknown hypothesis": true,
+      "reject fabricated execution": true
     },
-    "passed": 44,
-    "html_sha256": "e59f6611966f5bad808c5772da7740f23093ae737f5810a7dbece33b8261a581",
-    "external_urls": 154,
-    "scope": "Full current-v2.3.1 preservation outside explicitly scoped edits, retained facts/dates/equations, report structure and reproducibility. Not actual business experiment or complete source freshness check."
+    "html_sha256": "252380bb990d88c162e19bd7e884509397d7c568bcbcb3d572d1d97c6b35dcb8",
+    "external_urls": 163,
+    "scope": "Scoped preservation, source lineage and scenario/unknown states, exact regeneration and rejection of invalid ledger links. No actual SPC trial or all-jurisdiction refresh."
   },
-  "browser_checks": [
-    {
-      "name": "artifact identity",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "current v2.4",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "record date and new analysis date separated",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "navigation matches response-oriented heading",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "six securities business functions",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "four conditional economic hypotheses",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "positive and revision signals for all hypotheses",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "trial can measure currently unknown effect",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "institution customer task is hypothetical",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proposal attribution",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "excluded purpose wording absent",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "stock and price transmission visible",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "desktop no document overflow",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "search opens new folded primary-source evidence",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "new source location retained",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "delay scenario retains interaction",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "shock scenario retains interaction",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "new evidence available in print state",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "all scenario content available in print state",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "print state restored",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "mobile390 no document overflow",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "mobile customer task no document overflow",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "mobile320 no document overflow",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "no JavaScript errors",
-      "passed": true,
-      "detail": []
-    }
-  ],
-  "javascript_errors": [],
+  "browser_validation": {
+    "checked_at": "2026-10-07T15:05:41.189Z",
+    "url": "http://127.0.0.1:4189/digital-finance-agentic-securities.html#adaptive-finance-hypotheses",
+    "scope": "Affected hypothesis, actor, accounting and judgment sections, prior controls, mobile document widths. No actual business experiment or full-print visual audit.",
+    "checks": [
+      {
+        "name": "identity retained",
+        "passed": true
+      },
+      {
+        "name": "revision and dates separated",
+        "passed": true
+      },
+      {
+        "name": "four strong hypotheses",
+        "passed": true
+      },
+      {
+        "name": "strong scenario and predictions explicit",
+        "passed": true
+      },
+      {
+        "name": "positive and revision signals remain",
+        "passed": true
+      },
+      {
+        "name": "four observed source connections",
+        "passed": true
+      },
+      {
+        "name": "financial comparison period visible",
+        "passed": true
+      },
+      {
+        "name": "four judgment histories rendered",
+        "passed": true
+      },
+      {
+        "name": "follow-up outcomes unknown",
+        "passed": true
+      },
+      {
+        "name": "balance path hypothetical",
+        "passed": true
+      },
+      {
+        "name": "international regulatory scope stated",
+        "passed": true
+      },
+      {
+        "name": "Korean transmission branch present",
+        "passed": true
+      },
+      {
+        "name": "prior securities functions retained",
+        "passed": true
+      },
+      {
+        "name": "one Kyobo proposal",
+        "passed": true
+      },
+      {
+        "name": "excluded framing absent",
+        "passed": true
+      },
+      {
+        "name": "desktop no document overflow",
+        "passed": true
+      },
+      {
+        "name": "search opens ledger metadata",
+        "passed": true
+      },
+      {
+        "name": "prior scenario interaction retained",
+        "passed": true
+      },
+      {
+        "name": "ledger metadata available in print state",
+        "passed": true
+      },
+      {
+        "name": "print state restored",
+        "passed": true
+      },
+      {
+        "name": "mobile390 adaptive-finance-hypotheses no document overflow",
+        "passed": true
+      },
+      {
+        "name": "mobile390 research-learning-loop no document overflow",
+        "passed": true
+      },
+      {
+        "name": "mobile320 no document overflow",
+        "passed": true
+      },
+      {
+        "name": "no JavaScript errors",
+        "passed": true
+      }
+    ],
+    "errors": []
+  },
   "visual_review": {
-    "inspected": [
-      "desktop six-function securities table",
-      "desktop four-hypothesis response table",
-      "desktop customer task comparison",
-      "mobile390 hypothesis/table scroll",
-      "mobile390 institution task/table scroll"
+    "status": "reviewed_changed_scope",
+    "surfaces": [
+      "four desktop sections: hypotheses, actor evidence, judgment history, balance path",
+      "390px hypotheses and judgment-history screenshots"
     ],
-    "scope": "Changed current localhost HTML. Table content, typography and bounded horizontal scrolling inspected. Print-state visibility and restoration tested; no new PDF or full print-page visual inspection. Deployment readback is a separate post-publication check."
-  },
-  "repository_checks": {
-    "run_py": "passed; synthetic cases only, 8 assets and 10 documents",
-    "unit_tests": "22 passed with python -X utf8 -m unittest discover -s tests -v"
-  },
-  "source_checks": {
-    "retained_company_legal_product_evidence": {
-      "commit": "d0b3f6c50a77c72a9045767bd820f5e577720fd4",
-      "dates": "Company2026-10-06; economic/product/policy2026-10-07; original evidence cutoff2026-10-05",
-      "scope": "All existing source records and actual financial inputs retained, not a new full legal/market census."
-    },
-    "theory_text_rereads": [
-      "Coase1937, PDFpages4–6: price discovery, contracting, coordination costs",
-      "Diamond1996, printed51–52: delegated monitoring costs/incentives, author interpretation of1984model",
-      "BIS WP1363, printed3,13–14 equations20–23: assumptions, Treasury maturity, government budget and market clearing",
-      "FEDS Note2025-12-17, sections2.3/3.3: deposit concentration and funding-price scenarios"
+    "mobile_document_widths": [
+      390,
+      320
     ],
-    "classification": "H1–H4 and SPC workflow are analyst conditional applications. No modeled result is adopted as observed effect, probability, company advantage or revenue forecast.",
-    "independent_reviews": "Economics, securities business/function and empirical/authority scope reviewed independently. Two attribution/quality wording proposals incorporated; customer service-value and AI incremental-effect comparisons separated."
+    "limits": "Tables retain horizontal scrolling on narrow screens. Print-state restoration checked; no full exported PDF or every printed page visual audit."
   },
-  "limits": [
-    "One proposed Kyobo SPC state-information service; institution task is hypothetical, not an actual client implementation.",
-    "Actual contract/data/redistribution rights, costs, volumes, paid demand, partner split and eligible current counterparties remain unverified.",
-    "No measured SPC trial or causal AI/customer cost effect. Initial trial, recurring internal use and paid external expansion are distinct decisions.",
-    "Historical transaction post-maturity repayment/extension remains unverified.",
-    "Information payment is separate from securities purchase/redemption, and servicing from custody/key/title/investment/payment authority.",
-    "Four hypotheses describe conditional mechanisms and adaptive actions, without probabilities, adoption dates or fabricated thresholds.",
-    "No worldwide full legal census, private finance repository, Pages or automation update.",
-    "This receipt records pre-publication localhost checks; post-publication remote and live-render checks are separately recorded in the publishing task."
-  ]
+  "repository_validation": {
+    "run_py": "passed; eight synthetic assets and ten documents, no issuance/disclosure approvals",
+    "unittest": "22 tests passed",
+    "scope": "Existing prototype safeguards and synthetic calculation behavior; not real SPC operations or economic outcomes."
+  },
+  "analytical_validation": {
+    "economic_review": "No P1/P2 in reviewed economic/theoretical scope",
+    "evidence_review": "No P1. P2 comparison period in Circle statement corrected to prior-year same quarter; source figures preserved. Wording rechecked in final render."
+  },
+  "implementation": {
+    "judgment_records": 4,
+    "hypothesis_ids": [
+      "H1",
+      "H2",
+      "H3",
+      "H4"
+    ],
+    "hypothesis_version": "2.5",
+    "prior_hypothesis_version": "2.4",
+    "finance_context_links": 5,
+    "sources_in_seed_ledger": 6,
+    "schema_version": "1.0",
+    "scope": "First analyst judgment links and conditional response design. The renderer does not collect facts or authorize financial actions."
+  },
+  "source_limits": [
+    "No whole-report 163-URL refresh or all-jurisdiction legal census",
+    "Historical Fed survey and Nasdaq role choice are not current adoption measurements",
+    "NY Fed abstract and BOK research introduction reviewed; full causal identification/robustness not certified",
+    "BCBS international bank standard is not proof of US/Korea domestic adoption or securities NCR treatment",
+    "Coinbase rewards table/narrative increase conflict remains unresolved in source ledger; not used as an effect or profit estimate",
+    "Inherited finance event IDs are context only, with original review state; underlying legal sources not revalidated this revision"
+  ],
+  "not_completed": [
+    "Actual Kyobo cost/quality experiment",
+    "Recurring paid customers and contract/data rights",
+    "Follow-up outcomes and repeated judgment revisions over time",
+    "Autonomous research, model update or execution",
+    "Current Pages sync or new private finance baseline update"
+  ],
+  "publication_scope": "GitHub source and rendered publication are verified after this prepublication validation in the task receipt. No force push."
 }

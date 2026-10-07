@@ -1,0 +1,730 @@
+{
+  "schema_version": "1.0",
+  "ledger_version": "1.0",
+  "created_date": "2026-10-07",
+  "record_kind": "append_only_analyst_judgment_seed",
+  "status": "작성자 판단 원장 첫 버전. 새 자료에 따른 후속 판본·실제 실행·성과는 아직 없음",
+  "report_basis": {
+    "repository": "Eom-TaeJun/sto-ai-frontier",
+    "ref": "d388a43a0cc4b9e035a4b5ef43830147d2bab17e",
+    "source_path": "reports/source/kyobo_spc_case.json",
+    "report_version": "2.4",
+    "report_anchor": "adaptive-finance-hypotheses",
+    "hypothesis_version": "2.4",
+    "selected_business": "교보증권의 유동화SPC 계약·현금흐름 상태정보 서비스"
+  },
+  "finance_basis": {
+    "repository": "Eom-TaeJun/finance",
+    "ref": "23535b5a3c671abc6de25078faeadd7ef38575e4",
+    "path": "finance_economics/updates/2026-10-03/monitoring_run_2026-10-05.json",
+    "blob_sha": "23051a7a543a71e4780453c057d2af472135276c",
+    "run_id": "finance-weekly-2026-10-05",
+    "basis_checked_date": "2026-10-07",
+    "verification_scope": "원격 고정 판본을 읽고 사건ID·날짜·단계와 기존 확인 범위를 승계. 이번 원장 작성에서 각 사건의 법령 원문과 이후 단계는 재검증하지 않음"
+  },
+  "classification_rules": {
+    "FACT": "직접 읽은 원문의 관측·표·발언 또는 기존 판본에 저장된 사실. 회사 발언과 실적 실측은 구별",
+    "THEORY": "경제·금융 원리. 특정 사례에서 크기·인과·현행 규칙의 적용을 확인했다는 뜻이 아님",
+    "INTERPRETATION": "관측과 이론을 연결한 작성자 판단",
+    "HYPOTHESIS": "미확정 변화 경로. 강한 가정과 그 가정 하의 대응을 기록",
+    "PROPOSAL": "작성자의 조사·준비·실행 제안. 금융기관의 결정으로 표시하지 않음",
+    "UNKNOWN": "값 또는 근거를 확보하지 못함. null과 이유로 저장",
+    "numeric_confidence": "정량적 확률·효과·비용을 임의로 채우지 않음",
+    "revision_rule": "기존 record_id와 판단 본문을 보존하고 새 revision_of, 이전/현재 판단과 이유를 추가. schema_version 변경과 hypothesis_version 변경은 별도"
+  },
+  "sources": [
+    {
+      "id": "FED-SFOS-202509-Q16Q17-v20251203",
+      "url": "https://www.federalreserve.gov/data/sfos/september-2025-senior-financial-officer-survey.htm",
+      "title": "September 2025 Senior Financial Officer Survey Results",
+      "source_kind": "central_bank_survey",
+      "event_date": "2025-09-19/2025-09-29",
+      "publication_date": null,
+      "publication_date_reason": "페이지 마지막 갱신일은 확인했으나 최초 게시일은 별도로 확인하지 않음",
+      "source_version_date": "2025-12-03",
+      "effective_date": null,
+      "checked_date": "2026-10-07",
+      "locator": "Background; Part4 Q16 rows1–3; Q17 rows i, iii, v, vi, vii; Last Update",
+      "read_scope": "설문 배포·마감·응답 범위, 디지털 사업 우선순위와 항목별 기대 평균 표",
+      "limitations": "2025년 당시 전망·표본. 현재 도입률·기관별 실행·시장 확산 확률은 아님. 기관 식별자료와 동일문항 후속 패널 미확보"
+    },
+    {
+      "id": "NYFED-SR1185-v202602",
+      "url": "https://www.newyorkfed.org/research/staff_reports/sr1185",
+      "title": "Stablecoin Disintermediation",
+      "source_kind": "staff_research",
+      "authors": [
+        "Michael Junho Lee",
+        "Donny Tou"
+      ],
+      "event_date": null,
+      "publication_date": "2026-02",
+      "source_version_date": "2026-02",
+      "effective_date": null,
+      "checked_date": "2026-10-07",
+      "locator": "웹 초록·저자·발행월·번호1185",
+      "read_scope": "공식 소개·초록 직접 재독. 식별·모형·강건성 전체 검토 미완료",
+      "limitations": "저자 연구 결과이며 Fed의 채택된 정책이 아님. 한국·전 은행권·GENIUS 이후 전체 효과의 추정값으로 확대하지 않음"
+    },
+    {
+      "id": "NASDAQ-4Q2023-QA-CORRECTED-p13",
+      "url": "https://ir.nasdaq.com/static-files/7745ccc4-92b3-430e-9da7-e2018ceb5c57",
+      "title": "4Q2023 Earnings Conference Call Q&A Session (Corrected)",
+      "source_kind": "company_earnings_call_transcript",
+      "event_date": null,
+      "event_date_reason": "이 PDF 표제·해당 발언에서 정확한 통화 일자를 확인하지 않음",
+      "publication_date": null,
+      "publication_date_reason": "수정본 최초 게시일 미확인",
+      "source_version_date": "4Q2023 corrected transcript",
+      "effective_date": null,
+      "checked_date": "2026-10-07",
+      "locator": "인쇄13쪽, PDF index12: Adena Friedman의 디지털자산·수탁 선택 답변",
+      "read_scope": "직접 수탁자 진입 보류와 ETF 시장운영·기술 제공을 설명한 해당 문단",
+      "limitations": "과거 경영진의 역할 선택 설명. 현재2026 모든 서비스·고객·사업별 손익의 검증은 아님"
+    },
+    {
+      "id": "CIRCLE-Q22026-v20260805",
+      "url": "https://www.circle.com/pressroom/circle-reports-second-quarter-2026-results",
+      "title": "Circle Q2 2026 실적 발표",
+      "source_kind": "company_disclosure",
+      "publication_date": "2026-08-05",
+      "source_version_date": "2026-08-05",
+      "checked_date": "2026-10-07",
+      "locator": "Second Quarter Financial Highlights, reserve income and distribution/transaction/other costs",
+      "read_scope": "해당 표·주석·설명 범위 직접 재독",
+      "limitations": "회사 발표의 USD million 반올림. 전체 그룹실적과 에이전트 제품 성과는 별개"
+    },
+    {
+      "id": "COIN-10Q-20260630-000167978826000088",
+      "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000088/coin-20260630.htm",
+      "title": "Coinbase 2026Q2 Form10-Q",
+      "source_kind": "company_disclosure",
+      "publication_date": "2026-07-30",
+      "source_version_date": "2026-07-30",
+      "checked_date": "2026-10-07",
+      "locator": "주석5 인쇄13쪽, 주석17 인쇄24쪽, MD&A 인쇄34쪽",
+      "read_scope": "해당 표·주석·설명 범위 직접 재독",
+      "limitations": "비감사 분기 공시 USD thousand. rewards 표의 증가16.587m과 설명문45.4m 불일치가 미해결"
+    },
+    {
+      "id": "COIN-Q226-DECK-000167978826000087",
+      "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000087/q226earningsdeck_sec.htm",
+      "title": "Coinbase Q2 2026 earnings deck",
+      "source_kind": "company_disclosure",
+      "publication_date": "2026-07-30",
+      "source_version_date": "2026-07-30",
+      "checked_date": "2026-10-07",
+      "locator": "slide40 USDC Balances & Revenue",
+      "read_scope": "해당 표·주석·설명 범위 직접 재독",
+      "limitations": "수익 USD million 반올림. 자기보유 이자 포함 범위로 10-Q stablecoin revenue와 다름"
+    }
+  ],
+  "judgments": [
+    {
+      "record_id": "J-20261007-001-v1",
+      "revision_of": null,
+      "recorded_date": "2026-10-07",
+      "source_ids": [
+        "FED-SFOS-202509-Q16Q17-v20251203"
+      ],
+      "actor": "2025년9월 SFOS 응답 금융기관95개(국내60/FBO35)",
+      "jurisdiction": "US survey scope",
+      "product_or_role": "자체 지급코인, 예금토큰, 타발행자 준비자산 보관; 은행 지급·조달",
+      "fact": {
+        "classification": "FACT",
+        "statement": "Q16의 향후3년 높음+중간 우선순위는 자체코인6, 예금토큰10, 타발행사 준비자산보관14개다. Q17은 Fedwire 비운영시간 지급과 기관 자금시장 결제 속도의 증가를 평균적으로 기대한다.",
+        "observations": [
+          {
+            "item": "own_stablecoin_high_plus_medium",
+            "value": 6,
+            "unit": "respondent_count",
+            "denominator": 95,
+            "derivation": "1+5",
+            "kind": "declared_priority"
+          },
+          {
+            "item": "tokenized_deposits_high_plus_medium",
+            "value": 10,
+            "unit": "respondent_count",
+            "denominator": 95,
+            "derivation": "6+4",
+            "kind": "declared_priority"
+          },
+          {
+            "item": "other_issuer_reserve_assets_high_plus_medium",
+            "value": 14,
+            "unit": "respondent_count",
+            "denominator": 95,
+            "derivation": "6+8",
+            "kind": "declared_priority"
+          },
+          {
+            "item": "off_fedwire_hours_payment_activity",
+            "value": "0.9",
+            "unit": "average_rating_minus2_to_plus2",
+            "denominator": 58,
+            "kind": "declared_expectation"
+          },
+          {
+            "item": "money_market_settlement_speed",
+            "value": "0.6",
+            "unit": "average_rating_minus2_to_plus2",
+            "denominator": 53,
+            "kind": "declared_expectation"
+          },
+          {
+            "item": "funding_cost",
+            "value": "0.2",
+            "unit": "average_rating_minus2_to_plus2",
+            "denominator": 56,
+            "kind": "declared_expectation"
+          },
+          {
+            "item": "deposit_outflow_rate",
+            "value": "0.5",
+            "unit": "average_rating_minus2_to_plus2",
+            "denominator": 53,
+            "kind": "declared_expectation"
+          },
+          {
+            "item": "deposit_level",
+            "value": "0.1",
+            "unit": "average_rating_minus2_to_plus2",
+            "denominator": 55,
+            "kind": "declared_expectation"
+          }
+        ],
+        "boundary": "Q16 항목을 더해 서로 다른 기관 수로 만들지 않는다. Q17은 unsure를 제외하며 분모가 다르다. 수치는 퍼센트포인트·확률·실제 흐름·2026 현재 전망이 아님"
+      },
+      "hypothesis_links": [
+        {
+          "id": "H2",
+          "version": "2.4",
+          "affected_link": "잔액 재배치→조달 집중·가격·유출 속도",
+          "evidence_role": "historical_declared_expectations"
+        },
+        {
+          "id": "H3",
+          "version": "2.4",
+          "affected_link": "이전시간 확대→지급시점/실제 현금 공급의 간극",
+          "evidence_role": "historical_declared_expectations"
+        }
+      ],
+      "theory": {
+        "classification": "THEORY",
+        "statement": "동일한 환경 충격에도 기존 고객·인가·자본·조달구조와 역할별 기대수익이 다르면 최적 진입 강도와 사업 형태는 다르다. 장래 선택권을 위한 작은 준비와 현재 대규모 영업은 구별된다."
+      },
+      "interpretation": {
+        "classification": "INTERPRETATION",
+        "statement": "당시 표본에서는 변화의 지급·속도 효과 기대와 자체 발행 우선순위가 같지 않았다. H2/H3를 은행 예금의 일률적 소멸보다 역할·조달·운영시간의 차별적 변화로 연구할 이유가 있다."
+      },
+      "strong_assumption": {
+        "classification": "HYPOTHESIS",
+        "statement": "기업의 적격 자금관리 에이전트가 여러 공급자의 잔액·수익률·현금화 조건을 자주 비교하고 이동할 수 있는 환경이 광범위해졌다고 가정한다. 일부 은행이 직접 발행하지 않아도 가격·지급·조달 경쟁에 노출될 수 있다.",
+        "probability": null,
+        "probability_reason": "선택한 전망 시나리오이며 확률을 추정하지 않음"
+      },
+      "judgment_change": {
+        "previous_basis": "report-v2.4-H2/H3",
+        "previous": "디지털 잔액 비교·전환은 보유/집중/조달을 바꾸고, 확대된 이전시간은 현금 공급과의 간극을 만들 수 있다.",
+        "current": "가설을 유지하되 역할별 우선순위와 운영시간 기대를 분리한다. 일률적 자체코인 출시와 예금 감소를 가설의 필수 조건으로 두지 않는다.",
+        "change_kind": "mechanism_refinement_no_quantitative_probability_update",
+        "reason": "같은 표본에서 제품 우선순위와 기대 효과가 서로 다른 문항·단위로 관측된다."
+      },
+      "analyst_response": {
+        "classification": "PROPOSAL",
+        "statement": "발행·준비금보관·지급연결·예금토큰별 기대와 실제 자원/계약/반복 사용을 대조한다. 증권사는 은행·수탁·지급 파트너의 업무시간·현금 제공·비용 조건을 상품정보에 연결할 준비를 한다.",
+        "status": "proposed",
+        "executed": false
+      },
+      "actual_actor_action": {
+        "classification": "UNKNOWN",
+        "status": "institution_level_followup_not_verified",
+        "statement": "응답기관별 후속 투자·인가·계약·영업 실적은 이 자료에서 확인하지 않음",
+        "measured_result": null
+      },
+      "next_evidence": [
+        "동일 또는 식별 가능한 후속 표본의 같은 문항",
+        "역할별 법인·인가·계약·실제 비용과 반복 운영",
+        "예금가격·집중·일중지급·외부고객 유지의 동일기간 비교"
+      ],
+      "update_branches": {
+        "strengthen": "반복 비교·전환과 지급시간 수요가 늘고 역할별 유료 사용·계약 변경이 발생",
+        "revise": "진입제약·전환비용·기존 은행 대응으로 잔액 이동이 작고 기존 경로가 충분히 경쟁적",
+        "response_when_uncertain": "기관별 조건·마감·상태와 권한 정리부터 시행하고 자체발행 또는 전면적인 유동성 약속은 별도 판단"
+      },
+      "followup_outcome": {
+        "status": "not_yet_observed",
+        "actual_decision": null,
+        "revenue": null,
+        "full_cost": null,
+        "loss": null,
+        "checked_date": null
+      }
+    },
+    {
+      "record_id": "J-20261007-002-v1",
+      "revision_of": null,
+      "recorded_date": "2026-10-07",
+      "source_ids": [
+        "NYFED-SR1185-v202602"
+      ],
+      "actor": "저자 연구의 스테이블코인 예금 파트너 은행과 비교 은행",
+      "jurisdiction": "연구 표본; 한국 적용 미검증",
+      "product_or_role": "발행·상환의 은행 지급과 준비금·대출자산 구성",
+      "fact": {
+        "classification": "FACT",
+        "statement": "저자들은 온체인 거래와 은행 간 지급을 연결한 자료로 파트너 은행의 지급 수요·유동성 노출·준비금 부담과 비교 은행 대비 낮아지는 대출의 자산 비중을 보고한다.",
+        "boundary": "초록의 연구 결과 요약. 원자료 재현·전체 식별/강건성·총은행권 신용효과는 이번에 검증하지 않음",
+        "effect_size": null,
+        "effect_size_reason": "이번 읽은 범위에서 동일 정의의 계수를 전사하지 않음"
+      },
+      "hypothesis_links": [
+        {
+          "id": "H2",
+          "version": "2.4",
+          "affected_link": "은행으로 재유입된 자금→예금 안정성/일중지급→유동성·조달·신용구성",
+          "evidence_role": "research_mechanism_support_limited_scope"
+        },
+        {
+          "id": "H3",
+          "version": "2.4",
+          "affected_link": "온체인 발행·상환→실제 은행현금 지급과 운영 제약",
+          "evidence_role": "research_mechanism_support_limited_scope"
+        }
+      ],
+      "theory": {
+        "classification": "THEORY",
+        "statement": "은행은 유동성 변환과 신용 공급을 함께 수행한다. 같은 기말 예금액도 집중도·회전·예측가능성·일중결제 요구가 다르면 준비금·자금비용·자산 배분의 최적 선택이 달라진다."
+      },
+      "interpretation": {
+        "classification": "INTERPRETATION",
+        "statement": "국채 매도자나 준비금 운용을 통해 자금이 은행으로 돌아온다는 회계 경로만으로 영향이 없다고 결론낼 수 없다. 잔액 순감소 없이도 유동성 부담과 공급조건을 조사해야 한다."
+      },
+      "strong_assumption": {
+        "classification": "HYPOTHESIS",
+        "statement": "에이전트가 잔액·담보·지급을 상시 최적화하고 다수가 비슷한 정보에 반응하는 상황을 가정한다. 총량 재순환과 별개로 이동 속도와 집중이 은행·증권사의 일중 유동성 가격을 중요하게 만들 수 있다.",
+        "probability": null,
+        "probability_reason": "전망 시나리오이며 전체시장 확산을 확인하지 않음"
+      },
+      "judgment_change": {
+        "previous_basis": "report-v2.4-H2/H3",
+        "previous": "예금의 재예치와 집중, 대체조달비가 변화에 중요하다.",
+        "current": "잔액 재배치에 더해 일중지급·회전·준비금 요구를 H2의 별도 전달고리로 명시한다. 수혜 은행조차 운용 제약을 받을 수 있다는 연구 경로를 검증 대상으로 추가한다.",
+        "change_kind": "add_testable_link_no_generalized_effect_estimate",
+        "reason": "연구가 기말잔액 설명만으로 빠지는 지급·유동성 경로를 보고함."
+      },
+      "analyst_response": {
+        "classification": "PROPOSAL",
+        "statement": "동일 은행·기간의 기말잔액, 일중지급, 준비금, 가격과 대출구성을 연결한다. 증권사는 현금·담보 공급의 마감·한도·휴일 조건을 확인하고 상태정보 공급을 독립적인 신용/유동성 약속과 구분한다.",
+        "status": "proposed",
+        "executed": false
+      },
+      "actual_actor_action": {
+        "classification": "UNKNOWN",
+        "status": "actual_response_to_research_not_verified",
+        "statement": "현재 한국기관이나 교보가 이 연구에 따라 정책·가격을 바꿨는지 미확인",
+        "measured_result": null
+      },
+      "next_evidence": [
+        "논문 전체 식별·표본·계수와 강건성 검토",
+        "파트너 은행별 지급·조달·준비금·대출의 비교 가능한 후속자료",
+        "기관의 가격·유동성 한도·영업시간과 계약 변경"
+      ],
+      "update_branches": {
+        "strengthen": "예금잔액 재유입과 함께 회전·예측불가 지급·준비금 수요 및 비용 상승이 관측",
+        "revise": "지급 상계·분산·유동성 제휴와 기존 기관 가격 반응으로 추가부담이 작아짐",
+        "response_when_uncertain": "시간별 현금 상태와 계약 한도 정보를 준비하되 측정 전 총신용 감소나 신규 금융수입을 예상값으로 저장하지 않음"
+      },
+      "followup_outcome": {
+        "status": "not_yet_observed",
+        "actual_decision": null,
+        "revenue": null,
+        "full_cost": null,
+        "loss": null,
+        "checked_date": null
+      }
+    },
+    {
+      "record_id": "J-20261007-003-v1",
+      "revision_of": null,
+      "recorded_date": "2026-10-07",
+      "source_ids": [
+        "NASDAQ-4Q2023-QA-CORRECTED-p13"
+      ],
+      "actor": "Nasdaq 경영진의 4Q2023 실적 설명",
+      "jurisdiction": "미국 회사 발언; 글로벌 기술 공급 설명",
+      "product_or_role": "직접 수탁과 거래·청산·결제·감시 기술/ETF 시장운영의 선택",
+      "fact": {
+        "classification": "FACT",
+        "statement": "CEO는 직접 수탁자 출시를 선택하지 않았고 수탁 기술을 고객에게 공급할 준비와 ETF 시장운영·산업 기술 제공을 설명했다. 직접 수탁의 자본집약성도 이유로 제시했다.",
+        "boundary": "회사 발언으로 확인한 과거 역할 선택. 각 기술의 반복 운영 규모·수입·순이익을 측정한 사실은 아님"
+      },
+      "hypothesis_links": [
+        {
+          "id": "H3",
+          "version": "2.4",
+          "affected_link": "디지털 이전·수탁 재설계→직접위험 부담 또는 기술/상태정보 공급·제휴의 선택",
+          "evidence_role": "historical_role_selection_counterexample"
+        }
+      ],
+      "theory": {
+        "classification": "THEORY",
+        "statement": "거래·조정비용 변화는 조직 경계를 바꿀 수 있지만 모든 기능의 내재화를 뜻하지 않는다. 자본·전문성·계약·위험 부담과 보완재 관계에 따라 기술 공급·위탁·제휴가 선택될 수 있다."
+      },
+      "interpretation": {
+        "classification": "INTERPRETATION",
+        "statement": "디지털 전환의 수혜를 직접 수탁자나 발행자 진입과 동일시하지 않는다. 증권사가 권리·상태·상품·기관관계를 공급하면서 인가와 자본이 필요한 실행 기능을 협업하는 경로도 유효한 가설이다."
+      },
+      "strong_assumption": {
+        "classification": "HYPOTHESIS",
+        "statement": "금융기관과 적격 고객의 에이전트가 상품뿐 아니라 계약·입금·분배·환매·정정 상태를 반복 호출하는 환경을 가정한다. 상태정보·해석·복구를 책임 있게 공급하는 사업이 직접 자산 보유나 결제·수탁 인수 없이 성장할 수 있다.",
+        "probability": null,
+        "probability_reason": "선택한 강한 시나리오이며 Nasdaq 사례가 에이전트 수요를 직접 증명하지 않음"
+      },
+      "judgment_change": {
+        "previous_basis": "report-v2.4-H3; selected Kyobo SPC business",
+        "previous": "증권사는 상태·최종결제를 구분하고 유동성·수탁·등록기관과 기능을 연결할 수 있다.",
+        "current": "수요가 확대되더라도 직접 수탁·결제 진입을 필수로 두지 않는다. 정보 공급과 위험 인수의 수익·자본·책임을 분리해 비교한다. 교보의 SPC 상태정보 제안은 이 분업 시나리오와 연결하되 타사 선택을 교보의 실제 전략으로 전용하지 않는다.",
+        "change_kind": "retain_hypothesis_refine_role_boundary",
+        "reason": "과거 기관의 직접 진입 보류와 기술 공급 선택은 변화 대응의 다른 역할을 보여줌."
+      },
+      "analyst_response": {
+        "classification": "PROPOSAL",
+        "statement": "한 SPC의 정기 보고·기일·현금흐름 대조 전체원가와 오류를 먼저 비교하고 고객의 반복 이용·지불 의사를 확인한다. 이후 허용된 API 제공·외부 공급을 검토한다. 직접 수탁·신용·지급 권한은 기존 업무수탁에서 자동 확대하지 않는다.",
+        "status": "proposed",
+        "executed": false
+      },
+      "actual_actor_action": {
+        "classification": "FACT",
+        "status": "historical_company_role_statement_only",
+        "statement": "Nasdaq의 과거 경영진 역할 선택 설명만 확인. 교보의 해당 제안 착수·계약·유료고객은 미확인",
+        "actor_scope": "Nasdaq historical statement",
+        "kyobo_status": "UNKNOWN",
+        "current_kyobo_decision": null,
+        "measured_result": null
+      },
+      "next_evidence": [
+        "Nasdaq의 현재 역할별 실제 운영·계약·사업 손익",
+        "교보의 SPC 업무 범위·전체 원가·실제 고객 확인",
+        "상태정보의 반복 호출·지불 의사·책임/정정 계약과 배분 후 공헌액"
+      ],
+      "update_branches": {
+        "strengthen": "실행기관과 분업한 상태정보 공급이 반복 사용·대가와 책임 경계를 확보",
+        "revise": "데이터 이전·권리·수요·복구 비용 탓에 외부 공급의 대가가 원가를 충당하지 못함",
+        "response_when_uncertain": "내부 대조·정정 품질 개선부터 검증하며 직접 수탁 진입은 별도 경제성·자격 검토"
+      },
+      "followup_outcome": {
+        "status": "not_yet_observed",
+        "actual_decision": null,
+        "revenue": null,
+        "full_cost": null,
+        "loss": null,
+        "checked_date": null
+      }
+    },
+    {
+      "record_id": "J-20261007-004-v1",
+      "revision_of": null,
+      "recorded_date": "2026-10-07",
+      "source_ids": [
+        "CIRCLE-Q22026-v20260805",
+        "COIN-10Q-20260630-000167978826000088",
+        "COIN-Q226-DECK-000167978826000087"
+      ],
+      "actor": "Circle·Coinbase의 2026년2분기 공시",
+      "jurisdiction": "미국 회사의 연결 공시",
+      "product_or_role": "준비금 수익·채널 배분·자기보유 수익·고객 보상",
+      "fact": {
+        "classification": "FACT",
+        "statement": "Circle은 평균 USDC 잔액이 전년 동분기보다 25% 늘고 준비금 수익률은66bp 낮아졌다고을 함께 설명하며 준비금 수익668m달러와 배분·거래·기타비용412m달러를 보고했다. Coinbase 10-Q의 stablecoin revenue는292.147m달러이며, deck의320m달러는 자기보유 수익 약28m달러를 포함한 별도 범위다.",
+        "boundary": "2026Q2 금액. Circle은 USD million 반올림, Coinbase 10-Q는 USD thousand. 이 값들은 에이전트 제품 이익·단독 사업 순이익이나 두 회사 간1:1 배분액이 아니다"
+      },
+      "hypothesis_links": [
+        {
+          "id": "H1",
+          "version": "2.4",
+          "affected_link": "고객관계·채널 배분→실제 수입과 고객 보상",
+          "evidence_role": "actual_financial_scope_comparison"
+        },
+        {
+          "id": "H2",
+          "version": "2.4",
+          "affected_link": "평균잔액×준비금 수익률→발행·유통의 수입",
+          "evidence_role": "actual_financial_scope_comparison"
+        }
+      ],
+      "theory": {
+        "classification": "THEORY",
+        "statement": "잔액의 수익은 평균잔액·수익률·배분·처리비와 함께 정해진다. 플랫폼은 고객 유입·유지의 대가를 요구하고 경쟁은 일부 수입을 고객에게 넘길 수 있다."
+      },
+      "interpretation": {
+        "classification": "INTERPRETATION",
+        "statement": "사용·잔액 성장과 이익 증가를 분리한다. H1/H2의 순기여는 금리, 고객/자기보유, 파트너 배분과 보상·전체 비용의 같은 기간 대사가 필요하다."
+      },
+      "strong_assumption": {
+        "classification": "HYPOTHESIS",
+        "statement": "에이전트가 지급자산과 금융상품을 반복 비교해 이용이 크게 증가한다고 둔다. 유통 경쟁과 보상도 함께 증가하면 같은 성장의 대가가 발행자·플랫폼·고객 사이에서 재배분될 수 있다.",
+        "probability": null,
+        "probability_reason": "조건부 시나리오. 회사 공시로 에이전트 보급률을 추정하지 않음"
+      },
+      "judgment_change": {
+        "previous_basis": "report-v2.4-H1/H2",
+        "previous": "외부 채널의 고객 선택과 디지털 잔액 이동은 수입·조달을 바꿀 수 있다.",
+        "current": "가설을 유지하고 평균잔액·금리·자기보유/고객보유·채널 배분·고객보상의 연결을 별도로 대사한다. 잔액 성장으로 증권사의 추가 이익을 바로 추정하지 않는다.",
+        "change_kind": "mechanism_refinement_no_quantitative_probability_update",
+        "reason": "같은 분기에도 공시 항목과 회사 설명 지표의 범위가 다르고 잔액·금리가 동시 변한다."
+      },
+      "analyst_response": {
+        "classification": "PROPOSAL",
+        "statement": "외부 유통과 자체 접점의 실제 반복 이용·보수배분을 비교하고 잔액형/거래형 수입을 나눈다. 교보 상태정보는 관리보수·추가 제공대가·채널비·검토 및 정정 원가를 같은 계약에서 확인한다.",
+        "status": "proposed",
+        "executed": false
+      },
+      "actual_actor_action": {
+        "classification": "FACT",
+        "statement": "Coinbase는2026Q1부터 자기보유 지급코인의 이자를 별도 항목으로 재분류하고 전년 비교값도 수정했다. 교보의 신규 계약·유료수요·실험결과는 미확인",
+        "measured_result": null
+      },
+      "next_evidence": [
+        "다음 분기의 동일 정의 평균잔액·금리·분배·고객 보상·현금흐름",
+        "상품별 계약·전체 처리원가·반복 사용과 가격",
+        "Coinbase rewards 표와 설명 증가액 불일치의 정정 여부"
+      ],
+      "unresolved_source_conflict": {
+        "source_id": "COIN-10Q-20260630-000167978826000088",
+        "locator": "Note17/MD&A sales and marketing",
+        "table_amounts_usd_thousand": {
+          "2026Q2": 119108,
+          "2025Q2": 102521,
+          "difference": 16587
+        },
+        "narrative_increase_usd_million": "45.4",
+        "status": "unresolved",
+        "handling": "차이 설명을 성과 근거로 쓰지 않음. rewards만 차감한 값을 순이익으로 표시하지 않음"
+      },
+      "followup_outcome": {
+        "status": "not_yet_observed",
+        "actual_decision": null,
+        "revenue": null,
+        "full_cost": null,
+        "loss": null,
+        "checked_date": null
+      }
+    }
+  ],
+  "finance_event_links": [
+    {
+      "finance_event_id": "US-FED-SCB-R1866-v20261002",
+      "source_url": "https://www.federalregister.gov/documents/2026/10/02/2026-20246/modifications-to-the-capital-plan-rule-and-stress-capital-buffer-requirement",
+      "source_locator": "DATES/I.A/I.B.2",
+      "inherited_publication_date": "2026-10-02",
+      "event_source_reverified_this_draft": false,
+      "hypothesis_id": "H2",
+      "hypothesis_version": "2.4",
+      "affected_link": "은행의 자본·조달 제약이 대응 가격과 공급능력에 미치는 환경",
+      "relationship": "context_only_not_digital_causal_evidence",
+      "inherited_stage": "final_not_yet_effective",
+      "inherited_effective_date": "2026-12-01",
+      "boundary": "10/5 원장의 단계 승계. 디지털자산의 개별 자본처리 변경 또는 이미 발생한 신용효과를 뜻하지 않음"
+    },
+    {
+      "finance_event_id": "US-FED-STRESS-R1873-v20261002",
+      "source_url": "https://www.govinfo.gov/content/pkg/FR-2026-10-02/html/2026-20247.htm",
+      "source_locator": "DATES/VI.H.4",
+      "inherited_publication_date": "2026-10-02",
+      "event_source_reverified_this_draft": false,
+      "hypothesis_id": "H2",
+      "hypothesis_version": "2.4",
+      "affected_link": "은행 제약·감독 환경과 자금 공급의 대조축",
+      "relationship": "context_only_not_digital_causal_evidence",
+      "inherited_stage": "final_not_yet_effective",
+      "inherited_effective_date": "2026-11-02",
+      "boundary": "디지털 변화에 대한 은행 대응과 다른 규제·경기 요인을 구분할 자료"
+    },
+    {
+      "finance_event_id": "US-SEC-34-106577-v20261002",
+      "source_url": "https://www.sec.gov/files/rules/sro/cboebzx/2026/34-106577.pdf",
+      "source_locator": "p1~3/5~6/8~9",
+      "inherited_publication_date": "2026-10-02",
+      "event_source_reverified_this_draft": false,
+      "hypothesis_id": "H3",
+      "hypothesis_version": "2.4",
+      "affected_link": "시장 접근 허용→실제 상품·운영·고객 사용",
+      "relationship": "context_only_legal_operating_stage",
+      "inherited_stage": "SEC listing_trading_rule approved; actual launch unverified",
+      "boundary": "다른 거래소 관련 사건. Nasdaq의 과거 역할 선택의 원인이나 실제 에이전트·토큰 운영의 증거로 연결하지 않음"
+    },
+    {
+      "finance_event_id": "KR-FSC-CYBER-87869-v20261002",
+      "source_url": "https://www.fsc.go.kr/no010101/87869",
+      "source_locator": "meeting/major discussions web lines311~355",
+      "inherited_publication_date": "2026-10-02",
+      "event_source_reverified_this_draft": false,
+      "hypothesis_id": "H4",
+      "hypothesis_version": "2.4",
+      "affected_link": "처리·검토·예외·복구·책임을 포함한 전체원가",
+      "relationship": "context_only_operational_recovery",
+      "inherited_stage": "incident response/investigation with inspection/reporting and compensation oversight planned; completion unknown",
+      "boundary": "AI·온체인이 원인인 사고라는 주장은 없음. 보상·복구의 실제 비용과 완료는 미확인"
+    },
+    {
+      "finance_event_id": "KR-FIU-VASP-87835-v20261001",
+      "source_url": "https://www.fsc.go.kr/no010101/87835?curPage=1&srchBeginDt=&srchCtgry=&srchEndDt=&srchKey=&srchText=",
+      "source_locator": "overview/results/footnotes",
+      "inherited_publication_date": "2026-10-01 displayed",
+      "event_source_reverified_this_draft": false,
+      "hypothesis_id": "H1",
+      "hypothesis_version": "2.4",
+      "affected_link": "고객 활동·수입·원가 변화의 대조축",
+      "relationship": "context_only_aggregate_activity_income",
+      "inherited_stage": "self-reported survey published",
+      "boundary": "가상자산사업자 집계의 거래·손익을 에이전트의 고객선택·증권사의 수수료 인과 또는 개별 플랫폼 보수로 귀속하지 않음"
+    }
+  ],
+  "hypothesis_next_evidence": [
+    {
+      "hypothesis_id": "H1",
+      "hypothesis_version": "2.4",
+      "status": "가설별 조사계획. 이 원장 시작3건에는 직접 에이전트 고객이동·보수 결과 증거가 없음",
+      "next_evidence": [
+        "상품·주문 API의 실제 공개범위와 적격 고객",
+        "고객 데이터·위임 이전의 계약조건",
+        "추천 순위·판매보수·채널 배분 계약",
+        "기존 고객 경로 변경과 신규 유입·반복 거래의 구분",
+        "자체 에이전트가 고객 유지에 미친 관측과 배분 후 순기여"
+      ],
+      "response_to_positive_scenario": "외부 에이전트가 고객 선택을 맡는다고 가정하고 비교 가능한 권리·요율·현금화·상태를 준비. 자체·외부 채널의 데이터와 책임·보수 권리도 함께 협상",
+      "unmeasured": [
+        "확산 확률",
+        "고객 이동률",
+        "수수료 압박의 크기",
+        "교보의 실제 계약·성과"
+      ]
+    },
+    {
+      "hypothesis_id": "H2",
+      "hypothesis_version": "2.4",
+      "status": "역사적 설문·연구로 전달고리 세분화. 현재 전체시장 효과 미확인",
+      "next_evidence": [
+        "통화·거주성·원재원별 발행/상환과 준비자산 이동",
+        "은행별 예금집중·일중 지급·조달·준비금",
+        "가격·만기·담보/레포 조건과 국채 순발행·매도자 재투자",
+        "은행 금리·스윕·예금토큰·제휴 반응과 고객 재선택"
+      ],
+      "response_to_positive_scenario": "잔액이 자주 이동한다고 가정하고 계약상의 실제 현금 사용 시점과 조달조건을 정리. 증권사의 재고·차환·담보 연결은 노출과 자격을 확인한 범위에서 확대",
+      "unmeasured": [
+        "전체 은행권 순예금/신용 인과",
+        "금리 효과 크기",
+        "한국 전파 추정",
+        "교보 추가 금융수입"
+      ]
+    },
+    {
+      "hypothesis_id": "H3",
+      "hypothesis_version": "2.4",
+      "status": "지급시간 기대와 과거 역할 선택이 있음. 상시 현금 공급·법적 최종결제의 보편화는 미확인",
+      "next_evidence": [
+        "토큰이전·수취 사용가능·법적 최종결제·상환의 시점",
+        "영업시간·선입금·오류·취소·복구의 전체 비용",
+        "권리 정본·수탁·등록·반환·배상의 실제 계약",
+        "직접보유/수탁과 기술·정보공급의 자본·비용·배분 후 대가 비교"
+      ],
+      "response_to_positive_scenario": "상시 토큰 이전을 가정하고 지급·권리·입금·정정 상태를 연결하되 계약 없는 상시 현금·반환 보장은 약속하지 않음. 기존 은행·등록·수탁기관과 분업 조건 준비",
+      "unmeasured": [
+        "시간 단축 총편익",
+        "시장조성·수탁 사업별 순이익",
+        "교보의 새 실행권한",
+        "실제 고객 채택"
+      ]
+    },
+    {
+      "hypothesis_id": "H4",
+      "hypothesis_version": "2.4",
+      "status": "SPC 전체업무 비교 설계 있음. 시작3건은 AI 원가·고객 확대를 직접 측정하지 않음",
+      "next_evidence": [
+        "기존 업무와 AI보조 업무의 자료수집·대조·검토·정정·예외·운영 전체원가",
+        "같은 품질·책임에서 담당자당 실제 관리가능 업무",
+        "거래당 대가와 공통 시스템/지원/책임 비용",
+        "추가 위임·고객 유지·외부 지불 의사",
+        "동시 실행·공통서비스 장애·복구와 지원 노출"
+      ],
+      "response_to_positive_scenario": "반복 처리의 전체원가가 크게 낮아진다고 가정하고 소규모·다건 관리의 손익분기 조건을 설계. 교보에서는 한 SPC·한 정기주기의 상태정보 대조부터 품질과 원가를 검증",
+      "unmeasured": [
+        "AI 인과적 원가 절감",
+        "실험 결과",
+        "손익분기 금액",
+        "유료 고객·계약",
+        "실제 공헌액"
+      ]
+    }
+  ],
+  "loop_definition": {
+    "economic_learning": "원문·관측→전달고리별 판단→작성자 대응 제안/실제 기관 결정의 구분→후속 결과→이전 판단을 보존한 새 판본. 가설 강화와 수정·범위 축소 모두 학습",
+    "market_self_reinforcement": "사용·수용·유동성·보완재의 확대로 채택이 더 유리해지거나 동조화·환매로 반대로 증폭되는 경제 현상. 원장 작성·연구 학습과 별개",
+    "current_implementation": "최초 작성자 판단 이력4개와 기존 사건ID의 문맥 연결을 기록했다. 시간 경과의 새 성과·기관 실행·반복 학습, 자동 수집과 결정은 아직 없음.",
+    "execution_authority": "기록은 조사와 검토 후보만 생성. 투자·발행·지급·공시 또는 모델/권한의 무승인 변경을 실행하지 않음",
+    "next_revision_minimum": [
+      "새 source_id/원문 판본/관측ID",
+      "어느 hypothesis_id/version/affected_link가 달라졌는지",
+      "이전 판단과 현재 판단·차이 이유",
+      "제안 또는 실제 결정의 상태와 증거",
+      "후속 결과·미확인·대조 요인"
+    ]
+  },
+  "published_report_version": "2.5",
+  "pending_hypotheses": [
+    {
+      "id": "H1",
+      "next_evidence": "상품·주문 API의 실제 공개범위와 적격 고객 / 고객 데이터·위임 이전의 계약조건 / 추천 순위·판매보수·채널 배분 계약 / 기존 고객 경로 변경과 신규 유입·반복 거래의 구분 / 자체 에이전트가 고객 유지에 미친 관측과 배분 후 순기여",
+      "interim_response": "외부 에이전트가 고객 선택을 맡는다고 가정하고 비교 가능한 권리·요율·현금화·상태를 준비. 자체·외부 채널의 데이터와 책임·보수 권리도 함께 협상"
+    },
+    {
+      "id": "H4",
+      "next_evidence": "기존 업무와 AI보조 업무의 자료수집·대조·검토·정정·예외·운영 전체원가 / 같은 품질·책임에서 담당자당 실제 관리가능 업무 / 거래당 대가와 공통 시스템/지원/책임 비용 / 추가 위임·고객 유지·외부 지불 의사 / 동시 실행·공통서비스 장애·복구와 지원 노출",
+      "interim_response": "반복 처리의 전체원가가 크게 낮아진다고 가정하고 소규모·다건 관리의 손익분기 조건을 설계. 교보에서는 한 SPC·한 정기주기의 상태정보 대조부터 품질과 원가를 검증"
+    }
+  ],
+  "hypothesis_versions": [
+    {
+      "id": "H1",
+      "version": "2.5",
+      "prior_version": "2.4",
+      "classification": "HYPOTHESIS",
+      "strong_scenario_prediction": "고객이 실질적인 선택권을 위임하고 공급자 전환도 가능하다고 둔다. 탐색비용 하락은 비교 가능한 판매·중개 보수를 압박한다. 반면 위임·추천·주문을 묶은 플랫폼에는 고객관계가 집중될 수 있다. 가격경쟁과 시장집중이 공존하며 독자 자산·실행 품질·책임 있는 복구가 선택의 이유가 된다.",
+      "proposed_response": "상품·총비용·조건·실행 품질을 호출 가능한 형태로 공급한다. 자체 에이전트와 외부 채널을 함께 사용하되 고객·데이터·위임 이전, 추천 순위와 판매보수, 배분·정정 책임을 계약한다. 비교 가능한 중개와 독자 상품·관리·실행의 대가를 구분한다.",
+      "next_evidence": "기존 hypothesis_next_evidence와 새 판단의 affected_link를 참조",
+      "change_reason": "사용자가 강한 조건부 전제에 따른 경제·금융 대응 추론을 요청. 관측된 보급률·발생확률의 변화로 표시하지 않음"
+    },
+    {
+      "id": "H2",
+      "version": "2.5",
+      "prior_version": "2.4",
+      "classification": "HYPOTHESIS",
+      "strong_scenario_prediction": "기관이 예금·펀드·디지털 지급자산 사이에서 잔액을 계속 비교·이동한다고 둔다. 총예금이 크게 줄지 않아도 잔액의 체류·집중·회전과 은행별 조달비용은 변할 수 있다. 은행의 금리·스윕·예금토큰 대응이 이동을 다시 바꾸므로 시간·통화·유동성의 상대가격이 핵심이다.",
+      "proposed_response": "고객의 지급 시각·통화·차환과 실제 자금 도착을 연결한다. 판매·FX·담보·유동성 제공의 수입과 위험을 나누고 은행·운용·자금공급 파트너와 대가·한도·대체 경로를 정한다. 잔액 수입과 거래 수입을 따로 평가한다.",
+      "next_evidence": "기존 hypothesis_next_evidence와 새 판단의 affected_link를 참조",
+      "change_reason": "사용자가 강한 조건부 전제에 따른 경제·금융 대응 추론을 요청. 관측된 보급률·발생확률의 변화로 표시하지 않음"
+    },
+    {
+      "id": "H3",
+      "version": "2.5",
+      "prior_version": "2.4",
+      "classification": "HYPOTHESIS",
+      "strong_scenario_prediction": "허용된 자산의 거래·이전과 담보 활용이 상시 반복된다고 둔다. 권리 이전의 마찰 감소는 수요를 넓히지만 실제 자금·상환·인가·복구는 보완재다. 이 병목을 함께 해결하는 기관에 대가가 모일 수 있다. 표준화·진입은 대가를 낮추고 독점 접근·공통 장애는 집중과 비용을 높일 수 있다.",
+      "proposed_response": "권리·수탁·현금·담보조건과 이전/환매 접수/실제 수취/채무 이행의 상태를 연결한다. 보관과 자금지원 의무를 별도 계약하고 은행·등록·수탁·청산과 시간외 자금 공급을 제휴한다. 직접 수행과 위탁을 자본·전체 비용·복구 용량으로 비교한다.",
+      "next_evidence": "기존 hypothesis_next_evidence와 새 판단의 affected_link를 참조",
+      "change_reason": "사용자가 강한 조건부 전제에 따른 경제·금융 대응 추론을 요청. 관측된 보급률·발생확률의 변화로 표시하지 않음"
+    },
+    {
+      "id": "H4",
+      "version": "2.5",
+      "prior_version": "2.4",
+      "classification": "HYPOTHESIS",
+      "strong_scenario_prediction": "검토·정정 포함 단위원가가 크게 낮아지고 품질은 유지된다고 둔다. 소규모·다건 관리의 손익분기점이 내려가지만 경쟁자의 같은 절감은 가격도 낮춘다. 자산 접근·감시 책임·적법한 실행·예외 해결이 희소한 보완재일 때 추가 수요의 대가를 보유할 여지가 커진다.",
+      "proposed_response": "계약·증빙 접근과 검토·정정 관계에서 시작해 절약 원가를 지출 회피·추가 수임·재수임으로 회수한다. 표준업무와 예외·지원의 가격 및 책임을 나누고 검토 용량·공통 모델 장애를 반영해 규모를 조정한다.",
+      "next_evidence": "기존 hypothesis_next_evidence와 새 판단의 affected_link를 참조",
+      "change_reason": "사용자가 강한 조건부 전제에 따른 경제·금융 대응 추론을 요청. 관측된 보급률·발생확률의 변화로 표시하지 않음"
+    }
+  ]
+}

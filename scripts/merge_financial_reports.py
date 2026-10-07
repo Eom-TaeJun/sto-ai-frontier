@@ -22,6 +22,7 @@ REPORT_PATH = "reports/digital-finance-agentic-securities.html"
 SOURCE_PATH = "reports/financial-environment-response.html"
 SOURCE_DATE = "2026-10-05"
 CASE_PATH = "reports/source/kyobo_spc_case.json"
+LEDGER_PATH = "reports/source/adaptive_research_ledger.json"
 VOID = set("area base br col embed hr img input link meta param source track wbr".split())
 
 
@@ -603,9 +604,60 @@ def apply_kyobo_case(result, manifest, case):
         raise ValueError("Duplicate IDs after adding the case")
     for node in final_doc.nodes:
         value = node.attrs.get("href", "")
-        if value.startswith("#") and value[1:] not in ids:
+        deferred = {"actor-expectation-evidence", "research-learning-loop"} if case.get("research_loop_verified_date") else set()
+        if value.startswith("#") and value[1:] not in ids and value[1:] not in deferred:
             raise ValueError("Unresolved case source anchor "+value)
     manifest.update({"version":revision, "result_sha256":hashlib.sha256(result.encode("utf-8")).hexdigest(), "bytes":len(result.encode("utf-8")), "result_external_urls":len(external_links(final_doc)), "decision_case":{"source_path":CASE_PATH,"verified_date":case["verified_date"],"company_sources_verified_date":case.get("company_sources_verified_date", case["verified_date"]),"deepening_verified_date":case.get("deepening_verified_date"),"selected_business":case["selected_business"],"scope":"One proposed Kyobo workflow; financial disclosures are not this product's earnings; no fabricated cost or client data. Lecture frameworks and original economic research inform the analyst's conditional application, not an attributed company or professor business plan.", "source_urls":[source["url"] for source in case["sources"]]}})
+    return result, manifest
+
+
+def apply_learning_ledger(result, manifest, ledger):
+    """Render reviewed observations and analyst revisions without deciding actions."""
+    sources = {source["id"]: source for source in ledger["sources"]}
+    judgments = ledger["judgments"]
+    record_ids = [row["record_id"] for row in judgments]
+    if len(sources) != len(ledger["sources"]) or len(record_ids) != len(set(record_ids)):
+        raise ValueError("Duplicate learning-ledger source or judgment IDs")
+    allowed = {"H1", "H2", "H3", "H4"}
+    for row in judgments:
+        if not row["source_ids"] or any(value not in sources for value in row["source_ids"]):
+            raise ValueError("Unresolved judgment source")
+        if any(link["id"] not in allowed for link in row["hypothesis_links"]):
+            raise ValueError("Unresolved judgment hypothesis")
+        if row["analyst_response"]["executed"]:
+            raise ValueError("This seed ledger has no executed analyst response")
+
+    def links(row):
+        return " · ".join('<a target="_blank" rel="noopener noreferrer" href="'+escape(sources[value]["url"], quote=True)+'">'+escape(sources[value]["title"])+"</a>" for value in row["source_ids"])
+
+    actor_rows = []
+    judgment_rows = []
+    for row in judgments:
+        record_id = escape(row["record_id"], quote=True)
+        actor_rows.append('<tr><td><strong>'+escape(row["actor"])+"</strong><br>"+escape(row["product_or_role"])+"</td><td>"+escape(row["fact"]["statement"])+"<br>"+links(row)+"</td><td>"+escape(row["fact"]["boundary"])+"<br><a href=\"#learning-record-"+record_id+'\">판단과 대응의 연결</a></td></tr>')
+        hypotheses = " · ".join(link["id"] for link in row["hypothesis_links"])
+        change = row["judgment_change"]
+        judgment_rows.append('<tr id="learning-record-'+record_id+'"><td><strong>'+record_id+"</strong><br>"+escape(hypotheses)+" · " + escape(row["recorded_date"])+"</td><td><strong>이전:</strong> "+escape(change["previous"])+"<br><strong>이번 세분화:</strong> "+escape(change["current"])+"</td><td><strong>작성자 제안:</strong> "+escape(row["analyst_response"]["statement"])+"<br><strong>기관의 확인된 행동:</strong> "+escape(row["actual_actor_action"]["statement"])+"</td><td>"+escape(" / ".join(row["next_evidence"]))+"<br><strong>후속 결과:</strong> 아직 미관측</td></tr>")
+    actor_html = '<div class="enrich" id="actor-expectation-evidence"><h3>참여자의 기대·역할 선택·수익을 서로 다른 증거로 읽는다</h3><p>발표와 시범 도입만으로 변화의 크기를 판단하지 않는다. 과거의 기대, 명시적인 역할 선택, 실제 분기 수입을 구분해 출발 기록을 만든다. 미공개 투자·반복 이용·사업별 원가는 공백으로 두고 같은 정의의 후속 자료를 대조한다.</p><div class="table-scroll" tabindex="0" role="region" aria-label="참여자의 기대와 선택의 확인 근거"><table><caption>관측 사실과 읽은 범위 · 2026년10월7일 확인</caption><thead><tr><th>주체·업무</th><th>확인한 사실</th><th>대상 시점과 확인 한계</th></tr></thead><tbody>'+"\n".join(actor_rows)+'</tbody></table></div><p>기관의 선택은 기대뿐 아니라 자본·인가·고객관계와 기존 역량을 반영한다. 준비 투자에는 미래 선택권을 확보하려는 목적도 있을 수 있다. 명시적인 직접 진입 보류와 단순한 무발표는 구분한다. 기대 → 자원 투입 → 계약과 책임 → 반복 이용 → 배분 후 수입·전체 원가 → 역할 변경의 순서로 <a href="#research-learning-loop">가설과 대응을 갱신</a>한다.</p></div>'
+    pending_rows = []
+    for row in ledger.get("pending_hypotheses", []):
+        pending_rows.append('<tr><td>'+escape(row["id"])+"</td><td>"+escape(row["next_evidence"])+"</td><td>"+escape(row["interim_response"])+"</td></tr>")
+    pending = '<div class="table-scroll" tabindex="0" role="region" aria-label="후속 관측이 필요한 가설"><table><caption>초기 원장에 실제 결과가 아직 없는 연결</caption><thead><tr><th>가설</th><th>다음에 확인할 증거</th><th>그동안 준비할 대응</th></tr></thead><tbody>'+"\n".join(pending_rows)+"</tbody></table></div>" if pending_rows else ""
+    learning_html = '<div class="enrich" id="research-learning-loop"><h4>관측을 가설과 대응의 변경 이력으로 연결한다</h4><p><strong class="evidence-label analysis">작성자 판단의 첫 연결 기록.</strong> 아래는 기존 v2.4 판단을 새로 확인한 근거에 연결하고 세분화한 최초 이력이다. 사건·출처·가설의 특정 전달고리와 이전/현재 판단을 보존한다. 후속 실험·기관 결정·성과의 반복 관측이 완료됐다는 뜻은 아니다.</p><p><strong>제도·시장 관측 → 참여자의 기대와 실제 선택 → 경제적 전달고리 → 전망 갱신 → 가격·파트너·한도·투자 대응 → 후속 결과 → 재검토</strong></p><div class="table-scroll" tabindex="0" role="region" aria-label="가설과 대응의 판단 변경 이력"><table><caption>출처는 2장의 관측표, 판단과 대응은 작성자의 분석</caption><thead><tr><th>기록·가설</th><th>이전 판단 → 이번 판단</th><th>제안과 실제 행동</th><th>다음 증거·결과</th></tr></thead><tbody>'+"\n".join(judgment_rows)+"</tbody></table></div>"+pending+'<p>다음 자료가 나오면 기존 판단을 덮어쓰지 않고 새 기록을 이전 기록에 연결한다. 전제의 실현 정도와 전제에서 결과로 가는 메커니즘을 따로 평가한다. 조회만 늘면 선택·유료 사용을, 잔액 대신 회전이 늘면 잔액형 보수와 실행 수요를, 원가와 가격이 함께 내려가면 비용 절감과 순기여를 나눠 갱신한다. 미확인은 가설 기각이나 값0으로 바꾸지 않는다.</p><p>사용·수용·유동성이 서로 확산을 돕는 시장의 자기강화와, 관측으로 대응을 개선하는 학습은 구분한다. 같은 모델·담보·파트너에 선택이 집중되면 평시 효율은 동시 환매·매도·자금 수요로 반전될 수 있다. 관측의 결과로 확대·제휴뿐 아니라 가격·지원 범위·투자 규모를 줄이는 것도 대응 개선이다.</p><details class="evidence-group" id="learning-ledger-method"><summary>판단 이력의 출처·판본과 후속 기록 방식</summary><div class="evidence-body"><p>원장 '+escape(ledger["ledger_version"])+" · 작성일 "+escape(ledger["created_date"])+'. <a target="_blank" rel="noopener noreferrer" href="https://github.com/Eom-TaeJun/sto-ai-frontier/blob/main/'+LEDGER_PATH+'">구조화된 판단 기록</a>에는 source_id, record_id, 가설ID/판본, 읽은 위치, 이전·현재 판단, 제안과 실제 행동, 다음 증거와 미관측 결과를 저장한다. 기존 finance의 고정 판본 관측은 해당 사건ID에 연결하되 가설의 직접 증거와 환경 문맥을 구분한다. 생성기는 검토한 원장을 화면에 반영하며 자동으로 사실을 수집하거나 금융기관의 의사결정·승인을 실행하지 않는다.</p></div></details></div>'
+    doc = Document(result)
+    actors = doc.by_id("actors")
+    result = result[:actors.inner_end]+"\n"+actor_html+"\n"+result[actors.inner_end:]
+    target = Document(result).by_id("adaptive-finance-hypotheses")
+    result = result[:target.end]+"\n"+learning_html+"\n"+result[target.end:]
+    result = result.replace('<a class="toc-sub" href="#securities-agent-conclusion">증권사의 역할과 교보의 대응 방향</a>', '<a class="toc-sub" href="#securities-agent-conclusion">증권사의 역할과 교보의 대응 방향</a><a class="toc-sub" href="#research-learning-loop">관측·가설·대응의 변경 이력</a>', 1)
+    result = result.replace("전망·대응 설계 보강 "+ledger["created_date"], "전망·대응 설계 보강 "+ledger["created_date"]+" · 관측·판단 연결 "+ledger["created_date"], 1)
+    doc = Document(result)
+    ids = [node.attrs["id"] for node in doc.nodes if "id" in node.attrs]
+    if len(ids) != len(set(ids)):
+        raise ValueError("Duplicate ID after learning-ledger rendering")
+    if any(node.attrs.get("href", "").startswith("#") and node.attrs["href"][1:] not in ids for node in doc.nodes):
+        raise ValueError("Unresolved learning-ledger anchor")
+    manifest.update({"result_sha256": hashlib.sha256(result.encode("utf-8")).hexdigest(), "bytes": len(result.encode("utf-8")), "result_external_urls": len(external_links(doc)), "learning_ledger": {"source_path": LEDGER_PATH, "version": ledger["ledger_version"], "judgment_records": record_ids, "source_ids": list(sources), "scope": "First reviewed analyst revision history; follow-up outcomes and operational trials remain unobserved. Rendering is not autonomous research or decision execution."}})
     return result, manifest
 
 
@@ -617,6 +669,7 @@ def main():
     parser.add_argument("--output",type=Path,default=repo/REPORT_PATH)
     parser.add_argument("--manifest",type=Path,help="Optional local verification manifest")
     parser.add_argument("--case",type=Path,default=repo/CASE_PATH,help="Reviewed Kyobo single-business case")
+    parser.add_argument("--ledger",type=Path,default=repo/LEDGER_PATH,help="Reviewed observation and analyst judgment history")
     args=parser.parse_args()
     if args.base:
         base=args.base.read_text(encoding="utf-8")
@@ -625,7 +678,11 @@ def main():
     environment=args.environment.read_text(encoding="utf-8")
     result,manifest=build(base,environment)
     case=json.loads(args.case.read_text(encoding="utf-8"))
+    if case.get("research_loop_verified_date") and not args.ledger.exists():
+        raise ValueError("This report revision requires its reviewed learning ledger")
     result,manifest=apply_kyobo_case(result,manifest,case)
+    if args.ledger.exists():
+        result,manifest=apply_learning_ledger(result,manifest,json.loads(args.ledger.read_text(encoding="utf-8")))
     args.output.parent.mkdir(parents=True,exist_ok=True)
     args.output.write_text(result,encoding="utf-8",newline="\n")
     if args.manifest:
