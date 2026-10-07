@@ -33,6 +33,12 @@
 
 현재 실행 환경에는 사용할 수 있는 브라우저 바이너리가 없어 실제 화면·클릭·모바일 동작 검증을 실시하지 못했다. 빌드 성공을 화면 검증의 통과로 표시하지 않았다.
 
+## 금융 전체 보고서 확장 · 2026-10-08
+
+**[변화하는 금융환경, 인프라와 그에 대한 대응](financial-environment-response.html#whole-finance-system)**의 **G1–G7** 확장은 지급·대출·사모신용·펀드·보험/연금·담보와 중앙은행의 연결, 기관별 대응, 한국 전파와 관측 설계를 분석한다. 기존 기록일 **2026-10-05**와 본문은 보존하며, 선정 원문 사실·기관 주장, 강한 조건부 가설, 실제 후속 결과 미관측을 구별한다. [공개 미리보기](https://htmlpreview.github.io/?https://raw.githubusercontent.com/Eom-TaeJun/sto-ai-frontier/main/reports/financial-environment-response.html#whole-finance-system).
+
+확장 원본은 `Eom-TaeJun/finance`의 검토한 고정 커밋 `2d5132971e4b6f8449df98e33a62f92d5b153634`에 있다. 재생성에는 비공개 finance 저장소의 접근권과 이 커밋을 HEAD로 둔 로컬 체크아웃이 필요하다. [가져오기 스크립트](../scripts/publish_whole_finance_extension.py)를 `python scripts/publish_whole_finance_extension.py --finance-checkout <로컬 finance 경로>`로 실행한다. 원본·생성기를 Git 내용과 대조해 검증·재생성하고, 공개 HTML의 확장 제거본이 같은 기존 원문인 경우에만 갱신한다. 이미 존재하는 공개 확장의 수동편집도 검토 없이 덮지 않는다. canonical JSON의 중복 사본은 공개 저장소에 추가하지 않는다. [검증 기록](financial-environment-response.verification.json)에 원본 커밋·파일·해시와 보존 범위를 남겼다. 이번 확장은 아래 교보증권 통합 보고서를 변경하지 않는다.
+
 ## 디지털 금융환경과 AI 에이전트 시대의 증권업 통합 보고서
 
 **[디지털 자산과 AI 에이전트가 바꾸는 증권업의 수익구조](digital-finance-agentic-securities.html)** · 기록일·초기 자료 기준일 **2026-10-05**, 통합 개정 **2.5** · 교보 사례 추가 원문 확인 **2026-10-06**, 경제·운영 분석 보강 **2026-10-07**.

@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "original_report_record_date": "2026-10-05",
+  "extension_record_date": "2026-10-08",
+  "canonical_repository": "Eom-TaeJun/finance",
+  "canonical_repository_visibility": "private_at_publication_check",
+  "canonical_commit": "2d5132971e4b6f8449df98e33a62f92d5b153634",
+  "canonical_files": {
+    "finance_economics/reports/financial_environment_response.html": {
+      "sha256_normalized_lf": "ccc643b4cf8a14dd564522c4e8f06b4559c8616dd746545a3d00b7e4d745c080"
+    },
+    "finance_economics/reports/build_financial_system_extension.py": {
+      "sha256_normalized_lf": "b0f823dc6b505000ce5b509aa945110c1fc27f681f5ae2c7e2254022dab57ee5"
+    },
+    "finance_economics/updates/2026-10-08/financial_system_hypotheses_source.json": {
+      "sha256_normalized_lf": "79c915cafd293d8ef0ea272dde1a7f509ada37f41a848ce951dd40edbdb68900"
+    },
+    "finance_economics/updates/2026-10-08/financial_system_extension_verification.json": {
+      "sha256_normalized_lf": "37b988cca11f516ccb7599656554b24075d6f2b10a7424eb2c7f8676187fd624"
+    },
+    "finance_economics/updates/2026-10-08/global_finance_system_hypotheses_2026-10-08.md": {
+      "sha256_normalized_lf": "27ca93960a5b74bfaa018a72b5e461cfa22143e151e67f9f8c405f7955647ab2"
+    }
+  },
+  "public_report": "reports/financial-environment-response.html",
+  "public_report_sha256": "ccc643b4cf8a14dd564522c4e8f06b4559c8616dd746545a3d00b7e4d745c080",
+  "base_report_sha256_normalized_lf": "b05d83c11e01b3447f46e090242b3f9061eae52d5a0dfdf0731c3b6c8c483916",
+  "existing_report_preserved_exactly_after_removing_extension": true,
+  "prior_date_preserved": "2026-10-05",
+  "prior_ids_and_source_links_preserved": true,
+  "hypothesis_ids": [
+    "G1",
+    "G2",
+    "G3",
+    "G4",
+    "G5",
+    "G6",
+    "G7"
+  ],
+  "source_records": 14,
+  "observation_designs": 8,
+  "new_measured_followup_results": 0,
+  "content_boundaries": {
+    "facts": "Selected primary-source statements and historical stages; company statements remain attributed.",
+    "hypotheses": "Author's strong conditional financial-system scenarios, not confirmed adoption or probabilities.",
+    "unobserved": "No actual followup business experiment, measured profit, current global-law census or institution readiness claim."
+  },
+  "preservation_scope": "Only WF-marked extension, its navigation, metadata, footer and evidence are imported. Earlier general-finance report and October 5 date remain unchanged; Kyobo HTML is not rewritten.",
+  "verification_scope": "Pinned finance inputs, canonical validation and deterministic regeneration, hashes, unchanged base, unique IDs and local fragment links. Browser/source/economic review are recorded separately; these are not product outcome tests.",
+  "protected_kyobo_report_sha256": "e9e97cd7ab863bc550dd5dc31401a81c98e4bab97855b9ccc794c5bd1dbb2e5d"
+}
