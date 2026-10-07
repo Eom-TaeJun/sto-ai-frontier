@@ -578,6 +578,24 @@ def apply_kyobo_case(result, manifest, case):
     if case.get("securities_closure_html"):
         result = result.replace('<a href="#outlook">7. 전망을 바꿀 조건</a>', '<a href="#outlook">7. 전망을 바꿀 조건</a><a class="toc-sub" href="#securities-agent-conclusion">증권사의 역할과 교보의 대응 방향</a>', 1)
     result = result.replace("환경·인프라 분석과 기관 대응 연구, 지원서 논의를 종합한 초판이다.", "환경·인프라 분석과 기관 대응 연구를 종합한 보고서다.", 1)
+    applied_revisions = []
+    for passage_revision in case.get("report_revisions", []):
+        target = Document(result).by_id(passage_revision["target_id"])
+        original = result[target.start:target.end]
+        if not passage_revision["before"] or original.count(passage_revision["before"]) != 1:
+            raise ValueError("Expected one reviewed passage in #" + passage_revision["target_id"])
+        if re.search(r"<script|\son\w+=", passage_revision["after"], re.I) or "{{" in passage_revision["after"]:
+            raise ValueError("Reviewed response passage contains executable markup or placeholders")
+        updated = original.replace(passage_revision["before"], passage_revision["after"], 1)
+        result = result[:target.start] + updated + result[target.end:]
+        applied_revisions.append(passage_revision["target_id"])
+    if case.get("outlook_title"):
+        if result.count("7. 전망을 바꿀 조건") != 2:
+            raise ValueError("Expected the original outlook heading and navigation")
+        result = result.replace("7. 전망을 바꿀 조건", escape(case["outlook_title"]))
+    if case.get("adaptive_outlook_verified_date"):
+        result = result.replace("증권사 대응·제품 문서 확인 " + case["securities_closure_verified_date"], "증권사 대응·제품 문서 확인 " + case["securities_closure_verified_date"] + " · 전망·대응 설계 보강 " + case["adaptive_outlook_verified_date"], 1)
+    manifest["adaptive_outlook"] = {"review_date": case.get("adaptive_outlook_verified_date"), "revised_sections": applied_revisions, "source_path": CASE_PATH, "scope": "Conditional economic hypotheses and adaptive response; six securities functions and one SPC customer task. No actual cost trial or company plan asserted."}
     result = result.rstrip()+"\n"
     final_doc = Document(result)
     ids = [node.attrs["id"] for node in final_doc.nodes if "id" in node.attrs]
