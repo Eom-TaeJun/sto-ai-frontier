@@ -15,8 +15,8 @@ import re
 import subprocess
 import sys
 
-FINANCE_COMMIT = "8d9d31ec74e30e0f87f5fb8c10bc89b4a1a8b6b4"
-REVIEWED_PREVIOUS_PUBLIC_SHA256 = "6e4d6ebb51b0effe70f19ac142a512002f42cd315a31e7bdfe4a10edc62309f1"
+FINANCE_COMMIT = "b033a47154a48fa8060700df12e9a5fe1410b7db"
+REVIEWED_PREVIOUS_PUBLIC_SHA256 = "afbaf1d9abbeaf7862d75d0400d760cecfba82d6f7c3532620d368b477423f12"
 ROOT = Path(__file__).resolve().parents[1]
 REPORT = "finance_economics/reports/financial_environment_response.html"
 BUILDER = "finance_economics/reports/build_financial_system_extension.py"
@@ -33,10 +33,14 @@ DEMAND_MARKDOWN = "finance_economics/collection/demand_contracts_2026-10-11.md"
 ECONOMIC_SOURCE = "finance_economics/collection/economic_functions_2026-10-11.json"
 ECONOMIC_BUILDER = "finance_economics/collection/render_economic.py"
 ECONOMIC_MARKDOWN = "finance_economics/collection/economic_functions_2026-10-11.md"
+JOINT_SOURCE = "finance_economics/collection/joint_scenario_2026-10-11.json"
+JOINT_BUILDER = "finance_economics/collection/render_joint.py"
+JOINT_MARKDOWN = "finance_economics/collection/joint_scenario_2026-10-11.md"
 REVIEWED_INPUTS = (REPORT, BUILDER, SOURCE, FINANCE_MANIFEST, MARKDOWN,
                    PERSPECTIVE_SOURCE, PERSPECTIVE_BUILDER, PERSPECTIVE_MARKDOWN, DISCOVERY_SUMMARY,
                    DEMAND_SOURCE, DEMAND_BUILDER, DEMAND_MARKDOWN,
-                   ECONOMIC_SOURCE, ECONOMIC_BUILDER, ECONOMIC_MARKDOWN)
+                   ECONOMIC_SOURCE, ECONOMIC_BUILDER, ECONOMIC_MARKDOWN,
+                   JOINT_SOURCE, JOINT_BUILDER, JOINT_MARKDOWN)
 PUBLIC_REPORT = ROOT / "reports/financial-environment-response.html"
 PUBLIC_MANIFEST = ROOT / "reports/financial-environment-response.verification.json"
 
@@ -86,6 +90,8 @@ def compatible_report(module, public, finance, expected_hash):
         raise ValueError("Missing reviewed demand and contract extension")
     if ids.count("economic-theory-functions") != 1:
         raise ValueError("Missing reviewed economic-function extension")
+    if ids.count("joint-productivity-dollar") != 1:
+        raise ValueError("Missing reviewed joint-shock extension")
     return public_base
 
 
@@ -129,6 +135,11 @@ def main():
         raise ValueError("Economic canonical hash does not match")
     if economic["boundaries"]["parameters_estimated"] or economic["boundaries"]["causal_outcomes_measured"]:
         raise ValueError("Explanatory functions have no estimated coefficients or causal response outcomes")
+    joint = json.loads((checkout / JOINT_SOURCE).read_text(encoding="utf-8"))
+    if verified["joint_extension"]["source_sha256_normalized_lf"] != digest(normalise((checkout / JOINT_SOURCE).read_bytes())):
+        raise ValueError("Joint canonical hash does not match")
+    if any(joint["boundaries"].values()):
+        raise ValueError("Joint scenario has no estimated outcomes, confirmed plans or external Page/schedule changes")
 
     protected = ROOT / "reports/digital-finance-agentic-securities.html"
     protected_hash = digest(protected.read_bytes())
@@ -162,10 +173,11 @@ def main():
         "verification_scope": "Pinned finance inputs, canonical validation and deterministic regeneration, hashes, unchanged base, unique IDs and local fragment links. Browser/source/economic review are recorded separately; these are not product outcome tests.",
         "protected_kyobo_report_sha256": protected_hash
     }
-    manifest["schema_version"] = "1.3"
+    manifest["schema_version"] = "1.4"
     manifest["perspectives_extension"] = verified["perspectives_extension"]
     manifest["demand_extension"] = verified["demand_extension"]
     manifest["economic_extension"] = verified["economic_extension"]
+    manifest["joint_extension"] = verified["joint_extension"]
     manifest["reviewed_previous_public_sha256"] = REVIEWED_PREVIOUS_PUBLIC_SHA256
     manifest["perspective_source_repository"] = "finance; public HTML is the reviewed reading copy, not another fact ledger"
     PUBLIC_REPORT.write_text(regenerated, encoding="utf-8", newline="\n")

@@ -76,3 +76,9 @@ python -m unittest discover -s tests -v
 [일반 금융환경 보고서 08D장](https://htmlpreview.github.io/?https://raw.githubusercontent.com/Eom-TaeJun/sto-ai-frontier/main/reports/financial-environment-response.html#economic-theory-functions)은 기존 08A–08C의 이론·기관 선택·실제 수요와 계약을 생산·노동·화폐·채권·안전자산·한국 자금 이동의 함수로 연결한다. AI의 과업 비용과 인간 노동시간, 지급·담보 편익과 은행 조달, 온체인 채권의 발행/유통, 플랫폼 접근성과 FX 수요·공급을 구분했다.
 
 16개 선정 원문과 기존 기록 참조 9개를 연결하고 작성자의 설명식 10개·강한 조건부 시나리오 5개·판단 갱신 3개를 추가했다. 식의 계수는 추정하지 않았고 1년 원화 환산 수익 계산기의 초기 값은 설명용 가정이다. 현재 상품 조건·한국 접근 허용과 향후 거의 마찰 없는 글로벌 접근 가정은 별도로 읽는다. 원장 스냅샷은 finance `8d9d31ec74e30e0f87f5fb8c10bc89b4a1a8b6b4`, 공개 HTML SHA256은 `afbaf1d9abbeaf7862d75d0400d760cecfba82d6f7c3532620d368b477423f12`다. 원문 위치·버전·읽기 경계는 근거 H에 있으며 새 경제적 효과나 기존 G 대응 실험의 결과를 측정한 기록은 아니다.
+
+## AI 생산성과 달러 접근의 동시 변화 · 2026-10-11
+
+[일반 금융환경 보고서 08E장](https://htmlpreview.github.io/?https://raw.githubusercontent.com/Eom-TaeJun/sto-ai-frontier/main/reports/financial-environment-response.html#joint-productivity-dollar)은 AI의 생산성 개선과 달러 안전자산 접근 확대를 함께 가정하고 미국·한국의 은행·증권·운용·중앙은행 여덟 역할을 비교한다. 수입·조달·위험의 변화, 강점의 조건과 지금 준비할 일·확대·방향 전환 기준을 세 고객 자금사슬에 연결한다.
+
+공급 확산·투자 과열·플랫폼 집중과 동시 환매의 세 분기에서 대응이 어떻게 달라지는지 설명한다. 선정 공시·상품 조건·중앙은행 연구는 근거 I에 따로 두었으며 기관의 확정 계획·추정 계수·실측 인과효과로 표시하지 않는다. 원장은 finance의 `finance_economics/collection/joint_scenario_2026-10-11.json`이며 고정 내용 버전과 보고서 해시는 이 저장소의 `reports/financial-environment-response.verification.json`에서 확인한다. 기존 08A–08D·증권업 보고서와 예제 데이터는 보존했다.
