@@ -1,22 +1,22 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "original_report_record_date": "2026-10-05",
   "extension_record_date": "2026-10-08",
   "canonical_repository": "Eom-TaeJun/finance",
   "canonical_repository_visibility": "private_at_publication_check",
-  "canonical_commit": "1c2c55cfa490238a966291b7541be1d2b16b731a",
+  "canonical_commit": "a6f11c28cb480d6a6c80de5655847fd62d70390b",
   "canonical_files": {
     "finance_economics/reports/financial_environment_response.html": {
-      "sha256_normalized_lf": "6fb1a806257d1609ca23b3ca55c4a68603999fb3c2535c953cd4acfbf7773c4a"
+      "sha256_normalized_lf": "6e4d6ebb51b0effe70f19ac142a512002f42cd315a31e7bdfe4a10edc62309f1"
     },
     "finance_economics/reports/build_financial_system_extension.py": {
-      "sha256_normalized_lf": "be699c1b2d82e51271dbf3bf9136a949f1f702265bcbbdecd47a1ee61fa61ce3"
+      "sha256_normalized_lf": "322edb238a9fdac915cbd6e26cb635b8a4931f922cab449e8bc1e0055979526f"
     },
     "finance_economics/updates/2026-10-08/financial_system_hypotheses_source.json": {
       "sha256_normalized_lf": "79c915cafd293d8ef0ea272dde1a7f509ada37f41a848ce951dd40edbdb68900"
     },
     "finance_economics/updates/2026-10-08/financial_system_extension_verification.json": {
-      "sha256_normalized_lf": "1896cafcd06883c0332c205939fc8e2681688bbfbae6aea365ee6e580817c2a5"
+      "sha256_normalized_lf": "431b4a33e9a300a1a51fd515d66c5d65ec78299c2dcf9c7cedff813726571f81"
     },
     "finance_economics/updates/2026-10-08/global_finance_system_hypotheses_2026-10-08.md": {
       "sha256_normalized_lf": "dfa07bc309c431fc887b9ff908248331ced12d0a20bf78c56643f711ed8065d3"
@@ -32,10 +32,19 @@
     },
     "finance_economics/collection/runs/2026-10-11-summary.json": {
       "sha256_normalized_lf": "552309c3f4e79018bcee46a088fc4f1b0b9d56b87cc7b0f4c0093a0c17ff84df"
+    },
+    "finance_economics/collection/demand_contracts_2026-10-11.json": {
+      "sha256_normalized_lf": "dc6a79c50435be6f6e30288c50413093866642196a781ed2243fb15a741500c6"
+    },
+    "finance_economics/collection/render_demand.py": {
+      "sha256_normalized_lf": "3185ce05fd7fc656492be03273b1ceecb70cf34e020f1c5a4a734afbd87e8c18"
+    },
+    "finance_economics/collection/demand_contracts_2026-10-11.md": {
+      "sha256_normalized_lf": "d9d006278aef0f5c8182ae4c2785f39185ff51ddea08e910c11c8dabf9257c59"
     }
   },
   "public_report": "reports/financial-environment-response.html",
-  "public_report_sha256": "6fb1a806257d1609ca23b3ca55c4a68603999fb3c2535c953cd4acfbf7773c4a",
+  "public_report_sha256": "6e4d6ebb51b0effe70f19ac142a512002f42cd315a31e7bdfe4a10edc62309f1",
   "base_report_sha256_normalized_lf": "b05d83c11e01b3447f46e090242b3f9061eae52d5a0dfdf0731c3b6c8c483916",
   "existing_report_preserved_exactly_after_removing_extension": true,
   "prior_date_preserved": "2026-10-05",
@@ -53,9 +62,9 @@
   "observation_designs": 8,
   "new_measured_followup_results": 0,
   "content_boundaries": {
-    "facts": "Selected primary-source statements and historical stages; company statements remain attributed.",
+    "facts": "Selected primary-source statements, customer choices, public prices/contracts and reported period financial values; company statements remain attributed.",
     "hypotheses": "Author's strong conditional financial-system scenarios, not confirmed adoption or probabilities.",
-    "unobserved": "No actual followup business experiment, measured profit, current global-law census or institution readiness claim."
+    "unobserved": "No causal response experiment, customer total-cost measurement, private signed customer agreement, isolated digital-product net profit, global-law census or institution readiness claim. Reported company financial values are separately scoped."
   },
   "preservation_scope": "Only WF-marked extension, its navigation, metadata, footer and evidence are imported. Earlier general-finance report and October 5 date remain unchanged; Kyobo HTML is not rewritten.",
   "verification_scope": "Pinned finance inputs, canonical validation and deterministic regeneration, hashes, unchanged base, unique IDs and local fragment links. Browser/source/economic review are recorded separately; these are not product outcome tests.",
@@ -80,16 +89,21 @@
     "schedule_changed": false,
     "source_scope": "Selected attributed external views and institutional choices; opinion and metadata discovery are not business outcomes, legal census or adoption measurements."
   },
-  "reviewed_previous_public_sha256": "ccc643b4cf8a14dd564522c4e8f06b4559c8616dd746545a3d00b7e4d745c080",
-  "perspective_source_repository": "finance; public HTML is the reviewed reading copy, not another fact ledger",
-  "local_browser_verification": {
-    "checks_passed": 28,
-    "recorded_on": "2026-10-11",
-    "scope": "New comparison/agency/source/view navigation, search, print disclosures; representative prior controls and320/390px widths; no full PDF pagination audit."
+  "demand_extension": {
+    "record_date": "2026-10-11",
+    "canonical_source_path": "finance_economics/collection/demand_contracts_2026-10-11.json",
+    "renderer_path": "finance_economics/collection/render_demand.py",
+    "source_sha256": "20ae204efa59a5fef08e137678ecd9311d1dfc54f7b1db04d5394211b7543251",
+    "renderer_sha256": "3185ce05fd7fc656492be03273b1ceecb70cf34e020f1c5a4a734afbd87e8c18",
+    "markdown_sha256": "d9d006278aef0f5c8182ae4c2785f39185ff51ddea08e910c11c8dabf9257c59",
+    "customer_cases": 8,
+    "contract_revenue_paths": 10,
+    "located_sources": 25,
+    "judgment_link_updates": 3,
+    "scope": "Selected reported customer choices, holdings and contract/fee metrics; no independent causal outcome experiment or global current-law census.",
+    "schedule_changed": false,
+    "Pages_changed": false
   },
-  "existing_poc_checks": {
-    "run.py": "passed synthetic8assets/10documents; no approvals",
-    "unit_tests_passed": 22,
-    "scope": "Existing prototype controls, not external evidence or financial profitability"
-  }
+  "reviewed_previous_public_sha256": "6fb1a806257d1609ca23b3ca55c4a68603999fb3c2535c953cd4acfbf7773c4a",
+  "perspective_source_repository": "finance; public HTML is the reviewed reading copy, not another fact ledger"
 }

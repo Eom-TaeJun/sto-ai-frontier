@@ -64,3 +64,9 @@ python -m unittest discover -s tests -v
 공개 근거, 판단 조건, 실행 결과를 확인할 수 있도록 구성했다. 합성데이터 POC의 결과는 실제 현업 적용·상품 구현·사업 효과를 증명하지 않는다. 미국 사례 보고서도 교보의 확정 사업계획이나 국내 판매·담보·결제 허용을 뜻하지 않는다.
 
 기준일: 2026-10-04. 작성 목적: 증권업의 현재 수익구조와 환경 변화, 교보증권의 조건부 대응 방식 분석.
+
+## 기업·보험·연금의 수요와 금융기관의 수익 · 2026-10-11
+
+[금융 전체 보고서 08C](https://htmlpreview.github.io/?https://raw.githubusercontent.com/Eom-TaeJun/sto-ai-frontier/main/reports/financial-environment-response.html#demand-contract-economics)는 선정 고객 8곳의 자금관리·투자 접근 방식을 미국 금융기관의 공개 요율·위탁·운용·수탁·유통 경로 10개와 연결한다. 총비용의 조건, 기간별 공시 손익, 직접 접근에 따른 중개료 변화, 도입 속도에 따른 대응과 한국의 적용 조건을 함께 비교한다.
+
+원장은 비공개 `Eom-TaeJun/finance`의 `finance_economics/collection/demand_contracts_2026-10-11.json`이며, 이 저장소에는 검토한 HTML 읽기본과 고정 버전의 가져오기·검증 기록을 둔다. 공개 보수·공시·고객 보고를 검토한 것으로, 비공개 서명계약이나 고객 전체 비용·인과효과를 확보한 조사는 아니다. 기존 증권업 보고서·예제 데이터·Pages·수집 일정은 이번 추가에서 변경하지 않았다.

@@ -15,8 +15,8 @@ import re
 import subprocess
 import sys
 
-FINANCE_COMMIT = "1c2c55cfa490238a966291b7541be1d2b16b731a"
-REVIEWED_PREVIOUS_PUBLIC_SHA256 = "ccc643b4cf8a14dd564522c4e8f06b4559c8616dd746545a3d00b7e4d745c080"
+FINANCE_COMMIT = "a6f11c28cb480d6a6c80de5655847fd62d70390b"
+REVIEWED_PREVIOUS_PUBLIC_SHA256 = "6fb1a806257d1609ca23b3ca55c4a68603999fb3c2535c953cd4acfbf7773c4a"
 ROOT = Path(__file__).resolve().parents[1]
 REPORT = "finance_economics/reports/financial_environment_response.html"
 BUILDER = "finance_economics/reports/build_financial_system_extension.py"
@@ -27,8 +27,12 @@ PERSPECTIVE_SOURCE = "finance_economics/collection/us_finance_perspectives_2026-
 PERSPECTIVE_BUILDER = "finance_economics/collection/render_perspectives.py"
 PERSPECTIVE_MARKDOWN = "finance_economics/collection/us_finance_perspectives_2026-10-11.md"
 DISCOVERY_SUMMARY = "finance_economics/collection/runs/2026-10-11-summary.json"
+DEMAND_SOURCE = "finance_economics/collection/demand_contracts_2026-10-11.json"
+DEMAND_BUILDER = "finance_economics/collection/render_demand.py"
+DEMAND_MARKDOWN = "finance_economics/collection/demand_contracts_2026-10-11.md"
 REVIEWED_INPUTS = (REPORT, BUILDER, SOURCE, FINANCE_MANIFEST, MARKDOWN,
-                   PERSPECTIVE_SOURCE, PERSPECTIVE_BUILDER, PERSPECTIVE_MARKDOWN, DISCOVERY_SUMMARY)
+                   PERSPECTIVE_SOURCE, PERSPECTIVE_BUILDER, PERSPECTIVE_MARKDOWN, DISCOVERY_SUMMARY,
+                   DEMAND_SOURCE, DEMAND_BUILDER, DEMAND_MARKDOWN)
 PUBLIC_REPORT = ROOT / "reports/financial-environment-response.html"
 PUBLIC_MANIFEST = ROOT / "reports/financial-environment-response.verification.json"
 
@@ -74,6 +78,8 @@ def compatible_report(module, public, finance, expected_hash):
             raise ValueError("Missing reviewed G hypothesis")
     if ids.count("us-finance-perspectives") != 1:
         raise ValueError("Missing reviewed perspectives extension")
+    if ids.count("demand-contract-economics") != 1:
+        raise ValueError("Missing reviewed demand and contract extension")
     return public_base
 
 
@@ -106,7 +112,12 @@ def main():
     if verified["result_sha256"] != before or verified["source_sha256"] != digest((checkout / SOURCE).read_bytes()):
         raise ValueError("Finance verification hashes do not match")
     if verified["new_measured_followup_results"] != 0:
-        raise ValueError("This extension has no measured followup outcomes")
+        raise ValueError("The preserved G designs have no measured response experiment outcomes")
+    demand = json.loads((checkout / DEMAND_SOURCE).read_text(encoding="utf-8"))
+    if verified["demand_extension"]["source_sha256"] != digest((checkout / DEMAND_SOURCE).read_bytes()):
+        raise ValueError("Demand canonical hash does not match")
+    if demand["boundaries"]["causal_effect_measured"] or demand["boundaries"]["private_customer_contracts_obtained"]:
+        raise ValueError("Unsupported causal outcome or private signed-contract claim")
 
     protected = ROOT / "reports/digital-finance-agentic-securities.html"
     protected_hash = digest(protected.read_bytes())
@@ -132,16 +143,17 @@ def main():
         "observation_designs": len(data["observations"]),
         "new_measured_followup_results": 0,
         "content_boundaries": {
-            "facts": "Selected primary-source statements and historical stages; company statements remain attributed.",
+            "facts": "Selected primary-source statements, customer choices, public prices/contracts and reported period financial values; company statements remain attributed.",
             "hypotheses": "Author's strong conditional financial-system scenarios, not confirmed adoption or probabilities.",
-            "unobserved": "No actual followup business experiment, measured profit, current global-law census or institution readiness claim."
+            "unobserved": "No causal response experiment, customer total-cost measurement, private signed customer agreement, isolated digital-product net profit, global-law census or institution readiness claim. Reported company financial values are separately scoped."
         },
         "preservation_scope": "Only WF-marked extension, its navigation, metadata, footer and evidence are imported. Earlier general-finance report and October 5 date remain unchanged; Kyobo HTML is not rewritten.",
         "verification_scope": "Pinned finance inputs, canonical validation and deterministic regeneration, hashes, unchanged base, unique IDs and local fragment links. Browser/source/economic review are recorded separately; these are not product outcome tests.",
         "protected_kyobo_report_sha256": protected_hash
     }
-    manifest["schema_version"] = "1.1"
+    manifest["schema_version"] = "1.2"
     manifest["perspectives_extension"] = verified["perspectives_extension"]
+    manifest["demand_extension"] = verified["demand_extension"]
     manifest["reviewed_previous_public_sha256"] = REVIEWED_PREVIOUS_PUBLIC_SHA256
     manifest["perspective_source_repository"] = "finance; public HTML is the reviewed reading copy, not another fact ledger"
     PUBLIC_REPORT.write_text(regenerated, encoding="utf-8", newline="\n")
