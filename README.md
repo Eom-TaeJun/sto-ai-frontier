@@ -82,3 +82,9 @@ python -m unittest discover -s tests -v
 [일반 금융환경 보고서 08E장](https://htmlpreview.github.io/?https://raw.githubusercontent.com/Eom-TaeJun/sto-ai-frontier/main/reports/financial-environment-response.html#joint-productivity-dollar)은 AI의 생산성 개선과 달러 안전자산 접근 확대를 함께 가정하고 미국·한국의 은행·증권·운용·중앙은행 여덟 역할을 비교한다. 수입·조달·위험의 변화, 강점의 조건과 지금 준비할 일·확대·방향 전환 기준을 세 고객 자금사슬에 연결한다.
 
 공급 확산·투자 과열·플랫폼 집중과 동시 환매의 세 분기에서 대응이 어떻게 달라지는지 설명한다. 선정 공시·상품 조건·중앙은행 연구는 근거 I에 따로 두었으며 기관의 확정 계획·추정 계수·실측 인과효과로 표시하지 않는다. 원장은 finance의 `finance_economics/collection/joint_scenario_2026-10-11.json`이며 고정 내용 버전과 보고서 해시는 이 저장소의 `reports/financial-environment-response.verification.json`에서 확인한다. 기존 08A–08D·증권업 보고서와 예제 데이터는 보존했다.
+
+## 2025년 하반기 온체인 전환의 이유 · 2026-10-11
+
+[일반 금융환경 보고서 08F장](https://htmlpreview.github.io/?https://raw.githubusercontent.com/Eom-TaeJun/sto-ai-frontier/main/reports/financial-environment-response.html#onchain-institutional-turn)은 미국 상반기의 회계·감독 절차 변화와 하반기의 법률·상품·인프라 연결을 한국의 예금토큰 실증·은행/플랫폼 협력·STO 입법 시간선과 비교한다. 기존 사건을 재검증한 종합이며, 거래비용·금융중개·네트워크 효과·불확실성 아래 투자로 기관의 유인을 설명한다.
+
+20개 선정 URL은 기존 사실의 재열람과 비온체인 담보 계약 대조도 포함한다. 산업 전체의 태도나 도입 인과효과를 측정한 결과가 아니다. JPM 공식 색인의 제한된 확인, FDIC 공식 배포문, 사건/발표/효력/운영의 구별은 근거 J에 남겼다. 원장은 finance의 `finance_economics/collection/onchain_turn_2026-10-11.json`이며 고정 버전과 해시는 공개 검증 기록에서 확인한다.

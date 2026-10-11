@@ -15,8 +15,8 @@ import re
 import subprocess
 import sys
 
-FINANCE_COMMIT = "b033a47154a48fa8060700df12e9a5fe1410b7db"
-REVIEWED_PREVIOUS_PUBLIC_SHA256 = "afbaf1d9abbeaf7862d75d0400d760cecfba82d6f7c3532620d368b477423f12"
+FINANCE_COMMIT = "96f03adca3575d88e443099498a20852d715491c"
+REVIEWED_PREVIOUS_PUBLIC_SHA256 = "cce4840fb1d8ce8fbd1308b1da95d49d1716018a359cafa34b55227d4747a1dd"
 ROOT = Path(__file__).resolve().parents[1]
 REPORT = "finance_economics/reports/financial_environment_response.html"
 BUILDER = "finance_economics/reports/build_financial_system_extension.py"
@@ -36,11 +36,15 @@ ECONOMIC_MARKDOWN = "finance_economics/collection/economic_functions_2026-10-11.
 JOINT_SOURCE = "finance_economics/collection/joint_scenario_2026-10-11.json"
 JOINT_BUILDER = "finance_economics/collection/render_joint.py"
 JOINT_MARKDOWN = "finance_economics/collection/joint_scenario_2026-10-11.md"
+ONCHAIN_SOURCE = "finance_economics/collection/onchain_turn_2026-10-11.json"
+ONCHAIN_BUILDER = "finance_economics/collection/render_onchain.py"
+ONCHAIN_MARKDOWN = "finance_economics/collection/onchain_turn_2026-10-11.md"
 REVIEWED_INPUTS = (REPORT, BUILDER, SOURCE, FINANCE_MANIFEST, MARKDOWN,
                    PERSPECTIVE_SOURCE, PERSPECTIVE_BUILDER, PERSPECTIVE_MARKDOWN, DISCOVERY_SUMMARY,
                    DEMAND_SOURCE, DEMAND_BUILDER, DEMAND_MARKDOWN,
                    ECONOMIC_SOURCE, ECONOMIC_BUILDER, ECONOMIC_MARKDOWN,
-                   JOINT_SOURCE, JOINT_BUILDER, JOINT_MARKDOWN)
+                   JOINT_SOURCE, JOINT_BUILDER, JOINT_MARKDOWN,
+                   ONCHAIN_SOURCE, ONCHAIN_BUILDER, ONCHAIN_MARKDOWN)
 PUBLIC_REPORT = ROOT / "reports/financial-environment-response.html"
 PUBLIC_MANIFEST = ROOT / "reports/financial-environment-response.verification.json"
 
@@ -92,6 +96,8 @@ def compatible_report(module, public, finance, expected_hash):
         raise ValueError("Missing reviewed economic-function extension")
     if ids.count("joint-productivity-dollar") != 1:
         raise ValueError("Missing reviewed joint-shock extension")
+    if ids.count("onchain-institutional-turn") != 1:
+        raise ValueError("Missing historical institutional transition review")
     return public_base
 
 
@@ -141,6 +147,10 @@ def main():
     if any(joint["boundaries"].values()):
         raise ValueError("Joint scenario has no estimated outcomes, confirmed plans or external Page/schedule changes")
 
+    onchain = json.loads((checkout / ONCHAIN_SOURCE).read_text(encoding="utf-8"))
+    if verified["onchain_extension"]["source_sha256_normalized_lf"] != digest(normalise((checkout / ONCHAIN_SOURCE).read_bytes())) or any(onchain["boundaries"].values()):
+        raise ValueError("Onchain source hash or scope mismatch")
+
     protected = ROOT / "reports/digital-finance-agentic-securities.html"
     protected_hash = digest(protected.read_bytes())
     manifest = {
@@ -173,11 +183,12 @@ def main():
         "verification_scope": "Pinned finance inputs, canonical validation and deterministic regeneration, hashes, unchanged base, unique IDs and local fragment links. Browser/source/economic review are recorded separately; these are not product outcome tests.",
         "protected_kyobo_report_sha256": protected_hash
     }
-    manifest["schema_version"] = "1.4"
+    manifest["schema_version"] = "1.5"
     manifest["perspectives_extension"] = verified["perspectives_extension"]
     manifest["demand_extension"] = verified["demand_extension"]
     manifest["economic_extension"] = verified["economic_extension"]
     manifest["joint_extension"] = verified["joint_extension"]
+    manifest["onchain_extension"] = verified["onchain_extension"]
     manifest["reviewed_previous_public_sha256"] = REVIEWED_PREVIOUS_PUBLIC_SHA256
     manifest["perspective_source_repository"] = "finance; public HTML is the reviewed reading copy, not another fact ledger"
     PUBLIC_REPORT.write_text(regenerated, encoding="utf-8", newline="\n")

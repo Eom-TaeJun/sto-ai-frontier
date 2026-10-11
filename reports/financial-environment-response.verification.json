@@ -1,22 +1,22 @@
 {
-  "schema_version": "1.4",
+  "schema_version": "1.5",
   "original_report_record_date": "2026-10-05",
   "extension_record_date": "2026-10-08",
   "canonical_repository": "Eom-TaeJun/finance",
   "canonical_repository_visibility": "private_at_publication_check",
-  "canonical_commit": "b033a47154a48fa8060700df12e9a5fe1410b7db",
+  "canonical_commit": "96f03adca3575d88e443099498a20852d715491c",
   "canonical_files": {
     "finance_economics/reports/financial_environment_response.html": {
-      "sha256_normalized_lf": "cce4840fb1d8ce8fbd1308b1da95d49d1716018a359cafa34b55227d4747a1dd"
+      "sha256_normalized_lf": "840cf9b2b2e4c6839f5e1fb185b7f0e51f87009feefb83b54f7f9e1a70534e37"
     },
     "finance_economics/reports/build_financial_system_extension.py": {
-      "sha256_normalized_lf": "ef2e27fce4503932907e883e06642593966c81d99b2f7758e6dc078997ad09d8"
+      "sha256_normalized_lf": "33526ad19d8c22ca344b6f29507b2919e20fdef58579069d9c732f90eb813091"
     },
     "finance_economics/updates/2026-10-08/financial_system_hypotheses_source.json": {
       "sha256_normalized_lf": "79c915cafd293d8ef0ea272dde1a7f509ada37f41a848ce951dd40edbdb68900"
     },
     "finance_economics/updates/2026-10-08/financial_system_extension_verification.json": {
-      "sha256_normalized_lf": "ebb57164d6851997c49a203bfbca20f759e35a60b2a3f71e16d79c66c1d7b193"
+      "sha256_normalized_lf": "fc311890c0ddee39165b170366bb2cd339379e58f2e6655c5deb1ac72b43bd98"
     },
     "finance_economics/updates/2026-10-08/global_finance_system_hypotheses_2026-10-08.md": {
       "sha256_normalized_lf": "dfa07bc309c431fc887b9ff908248331ced12d0a20bf78c56643f711ed8065d3"
@@ -59,10 +59,19 @@
     },
     "finance_economics/collection/joint_scenario_2026-10-11.md": {
       "sha256_normalized_lf": "7f74aa26602dd8e31c382c94dddff0a305df7e7982484279796228a79f0b5e06"
+    },
+    "finance_economics/collection/onchain_turn_2026-10-11.json": {
+      "sha256_normalized_lf": "25101baad0a5be917fa894aaf7fe3fdb714fd6e79a83ece6608ebc992150c74a"
+    },
+    "finance_economics/collection/render_onchain.py": {
+      "sha256_normalized_lf": "b7df3faa0969fd15698b9e60e3d676587981651a4325dcff4744b527a74291f9"
+    },
+    "finance_economics/collection/onchain_turn_2026-10-11.md": {
+      "sha256_normalized_lf": "2b016b9641b0c86e8b01a6587a91fae3c0545781ca3698d82510fa59417450f1"
     }
   },
   "public_report": "reports/financial-environment-response.html",
-  "public_report_sha256": "cce4840fb1d8ce8fbd1308b1da95d49d1716018a359cafa34b55227d4747a1dd",
+  "public_report_sha256": "840cf9b2b2e4c6839f5e1fb185b7f0e51f87009feefb83b54f7f9e1a70534e37",
   "base_report_sha256_normalized_lf": "b05d83c11e01b3447f46e090242b3f9061eae52d5a0dfdf0731c3b6c8c483916",
   "existing_report_preserved_exactly_after_removing_extension": true,
   "prior_date_preserved": "2026-10-05",
@@ -158,6 +167,22 @@
     "Pages_changed": false,
     "schedule_changed": false
   },
-  "reviewed_previous_public_sha256": "afbaf1d9abbeaf7862d75d0400d760cecfba82d6f7c3532620d368b477423f12",
+  "onchain_extension": {
+    "record_date": "2026-10-11",
+    "canonical_source_path": "finance_economics/collection/onchain_turn_2026-10-11.json",
+    "renderer_path": "finance_economics/collection/render_onchain.py",
+    "source_sha256_normalized_lf": "25101baad0a5be917fa894aaf7fe3fdb714fd6e79a83ece6608ebc992150c74a",
+    "renderer_sha256_normalized_lf": "b7df3faa0969fd15698b9e60e3d676587981651a4325dcff4744b527a74291f9",
+    "markdown_sha256": "2b016b9641b0c86e8b01a6587a91fae3c0545781ca3698d82510fa59417450f1",
+    "selected_sources": 20,
+    "sections": 7,
+    "scope": "Historical reconciliation and author economic interpretation; source reading limits include official indexed excerpts for one inaccessible company page.",
+    "causal_effect_estimated": false,
+    "whole_industry_attitude_measured": false,
+    "all_current_rules_checked": false,
+    "Pages_changed": false,
+    "schedule_changed": false
+  },
+  "reviewed_previous_public_sha256": "cce4840fb1d8ce8fbd1308b1da95d49d1716018a359cafa34b55227d4747a1dd",
   "perspective_source_repository": "finance; public HTML is the reviewed reading copy, not another fact ledger"
 }
