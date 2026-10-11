@@ -70,3 +70,9 @@ python -m unittest discover -s tests -v
 [금융 전체 보고서 08C](https://htmlpreview.github.io/?https://raw.githubusercontent.com/Eom-TaeJun/sto-ai-frontier/main/reports/financial-environment-response.html#demand-contract-economics)는 선정 고객 8곳의 자금관리·투자 접근 방식을 미국 금융기관의 공개 요율·위탁·운용·수탁·유통 경로 10개와 연결한다. 총비용의 조건, 기간별 공시 손익, 직접 접근에 따른 중개료 변화, 도입 속도에 따른 대응과 한국의 적용 조건을 함께 비교한다.
 
 원장은 비공개 `Eom-TaeJun/finance`의 `finance_economics/collection/demand_contracts_2026-10-11.json`이며, 이 저장소에는 검토한 HTML 읽기본과 고정 버전의 가져오기·검증 기록을 둔다. 공개 보수·공시·고객 보고를 검토한 것으로, 비공개 서명계약이나 고객 전체 비용·인과효과를 확보한 조사는 아니다. 기존 증권업 보고서·예제 데이터·Pages·수집 일정은 이번 추가에서 변경하지 않았다.
+
+## 경제 기능과 금융시장의 조정 · 2026-10-11
+
+[일반 금융환경 보고서 08D장](https://htmlpreview.github.io/?https://raw.githubusercontent.com/Eom-TaeJun/sto-ai-frontier/main/reports/financial-environment-response.html#economic-theory-functions)은 기존 08A–08C의 이론·기관 선택·실제 수요와 계약을 생산·노동·화폐·채권·안전자산·한국 자금 이동의 함수로 연결한다. AI의 과업 비용과 인간 노동시간, 지급·담보 편익과 은행 조달, 온체인 채권의 발행/유통, 플랫폼 접근성과 FX 수요·공급을 구분했다.
+
+16개 선정 원문과 기존 기록 참조 9개를 연결하고 작성자의 설명식 10개·강한 조건부 시나리오 5개·판단 갱신 3개를 추가했다. 식의 계수는 추정하지 않았고 1년 원화 환산 수익 계산기의 초기 값은 설명용 가정이다. 현재 상품 조건·한국 접근 허용과 향후 거의 마찰 없는 글로벌 접근 가정은 별도로 읽는다. 원장 스냅샷은 finance `8d9d31ec74e30e0f87f5fb8c10bc89b4a1a8b6b4`, 공개 HTML SHA256은 `afbaf1d9abbeaf7862d75d0400d760cecfba82d6f7c3532620d368b477423f12`다. 원문 위치·버전·읽기 경계는 근거 H에 있으며 새 경제적 효과나 기존 G 대응 실험의 결과를 측정한 기록은 아니다.
