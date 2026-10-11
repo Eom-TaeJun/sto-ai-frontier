@@ -88,3 +88,9 @@ python -m unittest discover -s tests -v
 [일반 금융환경 보고서 08F장](https://htmlpreview.github.io/?https://raw.githubusercontent.com/Eom-TaeJun/sto-ai-frontier/main/reports/financial-environment-response.html#onchain-institutional-turn)은 미국 상반기의 회계·감독 절차 변화와 하반기의 법률·상품·인프라 연결을 한국의 예금토큰 실증·은행/플랫폼 협력·STO 입법 시간선과 비교한다. 기존 사건을 재검증한 종합이며, 거래비용·금융중개·네트워크 효과·불확실성 아래 투자로 기관의 유인을 설명한다.
 
 20개 선정 URL은 기존 사실의 재열람과 비온체인 담보 계약 대조도 포함한다. 산업 전체의 태도나 도입 인과효과를 측정한 결과가 아니다. JPM 공식 색인의 제한된 확인, FDIC 공식 배포문, 사건/발표/효력/운영의 구별은 근거 J에 남겼다. 원장은 finance의 `finance_economics/collection/onchain_turn_2026-10-11.json`이며 고정 버전과 해시는 공개 검증 기록에서 확인한다.
+
+## 미국 기관의 실제 온체인 업무 · 2026-10-11
+
+[일반 금융환경 보고서 08G장](https://htmlpreview.github.io/?https://raw.githubusercontent.com/Eom-TaeJun/sto-ai-frontier/main/reports/financial-environment-response.html#onchain-workflow-economics)은 Citi, JPM/OCBC, BNY·GS, IBKR, Broadridge DLR, BUIDL, BENJI의 7개 업무를 기존 계좌·API·펀드·수탁·repo와 비교한다. 공개 요율·회계 수입·고객 절감 추산과 작성자의 수익·고객관계 해석을 구별하고 한국 은행·증권·운용·수탁/공공 인프라의 선행 업무를 제안한다.
+
+18개 선정 출처에는 기존 자료 재확인이 포함된다. IBKR 금액별 비용은 공개 누진요율의 산술이며 총비용 실측값이 아니다. Broadridge의 Canton 서비스 매출은 고객 DLR 이용료·현금·순이익과 다르다. 한국의 정책방향·입법예고는 확정 규칙이나 운영 완료가 아니다. 원장은 finance의 `finance_economics/collection/onchain_workflows_2026-10-11.json`이며 공개 검증 기록에 고정 버전과 해시를 남긴다.

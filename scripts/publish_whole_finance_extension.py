@@ -15,8 +15,8 @@ import re
 import subprocess
 import sys
 
-FINANCE_COMMIT = "96f03adca3575d88e443099498a20852d715491c"
-REVIEWED_PREVIOUS_PUBLIC_SHA256 = "cce4840fb1d8ce8fbd1308b1da95d49d1716018a359cafa34b55227d4747a1dd"
+FINANCE_COMMIT = "eb176ffeb5d2bc743cf835f7dbf2acda541eb763"
+REVIEWED_PREVIOUS_PUBLIC_SHA256 = "840cf9b2b2e4c6839f5e1fb185b7f0e51f87009feefb83b54f7f9e1a70534e37"
 ROOT = Path(__file__).resolve().parents[1]
 REPORT = "finance_economics/reports/financial_environment_response.html"
 BUILDER = "finance_economics/reports/build_financial_system_extension.py"
@@ -39,12 +39,16 @@ JOINT_MARKDOWN = "finance_economics/collection/joint_scenario_2026-10-11.md"
 ONCHAIN_SOURCE = "finance_economics/collection/onchain_turn_2026-10-11.json"
 ONCHAIN_BUILDER = "finance_economics/collection/render_onchain.py"
 ONCHAIN_MARKDOWN = "finance_economics/collection/onchain_turn_2026-10-11.md"
+WORKFLOWS_SOURCE = "finance_economics/collection/onchain_workflows_2026-10-11.json"
+WORKFLOWS_BUILDER = "finance_economics/collection/render_workflows.py"
+WORKFLOWS_MARKDOWN = "finance_economics/collection/onchain_workflows_2026-10-11.md"
 REVIEWED_INPUTS = (REPORT, BUILDER, SOURCE, FINANCE_MANIFEST, MARKDOWN,
                    PERSPECTIVE_SOURCE, PERSPECTIVE_BUILDER, PERSPECTIVE_MARKDOWN, DISCOVERY_SUMMARY,
                    DEMAND_SOURCE, DEMAND_BUILDER, DEMAND_MARKDOWN,
                    ECONOMIC_SOURCE, ECONOMIC_BUILDER, ECONOMIC_MARKDOWN,
                    JOINT_SOURCE, JOINT_BUILDER, JOINT_MARKDOWN,
-                   ONCHAIN_SOURCE, ONCHAIN_BUILDER, ONCHAIN_MARKDOWN)
+                   ONCHAIN_SOURCE, ONCHAIN_BUILDER, ONCHAIN_MARKDOWN,
+                   WORKFLOWS_SOURCE, WORKFLOWS_BUILDER, WORKFLOWS_MARKDOWN)
 PUBLIC_REPORT = ROOT / "reports/financial-environment-response.html"
 PUBLIC_MANIFEST = ROOT / "reports/financial-environment-response.verification.json"
 
@@ -98,6 +102,8 @@ def compatible_report(module, public, finance, expected_hash):
         raise ValueError("Missing reviewed joint-shock extension")
     if ids.count("onchain-institutional-turn") != 1:
         raise ValueError("Missing historical institutional transition review")
+    if ids.count("onchain-workflow-economics") != 1:
+        raise ValueError("Missing operational workflow comparison")
     return public_base
 
 
@@ -151,6 +157,10 @@ def main():
     if verified["onchain_extension"]["source_sha256_normalized_lf"] != digest(normalise((checkout / ONCHAIN_SOURCE).read_bytes())) or any(onchain["boundaries"].values()):
         raise ValueError("Onchain source hash or scope mismatch")
 
+    workflows = json.loads((checkout / WORKFLOWS_SOURCE).read_text(encoding="utf-8"))
+    if verified["workflows_extension"]["source_sha256_normalized_lf"] != digest(normalise((checkout / WORKFLOWS_SOURCE).read_bytes())) or any(workflows["boundaries"].values()):
+        raise ValueError("Workflow source hash or scope mismatch")
+
     protected = ROOT / "reports/digital-finance-agentic-securities.html"
     protected_hash = digest(protected.read_bytes())
     manifest = {
@@ -183,12 +193,13 @@ def main():
         "verification_scope": "Pinned finance inputs, canonical validation and deterministic regeneration, hashes, unchanged base, unique IDs and local fragment links. Browser/source/economic review are recorded separately; these are not product outcome tests.",
         "protected_kyobo_report_sha256": protected_hash
     }
-    manifest["schema_version"] = "1.5"
+    manifest["schema_version"] = "1.6"
     manifest["perspectives_extension"] = verified["perspectives_extension"]
     manifest["demand_extension"] = verified["demand_extension"]
     manifest["economic_extension"] = verified["economic_extension"]
     manifest["joint_extension"] = verified["joint_extension"]
     manifest["onchain_extension"] = verified["onchain_extension"]
+    manifest["workflows_extension"] = verified["workflows_extension"]
     manifest["reviewed_previous_public_sha256"] = REVIEWED_PREVIOUS_PUBLIC_SHA256
     manifest["perspective_source_repository"] = "finance; public HTML is the reviewed reading copy, not another fact ledger"
     PUBLIC_REPORT.write_text(regenerated, encoding="utf-8", newline="\n")
