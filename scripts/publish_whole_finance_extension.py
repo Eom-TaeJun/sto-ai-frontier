@@ -15,13 +15,20 @@ import re
 import subprocess
 import sys
 
-FINANCE_COMMIT = "2d5132971e4b6f8449df98e33a62f92d5b153634"
+FINANCE_COMMIT = "1c2c55cfa490238a966291b7541be1d2b16b731a"
+REVIEWED_PREVIOUS_PUBLIC_SHA256 = "ccc643b4cf8a14dd564522c4e8f06b4559c8616dd746545a3d00b7e4d745c080"
 ROOT = Path(__file__).resolve().parents[1]
 REPORT = "finance_economics/reports/financial_environment_response.html"
 BUILDER = "finance_economics/reports/build_financial_system_extension.py"
 SOURCE = "finance_economics/updates/2026-10-08/financial_system_hypotheses_source.json"
 FINANCE_MANIFEST = "finance_economics/updates/2026-10-08/financial_system_extension_verification.json"
 MARKDOWN = "finance_economics/updates/2026-10-08/global_finance_system_hypotheses_2026-10-08.md"
+PERSPECTIVE_SOURCE = "finance_economics/collection/us_finance_perspectives_2026-10-11.json"
+PERSPECTIVE_BUILDER = "finance_economics/collection/render_perspectives.py"
+PERSPECTIVE_MARKDOWN = "finance_economics/collection/us_finance_perspectives_2026-10-11.md"
+DISCOVERY_SUMMARY = "finance_economics/collection/runs/2026-10-11-summary.json"
+REVIEWED_INPUTS = (REPORT, BUILDER, SOURCE, FINANCE_MANIFEST, MARKDOWN,
+                   PERSPECTIVE_SOURCE, PERSPECTIVE_BUILDER, PERSPECTIVE_MARKDOWN, DISCOVERY_SUMMARY)
 PUBLIC_REPORT = ROOT / "reports/financial-environment-response.html"
 PUBLIC_MANIFEST = ROOT / "reports/financial-environment-response.verification.json"
 
@@ -52,7 +59,7 @@ def compatible_report(module, public, finance, expected_hash):
     finance_base = module.strip_extension(finance)
     if public_base != finance_base or digest(public_base.encode("utf-8")) != expected_hash:
         raise ValueError("Public report has unrelated edits; preserve and merge them before import")
-    if public != public_base and public != finance:
+    if public != public_base and public != finance and digest(public.encode("utf-8")) != REVIEWED_PREVIOUS_PUBLIC_SHA256:
         raise ValueError("Existing public extension differs; preserve and review those edits before import")
     if module.strip_extension(finance) != public_base:
         raise ValueError("Import would alter earlier content")
@@ -65,6 +72,8 @@ def compatible_report(module, public, finance, expected_hash):
     for i in range(1, 8):
         if ids.count(f"system-G{i}") != 1:
             raise ValueError("Missing reviewed G hypothesis")
+    if ids.count("us-finance-perspectives") != 1:
+        raise ValueError("Missing reviewed perspectives extension")
     return public_base
 
 
@@ -76,7 +85,7 @@ def main():
     commit = git(checkout, "rev-parse", "HEAD").decode().strip()
     if commit != FINANCE_COMMIT:
         raise ValueError("Finance HEAD is not the fixed reviewed snapshot; review a new version before updating this script")
-    for path in (REPORT, BUILDER, SOURCE, FINANCE_MANIFEST, MARKDOWN):
+    for path in REVIEWED_INPUTS:
         verify_committed(checkout, commit, path)
 
     specification = importlib.util.spec_from_file_location("reviewed_finance_builder", checkout / BUILDER)
@@ -110,7 +119,7 @@ def main():
         "canonical_commit": commit,
         "canonical_files": {
             path: {"sha256_normalized_lf": digest(normalise((checkout / path).read_bytes()))}
-            for path in (REPORT, BUILDER, SOURCE, FINANCE_MANIFEST, MARKDOWN)
+            for path in REVIEWED_INPUTS
         },
         "public_report": PUBLIC_REPORT.relative_to(ROOT).as_posix(),
         "public_report_sha256": before,
@@ -131,6 +140,10 @@ def main():
         "verification_scope": "Pinned finance inputs, canonical validation and deterministic regeneration, hashes, unchanged base, unique IDs and local fragment links. Browser/source/economic review are recorded separately; these are not product outcome tests.",
         "protected_kyobo_report_sha256": protected_hash
     }
+    manifest["schema_version"] = "1.1"
+    manifest["perspectives_extension"] = verified["perspectives_extension"]
+    manifest["reviewed_previous_public_sha256"] = REVIEWED_PREVIOUS_PUBLIC_SHA256
+    manifest["perspective_source_repository"] = "finance; public HTML is the reviewed reading copy, not another fact ledger"
     PUBLIC_REPORT.write_text(regenerated, encoding="utf-8", newline="\n")
     PUBLIC_MANIFEST.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
     if digest(protected.read_bytes()) != protected_hash:

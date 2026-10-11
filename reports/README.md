@@ -37,7 +37,7 @@
 
 **[변화하는 금융환경, 인프라와 그에 대한 대응](financial-environment-response.html#whole-finance-system)**의 **G1–G7** 확장은 지급·대출·사모신용·펀드·보험/연금·담보와 중앙은행의 연결, 기관별 대응, 한국 전파와 관측 설계를 분석한다. 기존 기록일 **2026-10-05**와 본문은 보존하며, 선정 원문 사실·기관 주장, 강한 조건부 가설, 실제 후속 결과 미관측을 구별한다. [공개 미리보기](https://htmlpreview.github.io/?https://raw.githubusercontent.com/Eom-TaeJun/sto-ai-frontier/main/reports/financial-environment-response.html#whole-finance-system).
 
-확장 원본은 `Eom-TaeJun/finance`의 검토한 고정 커밋 `2d5132971e4b6f8449df98e33a62f92d5b153634`에 있다. 재생성에는 비공개 finance 저장소의 접근권과 이 커밋을 HEAD로 둔 로컬 체크아웃이 필요하다. [가져오기 스크립트](../scripts/publish_whole_finance_extension.py)를 `python scripts/publish_whole_finance_extension.py --finance-checkout <로컬 finance 경로>`로 실행한다. 원본·생성기를 Git 내용과 대조해 검증·재생성하고, 공개 HTML의 확장 제거본이 같은 기존 원문인 경우에만 갱신한다. 이미 존재하는 공개 확장의 수동편집도 검토 없이 덮지 않는다. canonical JSON의 중복 사본은 공개 저장소에 추가하지 않는다. [검증 기록](financial-environment-response.verification.json)에 원본 커밋·파일·해시와 보존 범위를 남겼다. 이번 확장은 아래 교보증권 통합 보고서를 변경하지 않는다.
+10월8일 최초 확장 스냅샷은 `2d5132971e4b6f8449df98e33a62f92d5b153634`, 10월11일 견해 비교를 포함한 현재 검토 스냅샷은 `1c2c55cfa490238a966291b7541be1d2b16b731a`이며 canonical은 `Eom-TaeJun/finance`에 있다. 재생성에는 비공개 finance 저장소의 접근권과 이 커밋을 HEAD로 둔 로컬 체크아웃이 필요하다. [가져오기 스크립트](../scripts/publish_whole_finance_extension.py)를 `python scripts/publish_whole_finance_extension.py --finance-checkout <로컬 finance 경로>`로 실행한다. 원본·생성기를 Git 내용과 대조해 검증·재생성하고, 공개 HTML의 확장 제거본이 같은 기존 원문인 경우에만 갱신한다. 이미 존재하는 공개 확장의 수동편집도 검토 없이 덮지 않는다. canonical JSON의 중복 사본은 공개 저장소에 추가하지 않는다. [검증 기록](financial-environment-response.verification.json)에 원본 커밋·파일·해시와 보존 범위를 남겼다. 이번 확장은 아래 교보증권 통합 보고서를 변경하지 않는다.
 
 ## 디지털 금융환경과 AI 에이전트 시대의 증권업 통합 보고서
 
@@ -65,3 +65,12 @@
 개정 2.4는 변화가 진행된다고 가정할 때의 대응을 구체화했다. 에이전트의 공급자 선택, 디지털 현금관리·조달가격, 이전시간과 실제 현금의 간극, AI가 넓히는 관리 범위라는 네 가설에 행동과 강화·수정 신호를 연결한다. 5장의 여섯 업무별 수입·원가·위험·준비 순서를 통합하고, 국채의 보유자·만기 선호가 가격·차환에 미치는 경로를 추가했다. 교보의 같은 SPC 상태정보 서비스에서 대주기관의 차환일 전 확인 업무를 비교하고 실험 착수·반복운영·유료확대를 분리했다. 이는 조건부 전망과 비교 설계이며 실제 원가·유료 수요·계약 권한의 검증이나 새 규제 전수조사는 아니다. 기록일과 기존 사실의 확인일을 유지한다.
 
 개정 2.5는 H1–H4의 전제를 더 강하게 두어 에이전트 선택·상시 자금/담보·AI 전체원가의 변화와 기관의 가격·제휴·유동성 반응을 추론한다. 참여자의 과거 기대·명시적인 역할 선택·2026Q2 수입을 구분하고, 자금의 원천/도착·규제 경제성과 한국 전파를 연결했다. [판단 원장](source/adaptive_research_ledger.json)의 최초4개 이력은 출처·가설·이전/현재 판단·제안·실제 행동·다음 증거를 보존한다. 기존 finance 사건ID는 고정 판본에서 확인한 문맥 연결이며 새 법령 원문 재검증과 구분한다. 생성기는 검토한 기록을 표시할 뿐 자동 조사·기관 결정이나 실제 SPC 실험을 실행하지 않는다. 강한 전제는 사실·확률 추정과 분리하고 교보의 한 SPC 상태정보 서비스를 유지한다. 기록일10월5일과 기존 사실 확인일을 유지하며 추가 연결 확인일은10월7일이다.
+
+
+## 미국 기관과 외부 견해 비교 · 2026-10-11
+
+[기존 금융환경 보고서08B장](financial-environment-response.html#us-finance-perspectives)은 외부 경제 견해8개·미국기관 대응6곳·5개 비교질문을 기존 G가설의 대응에 연결한다. [웹 읽기](https://htmlpreview.github.io/?https://raw.githubusercontent.com/Eom-TaeJun/sto-ai-frontier/main/reports/financial-environment-response.html#us-finance-perspectives).
+
+Fed·NY Fed·BIS·IMF·BPI·Citi·McKinsey·Intereconomics의 선정 원문/공개 요약과 기관의 발표·규칙 승인·선별 실거래를 구별했다. 영상은 자동 영어 자막의 선정 구간만 대조했다. 4개 공식 피드의70목록은 첫 기준 발견으로서 본문 검증0·새 사건 확정0이다. 수동 수집 체계·상태·미확인 자료는 비공개 finance 원장에 유지하며 정기 일정·Pages·교보 보고서는 변경하지 않았다.
+
+가져오기 스크립트는 위 현재 스냅샷의 새 module·canonical·실행요약·생성문서를 함께 검증한다. 이전 공개본의 검토 해시를 한정해 이번 갱신을 허용하고, 다른 수동 편집이 감지되면 실패한다. 공개본에 별도 canonical/전체 자막/피드 항목 원장을 복제하지 않는다. 기존 기준일10월5일·G확장10월8일·이번 견해 확인10월11일을 구별한다.

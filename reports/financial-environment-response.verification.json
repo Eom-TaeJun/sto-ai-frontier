@@ -1,29 +1,41 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "original_report_record_date": "2026-10-05",
   "extension_record_date": "2026-10-08",
   "canonical_repository": "Eom-TaeJun/finance",
   "canonical_repository_visibility": "private_at_publication_check",
-  "canonical_commit": "2d5132971e4b6f8449df98e33a62f92d5b153634",
+  "canonical_commit": "1c2c55cfa490238a966291b7541be1d2b16b731a",
   "canonical_files": {
     "finance_economics/reports/financial_environment_response.html": {
-      "sha256_normalized_lf": "ccc643b4cf8a14dd564522c4e8f06b4559c8616dd746545a3d00b7e4d745c080"
+      "sha256_normalized_lf": "6fb1a806257d1609ca23b3ca55c4a68603999fb3c2535c953cd4acfbf7773c4a"
     },
     "finance_economics/reports/build_financial_system_extension.py": {
-      "sha256_normalized_lf": "b0f823dc6b505000ce5b509aa945110c1fc27f681f5ae2c7e2254022dab57ee5"
+      "sha256_normalized_lf": "be699c1b2d82e51271dbf3bf9136a949f1f702265bcbbdecd47a1ee61fa61ce3"
     },
     "finance_economics/updates/2026-10-08/financial_system_hypotheses_source.json": {
       "sha256_normalized_lf": "79c915cafd293d8ef0ea272dde1a7f509ada37f41a848ce951dd40edbdb68900"
     },
     "finance_economics/updates/2026-10-08/financial_system_extension_verification.json": {
-      "sha256_normalized_lf": "37b988cca11f516ccb7599656554b24075d6f2b10a7424eb2c7f8676187fd624"
+      "sha256_normalized_lf": "1896cafcd06883c0332c205939fc8e2681688bbfbae6aea365ee6e580817c2a5"
     },
     "finance_economics/updates/2026-10-08/global_finance_system_hypotheses_2026-10-08.md": {
-      "sha256_normalized_lf": "27ca93960a5b74bfaa018a72b5e461cfa22143e151e67f9f8c405f7955647ab2"
+      "sha256_normalized_lf": "dfa07bc309c431fc887b9ff908248331ced12d0a20bf78c56643f711ed8065d3"
+    },
+    "finance_economics/collection/us_finance_perspectives_2026-10-11.json": {
+      "sha256_normalized_lf": "0ac92132ff3781aed23399c71f537a33e8a028ee36107a45100d03bcb41eaa7d"
+    },
+    "finance_economics/collection/render_perspectives.py": {
+      "sha256_normalized_lf": "5c4050d08019231a82fc28d764ff4eb2746f03f0d437757b7922d43644b56306"
+    },
+    "finance_economics/collection/us_finance_perspectives_2026-10-11.md": {
+      "sha256_normalized_lf": "0f7fcf90a65d5baf7053c45698cb6003ed4583e049597ec94cf3551b86321f70"
+    },
+    "finance_economics/collection/runs/2026-10-11-summary.json": {
+      "sha256_normalized_lf": "552309c3f4e79018bcee46a088fc4f1b0b9d56b87cc7b0f4c0093a0c17ff84df"
     }
   },
   "public_report": "reports/financial-environment-response.html",
-  "public_report_sha256": "ccc643b4cf8a14dd564522c4e8f06b4559c8616dd746545a3d00b7e4d745c080",
+  "public_report_sha256": "6fb1a806257d1609ca23b3ca55c4a68603999fb3c2535c953cd4acfbf7773c4a",
   "base_report_sha256_normalized_lf": "b05d83c11e01b3447f46e090242b3f9061eae52d5a0dfdf0731c3b6c8c483916",
   "existing_report_preserved_exactly_after_removing_extension": true,
   "prior_date_preserved": "2026-10-05",
@@ -47,5 +59,37 @@
   },
   "preservation_scope": "Only WF-marked extension, its navigation, metadata, footer and evidence are imported. Earlier general-finance report and October 5 date remain unchanged; Kyobo HTML is not rewritten.",
   "verification_scope": "Pinned finance inputs, canonical validation and deterministic regeneration, hashes, unchanged base, unique IDs and local fragment links. Browser/source/economic review are recorded separately; these are not product outcome tests.",
-  "protected_kyobo_report_sha256": "e9e97cd7ab863bc550dd5dc31401a81c98e4bab97855b9ccc794c5bd1dbb2e5d"
+  "protected_kyobo_report_sha256": "e9e97cd7ab863bc550dd5dc31401a81c98e4bab97855b9ccc794c5bd1dbb2e5d",
+  "perspectives_extension": {
+    "record_date": "2026-10-11",
+    "canonical_source_path": "finance_economics/collection/us_finance_perspectives_2026-10-11.json",
+    "renderer_path": "finance_economics/collection/render_perspectives.py",
+    "source_sha256": "0ac92132ff3781aed23399c71f537a33e8a028ee36107a45100d03bcb41eaa7d",
+    "renderer_sha256": "5c4050d08019231a82fc28d764ff4eb2746f03f0d437757b7922d43644b56306",
+    "markdown_sha256": "0f7fcf90a65d5baf7053c45698cb6003ed4583e049597ec94cf3551b86321f70",
+    "first_discovery_summary_path": "finance_economics/collection/runs/2026-10-11-summary.json",
+    "first_discovery_summary_sha256": "552309c3f4e79018bcee46a088fc4f1b0b9d56b87cc7b0f4c0093a0c17ff84df",
+    "external_views": 8,
+    "institution_comparisons": 6,
+    "read_institution_and_technical_sources": 19,
+    "selected_video_records": 1,
+    "comparison_questions": 5,
+    "judgment_link_updates": 4,
+    "first_feed_discovery_entries": 70,
+    "feed_article_bodies_read": 0,
+    "schedule_changed": false,
+    "source_scope": "Selected attributed external views and institutional choices; opinion and metadata discovery are not business outcomes, legal census or adoption measurements."
+  },
+  "reviewed_previous_public_sha256": "ccc643b4cf8a14dd564522c4e8f06b4559c8616dd746545a3d00b7e4d745c080",
+  "perspective_source_repository": "finance; public HTML is the reviewed reading copy, not another fact ledger",
+  "local_browser_verification": {
+    "checks_passed": 28,
+    "recorded_on": "2026-10-11",
+    "scope": "New comparison/agency/source/view navigation, search, print disclosures; representative prior controls and320/390px widths; no full PDF pagination audit."
+  },
+  "existing_poc_checks": {
+    "run.py": "passed synthetic8assets/10documents; no approvals",
+    "unit_tests_passed": 22,
+    "scope": "Existing prototype controls, not external evidence or financial profitability"
+  }
 }
