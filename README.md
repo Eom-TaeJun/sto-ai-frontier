@@ -94,3 +94,9 @@ python -m unittest discover -s tests -v
 [일반 금융환경 보고서 08G장](https://htmlpreview.github.io/?https://raw.githubusercontent.com/Eom-TaeJun/sto-ai-frontier/main/reports/financial-environment-response.html#onchain-workflow-economics)은 Citi, JPM/OCBC, BNY·GS, IBKR, Broadridge DLR, BUIDL, BENJI의 7개 업무를 기존 계좌·API·펀드·수탁·repo와 비교한다. 공개 요율·회계 수입·고객 절감 추산과 작성자의 수익·고객관계 해석을 구별하고 한국 은행·증권·운용·수탁/공공 인프라의 선행 업무를 제안한다.
 
 18개 선정 출처에는 기존 자료 재확인이 포함된다. IBKR 금액별 비용은 공개 누진요율의 산술이며 총비용 실측값이 아니다. Broadridge의 Canton 서비스 매출은 고객 DLR 이용료·현금·순이익과 다르다. 한국의 정책방향·입법예고는 확정 규칙이나 운영 완료가 아니다. 원장은 finance의 `finance_economics/collection/onchain_workflows_2026-10-11.json`이며 공개 검증 기록에 고정 버전과 해시를 남긴다.
+
+## 주간 자금 변화와 기존 가설의 연결 · 2026-10-12
+
+[일반 금융환경 보고서 08H](https://htmlpreview.github.io/?https://raw.githubusercontent.com/Eom-TaeJun/sto-ai-frontier/main/reports/financial-environment-response.html#weekly-funding-hypotheses)에 미국 은행·국채와 한국 자금순환/국제수지의 선정 관측을 기존 전망·대응과 연결했다. 총예금에서 조달 고객·가격·집중으로, 거래량/AUM에서 순수익·보수 배분으로 판단 기준을 구체화한다. 미국·한국 은행·증권/딜러·운용·중앙은행 8개 유형의 대응과 4개 조건부 분기를 비교한다.
+
+5개 공식 출처·15개 지표는 finance의 기존 주간 원장에서 재사용했으며 새 독립 관측으로 합산하지 않는다. 기간·단위가 다른 미국 주간/월말과 한국 분기/월간 자료를 구별하고 강한 AI·달러 접근 가정을 실제 도입이나 인과효과로 확정하지 않는다. 조달비·AI 절감의 수치 예시는 설명용 가정이다. 원장 canonical은 finance의 `finance_economics/collection/weekly_hypothesis_bridge_2026-10-12.json`이며 고정 내용 커밋·해시는 공개 검증 JSON에서 확인한다. 기존 본문·근거와 증권업 보고서는 보존한다.

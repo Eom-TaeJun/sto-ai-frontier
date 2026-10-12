@@ -1,22 +1,22 @@
 {
-  "schema_version": "1.6",
+  "schema_version": "1.7",
   "original_report_record_date": "2026-10-05",
   "extension_record_date": "2026-10-08",
   "canonical_repository": "Eom-TaeJun/finance",
   "canonical_repository_visibility": "private_at_publication_check",
-  "canonical_commit": "eb176ffeb5d2bc743cf835f7dbf2acda541eb763",
+  "canonical_commit": "bfdcbe7cddfaa937a9139eaf8fd92d4f54e8c22c",
   "canonical_files": {
     "finance_economics/reports/financial_environment_response.html": {
-      "sha256_normalized_lf": "3ad0c91a7f4ad76980b38c9f1bbb108c0c147fb82d82b4b6a287590fc81ccfcc"
+      "sha256_normalized_lf": "dd7595e9e03105806ea5f8828f9c93476de12ebd6788a9bb6d93f86d30e980ea"
     },
     "finance_economics/reports/build_financial_system_extension.py": {
-      "sha256_normalized_lf": "1763766c4566bf724147293482526cc37d3d0fcbe5ae4da6e33383abebf6481a"
+      "sha256_normalized_lf": "7b85ea32bb2620a361c1750722541524e65d354775ee52ca6bc2b2a30ba0f3fc"
     },
     "finance_economics/updates/2026-10-08/financial_system_hypotheses_source.json": {
       "sha256_normalized_lf": "79c915cafd293d8ef0ea272dde1a7f509ada37f41a848ce951dd40edbdb68900"
     },
     "finance_economics/updates/2026-10-08/financial_system_extension_verification.json": {
-      "sha256_normalized_lf": "09ce1ce8dd108b7569861b55c54270aa1327cc2d13d6212c3a0a606438e37807"
+      "sha256_normalized_lf": "63c5f1dc0b3fd97160be5081672b8052425bb470879e25843d6a110a86b121a9"
     },
     "finance_economics/updates/2026-10-08/global_finance_system_hypotheses_2026-10-08.md": {
       "sha256_normalized_lf": "dfa07bc309c431fc887b9ff908248331ced12d0a20bf78c56643f711ed8065d3"
@@ -77,10 +77,22 @@
     },
     "finance_economics/collection/onchain_workflows_2026-10-11.md": {
       "sha256_normalized_lf": "db311f502d66609501c30ed86c1170b7386872577422f2c1f2a5d70f373a7122"
+    },
+    "finance_economics/collection/weekly_hypothesis_bridge_2026-10-12.json": {
+      "sha256_normalized_lf": "3612b0fee47beb0779dcf08eb697e41903beb0d94da6f7f459483084afb8bb03"
+    },
+    "finance_economics/collection/render_weekly_bridge.py": {
+      "sha256_normalized_lf": "b6ff0e062ae3671310e86d602496b6eb21cb02f40f50b61ba656a31ef1d187b8"
+    },
+    "finance_economics/collection/weekly_hypothesis_bridge_2026-10-12.md": {
+      "sha256_normalized_lf": "9ed8603f64024f2cd0c8c98d5167a5b5d45e401b80a044c7b5546546443e2bc6"
+    },
+    "finance_economics/updates/2026-10-03/monitoring_run_2026-10-12.json": {
+      "sha256_normalized_lf": "3c92da06aaaea2e9c5e6031f7cfb3fa01cdeb05027980f1a8e29d85a386ddc9a"
     }
   },
   "public_report": "reports/financial-environment-response.html",
-  "public_report_sha256": "3ad0c91a7f4ad76980b38c9f1bbb108c0c147fb82d82b4b6a287590fc81ccfcc",
+  "public_report_sha256": "dd7595e9e03105806ea5f8828f9c93476de12ebd6788a9bb6d93f86d30e980ea",
   "base_report_sha256_normalized_lf": "b05d83c11e01b3447f46e090242b3f9061eae52d5a0dfdf0731c3b6c8c483916",
   "existing_report_preserved_exactly_after_removing_extension": true,
   "prior_date_preserved": "2026-10-05",
@@ -208,6 +220,23 @@
     "Pages_changed": false,
     "schedule_changed": false
   },
-  "reviewed_previous_public_sha256": "840cf9b2b2e4c6839f5e1fb185b7f0e51f87009feefb83b54f7f9e1a70534e37",
+  "weekly_bridge_extension": {
+    "record_date": "2026-10-12",
+    "canonical_source_path": "finance_economics/collection/weekly_hypothesis_bridge_2026-10-12.json",
+    "renderer_path": "finance_economics/collection/render_weekly_bridge.py",
+    "source_sha256_normalized_lf": "3612b0fee47beb0779dcf08eb697e41903beb0d94da6f7f459483084afb8bb03",
+    "renderer_sha256_normalized_lf": "b6ff0e062ae3671310e86d602496b6eb21cb02f40f50b61ba656a31ef1d187b8",
+    "markdown_sha256": "9ed8603f64024f2cd0c8c98d5167a5b5d45e401b80a044c7b5546546443e2bc6",
+    "selected_sources": 5,
+    "sections": 9,
+    "prior_08A_to_08G_content_and_evidence_preserved": true,
+    "scope": "Selected weekly bank, Treasury and Korean sector flow observations connected to prior hypotheses and author responses; no digital adoption or causal profit identification.",
+    "causal_effect_estimated": false,
+    "institution_specific_funding_cost_measured": false,
+    "digital_asset_flows_identified": false,
+    "Pages_changed": false,
+    "schedule_changed": false
+  },
+  "reviewed_previous_public_sha256": "3ad0c91a7f4ad76980b38c9f1bbb108c0c147fb82d82b4b6a287590fc81ccfcc",
   "perspective_source_repository": "finance; public HTML is the reviewed reading copy, not another fact ledger"
 }

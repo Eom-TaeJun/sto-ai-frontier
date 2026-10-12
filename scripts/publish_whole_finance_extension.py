@@ -15,8 +15,8 @@ import re
 import subprocess
 import sys
 
-FINANCE_COMMIT = "eb176ffeb5d2bc743cf835f7dbf2acda541eb763"
-REVIEWED_PREVIOUS_PUBLIC_SHA256 = "840cf9b2b2e4c6839f5e1fb185b7f0e51f87009feefb83b54f7f9e1a70534e37"
+FINANCE_COMMIT = "bfdcbe7cddfaa937a9139eaf8fd92d4f54e8c22c"
+REVIEWED_PREVIOUS_PUBLIC_SHA256 = "3ad0c91a7f4ad76980b38c9f1bbb108c0c147fb82d82b4b6a287590fc81ccfcc"
 ROOT = Path(__file__).resolve().parents[1]
 REPORT = "finance_economics/reports/financial_environment_response.html"
 BUILDER = "finance_economics/reports/build_financial_system_extension.py"
@@ -42,13 +42,18 @@ ONCHAIN_MARKDOWN = "finance_economics/collection/onchain_turn_2026-10-11.md"
 WORKFLOWS_SOURCE = "finance_economics/collection/onchain_workflows_2026-10-11.json"
 WORKFLOWS_BUILDER = "finance_economics/collection/render_workflows.py"
 WORKFLOWS_MARKDOWN = "finance_economics/collection/onchain_workflows_2026-10-11.md"
+WEEKLY_SOURCE = "finance_economics/collection/weekly_hypothesis_bridge_2026-10-12.json"
+WEEKLY_BUILDER = "finance_economics/collection/render_weekly_bridge.py"
+WEEKLY_MARKDOWN = "finance_economics/collection/weekly_hypothesis_bridge_2026-10-12.md"
+WEEKLY_LEDGER = "finance_economics/updates/2026-10-03/monitoring_run_2026-10-12.json"
 REVIEWED_INPUTS = (REPORT, BUILDER, SOURCE, FINANCE_MANIFEST, MARKDOWN,
                    PERSPECTIVE_SOURCE, PERSPECTIVE_BUILDER, PERSPECTIVE_MARKDOWN, DISCOVERY_SUMMARY,
                    DEMAND_SOURCE, DEMAND_BUILDER, DEMAND_MARKDOWN,
                    ECONOMIC_SOURCE, ECONOMIC_BUILDER, ECONOMIC_MARKDOWN,
                    JOINT_SOURCE, JOINT_BUILDER, JOINT_MARKDOWN,
                    ONCHAIN_SOURCE, ONCHAIN_BUILDER, ONCHAIN_MARKDOWN,
-                   WORKFLOWS_SOURCE, WORKFLOWS_BUILDER, WORKFLOWS_MARKDOWN)
+                   WORKFLOWS_SOURCE, WORKFLOWS_BUILDER, WORKFLOWS_MARKDOWN,
+                   WEEKLY_SOURCE, WEEKLY_BUILDER, WEEKLY_MARKDOWN, WEEKLY_LEDGER)
 PUBLIC_REPORT = ROOT / "reports/financial-environment-response.html"
 PUBLIC_MANIFEST = ROOT / "reports/financial-environment-response.verification.json"
 
@@ -104,6 +109,8 @@ def compatible_report(module, public, finance, expected_hash):
         raise ValueError("Missing historical institutional transition review")
     if ids.count("onchain-workflow-economics") != 1:
         raise ValueError("Missing operational workflow comparison")
+    if ids.count("weekly-funding-hypotheses") != 1:
+        raise ValueError("Missing weekly funding and hypothesis analysis")
     return public_base
 
 
@@ -161,6 +168,16 @@ def main():
     if verified["workflows_extension"]["source_sha256_normalized_lf"] != digest(normalise((checkout / WORKFLOWS_SOURCE).read_bytes())) or any(workflows["boundaries"].values()):
         raise ValueError("Workflow source hash or scope mismatch")
 
+    weekly = json.loads((checkout / WEEKLY_SOURCE).read_text(encoding="utf-8"))
+    if verified["weekly_bridge_extension"]["source_sha256_normalized_lf"] != digest(normalise((checkout / WEEKLY_SOURCE).read_bytes())) or any(weekly["boundaries"].values()):
+        raise ValueError("Weekly analysis source hash or scope mismatch")
+    if weekly["actual_response_outcomes"] is not None:
+        raise ValueError("Macro observations do not identify institution response outcomes")
+    if weekly["evidence_ledger"]["path"] != WEEKLY_LEDGER or weekly["evidence_ledger"]["lf_sha256"] != digest(normalise((checkout / WEEKLY_LEDGER).read_bytes())):
+        raise ValueError("Referenced weekly evidence ledger differs from its reviewed snapshot")
+    if not verified["weekly_bridge_extension"]["prior_08A_to_08G_content_and_evidence_preserved"]:
+        raise ValueError("Earlier extensions must remain intact")
+
     protected = ROOT / "reports/digital-finance-agentic-securities.html"
     protected_hash = digest(protected.read_bytes())
     manifest = {
@@ -193,13 +210,14 @@ def main():
         "verification_scope": "Pinned finance inputs, canonical validation and deterministic regeneration, hashes, unchanged base, unique IDs and local fragment links. Browser/source/economic review are recorded separately; these are not product outcome tests.",
         "protected_kyobo_report_sha256": protected_hash
     }
-    manifest["schema_version"] = "1.6"
+    manifest["schema_version"] = "1.7"
     manifest["perspectives_extension"] = verified["perspectives_extension"]
     manifest["demand_extension"] = verified["demand_extension"]
     manifest["economic_extension"] = verified["economic_extension"]
     manifest["joint_extension"] = verified["joint_extension"]
     manifest["onchain_extension"] = verified["onchain_extension"]
     manifest["workflows_extension"] = verified["workflows_extension"]
+    manifest["weekly_bridge_extension"] = verified["weekly_bridge_extension"]
     manifest["reviewed_previous_public_sha256"] = REVIEWED_PREVIOUS_PUBLIC_SHA256
     manifest["perspective_source_repository"] = "finance; public HTML is the reviewed reading copy, not another fact ledger"
     PUBLIC_REPORT.write_text(regenerated, encoding="utf-8", newline="\n")
