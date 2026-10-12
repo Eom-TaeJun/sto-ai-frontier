@@ -1,22 +1,22 @@
 {
-  "schema_version": "1.9",
+  "schema_version": "1.10",
   "original_report_record_date": "2026-10-05",
   "extension_record_date": "2026-10-08",
   "canonical_repository": "Eom-TaeJun/finance",
   "canonical_repository_visibility": "private_at_publication_check",
-  "canonical_commit": "2e8691834b7c4c23bf79eeda69ccd05771dade0a",
+  "canonical_commit": "46033518fa4f16132a605649c563650d810d0930",
   "canonical_files": {
     "finance_economics/reports/financial_environment_response.html": {
-      "sha256_normalized_lf": "b4a94682f7193cbcbc96d1bd8fb31af9e52a14aa858052ff2ef2d1c919147361"
+      "sha256_normalized_lf": "86163e47483a459374f15bd83374095fb83b639cc0fbcc065c389707a92d493c"
     },
     "finance_economics/reports/build_financial_system_extension.py": {
-      "sha256_normalized_lf": "c89f7773630a2e31426c91522ae452cc0275cfed0a4833025d11ff886956b7ce"
+      "sha256_normalized_lf": "9959c00f8402a5e2dd68e3d3956f1982dd875305e5272ae5ebac321bd931a3af"
     },
     "finance_economics/updates/2026-10-08/financial_system_hypotheses_source.json": {
       "sha256_normalized_lf": "79c915cafd293d8ef0ea272dde1a7f509ada37f41a848ce951dd40edbdb68900"
     },
     "finance_economics/updates/2026-10-08/financial_system_extension_verification.json": {
-      "sha256_normalized_lf": "42c5c651cc8003cfa98dff71ff1a6a9bfea86c1284baea3a9f236111f058267a"
+      "sha256_normalized_lf": "80c2cfb92eb23dfbc56ef522ca27b57ee9ed880c32c373c1ad2dfb2e344d0ffd"
     },
     "finance_economics/updates/2026-10-08/global_finance_system_hypotheses_2026-10-08.md": {
       "sha256_normalized_lf": "dfa07bc309c431fc887b9ff908248331ced12d0a20bf78c56643f711ed8065d3"
@@ -107,10 +107,19 @@
     },
     "finance_economics/collection/korea_securities_asset_managers_2026-10-12.md": {
       "sha256_normalized_lf": "ca8d2cbc0e9d8fd2eecaf617039fc3220a86c5ade3b8fb2958bfdde077a890e3"
+    },
+    "finance_economics/collection/insurance_pensions_2026-10-12.json": {
+      "sha256_normalized_lf": "577d19f00231f46d775479d5439c23375e348186ca23835da8b887f8610b446c"
+    },
+    "finance_economics/collection/render_insurance_pensions.py": {
+      "sha256_normalized_lf": "3a05c308a2a682fa0033c7774c0d23fdebe02ccad84fe7a55fad12c346d7e55b"
+    },
+    "finance_economics/collection/insurance_pensions_2026-10-12.md": {
+      "sha256_normalized_lf": "2ac00066627cccd92af2ab8bb5ed90a47057a6ee8860a6ff5dd4109720131bc5"
     }
   },
   "public_report": "reports/financial-environment-response.html",
-  "public_report_sha256": "b4a94682f7193cbcbc96d1bd8fb31af9e52a14aa858052ff2ef2d1c919147361",
+  "public_report_sha256": "86163e47483a459374f15bd83374095fb83b639cc0fbcc065c389707a92d493c",
   "base_report_sha256_normalized_lf": "b05d83c11e01b3447f46e090242b3f9061eae52d5a0dfdf0731c3b6c8c483916",
   "existing_report_preserved_exactly_after_removing_extension": true,
   "prior_date_preserved": "2026-10-05",
@@ -287,6 +296,22 @@
     "Pages_changed": false,
     "schedule_changed": false
   },
-  "reviewed_previous_public_sha256": "6cb480e3c2015f750d4393c0207a01714b2e1779648f8c3b5049de22ebb47f45",
+  "insurance_pension_extension": {
+    "record_date": "2026-10-12",
+    "canonical_source_path": "finance_economics/collection/insurance_pensions_2026-10-12.json",
+    "renderer_path": "finance_economics/collection/render_insurance_pensions.py",
+    "source_sha256_normalized_lf": "577d19f00231f46d775479d5439c23375e348186ca23835da8b887f8610b446c",
+    "renderer_sha256_normalized_lf": "3a05c308a2a682fa0033c7774c0d23fdebe02ccad84fe7a55fad12c346d7e55b",
+    "markdown_sha256": "2ac00066627cccd92af2ab8bb5ed90a47057a6ee8860a6ff5dd4109720131bc5",
+    "selected_sources": 28,
+    "sections": 10,
+    "prior_08A_to_08J_content_and_evidence_preserved": true,
+    "scope": "Selected US/Korean insurance and pension cases, ALM mechanisms, conditional responses; direct assets, indirect holdings, trials and conventional comparisons separated.",
+    "causal_effect_estimated": false,
+    "digital_product_net_profit_measured": false,
+    "Pages_changed": false,
+    "schedule_changed": false
+  },
+  "reviewed_previous_public_sha256": "b4a94682f7193cbcbc96d1bd8fb31af9e52a14aa858052ff2ef2d1c919147361",
   "perspective_source_repository": "finance; public HTML is the reviewed reading copy, not another fact ledger"
 }

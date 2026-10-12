@@ -15,8 +15,8 @@ import re
 import subprocess
 import sys
 
-FINANCE_COMMIT = "2e8691834b7c4c23bf79eeda69ccd05771dade0a"
-REVIEWED_PREVIOUS_PUBLIC_SHA256 = "6cb480e3c2015f750d4393c0207a01714b2e1779648f8c3b5049de22ebb47f45"
+FINANCE_COMMIT = "46033518fa4f16132a605649c563650d810d0930"
+REVIEWED_PREVIOUS_PUBLIC_SHA256 = "b4a94682f7193cbcbc96d1bd8fb31af9e52a14aa858052ff2ef2d1c919147361"
 ROOT = Path(__file__).resolve().parents[1]
 REPORT = "finance_economics/reports/financial_environment_response.html"
 BUILDER = "finance_economics/reports/build_financial_system_extension.py"
@@ -52,6 +52,9 @@ BANK_MARKDOWN = "finance_economics/collection/us_korea_bank_response_2026-10-12.
 SECURITIES_SOURCE = "finance_economics/collection/korea_securities_asset_managers_2026-10-12.json"
 SECURITIES_BUILDER = "finance_economics/collection/render_securities_response.py"
 SECURITIES_MARKDOWN = "finance_economics/collection/korea_securities_asset_managers_2026-10-12.md"
+INSURANCE_SOURCE = "finance_economics/collection/insurance_pensions_2026-10-12.json"
+INSURANCE_BUILDER = "finance_economics/collection/render_insurance_pensions.py"
+INSURANCE_MARKDOWN = "finance_economics/collection/insurance_pensions_2026-10-12.md"
 REVIEWED_INPUTS = (REPORT, BUILDER, SOURCE, FINANCE_MANIFEST, MARKDOWN,
                    PERSPECTIVE_SOURCE, PERSPECTIVE_BUILDER, PERSPECTIVE_MARKDOWN, DISCOVERY_SUMMARY,
                    DEMAND_SOURCE, DEMAND_BUILDER, DEMAND_MARKDOWN,
@@ -61,7 +64,8 @@ REVIEWED_INPUTS = (REPORT, BUILDER, SOURCE, FINANCE_MANIFEST, MARKDOWN,
                    WORKFLOWS_SOURCE, WORKFLOWS_BUILDER, WORKFLOWS_MARKDOWN,
                    WEEKLY_SOURCE, WEEKLY_BUILDER, WEEKLY_MARKDOWN, WEEKLY_LEDGER,
                    BANK_SOURCE, BANK_BUILDER, BANK_MARKDOWN,
-                   SECURITIES_SOURCE, SECURITIES_BUILDER, SECURITIES_MARKDOWN)
+                   SECURITIES_SOURCE, SECURITIES_BUILDER, SECURITIES_MARKDOWN,
+                   INSURANCE_SOURCE, INSURANCE_BUILDER, INSURANCE_MARKDOWN)
 PUBLIC_REPORT = ROOT / "reports/financial-environment-response.html"
 PUBLIC_MANIFEST = ROOT / "reports/financial-environment-response.verification.json"
 
@@ -123,6 +127,8 @@ def compatible_report(module, public, finance, expected_hash):
         raise ValueError("Missing US-to-Korea bank response comparison")
     if ids.count("korea-securities-asset-managers") != 1:
         raise ValueError("Missing Korean securities and asset-manager response comparison")
+    if ids.count("insurance-pension-alm") != 1:
+        raise ValueError("Missing insurance and pension ALM comparison")
     return public_base
 
 
@@ -202,6 +208,12 @@ def main():
     if securities["actual_response_outcomes"] is not None or not verified["securities_response_extension"]["prior_08A_to_08I_content_and_evidence_preserved"]:
         raise ValueError("Securities response must preserve prior sections and unobserved outcomes")
 
+    insurance = json.loads((checkout / INSURANCE_SOURCE).read_text(encoding="utf-8"))
+    if verified["insurance_pension_extension"]["source_sha256_normalized_lf"] != digest(normalise((checkout / INSURANCE_SOURCE).read_bytes())) or any(insurance["boundaries"].values()):
+        raise ValueError("Insurance/pension source hash or scope mismatch")
+    if insurance["actual_response_outcomes"] is not None or not verified["insurance_pension_extension"]["prior_08A_to_08J_content_and_evidence_preserved"]:
+        raise ValueError("Insurance/pension analysis must preserve prior sections and unobserved outcomes")
+
     protected = ROOT / "reports/digital-finance-agentic-securities.html"
     protected_hash = digest(protected.read_bytes())
     manifest = {
@@ -234,7 +246,7 @@ def main():
         "verification_scope": "Pinned finance inputs, canonical validation and deterministic regeneration, hashes, unchanged base, unique IDs and local fragment links. Browser/source/economic review are recorded separately; these are not product outcome tests.",
         "protected_kyobo_report_sha256": protected_hash
     }
-    manifest["schema_version"] = "1.9"
+    manifest["schema_version"] = "1.10"
     manifest["perspectives_extension"] = verified["perspectives_extension"]
     manifest["demand_extension"] = verified["demand_extension"]
     manifest["economic_extension"] = verified["economic_extension"]
@@ -244,6 +256,7 @@ def main():
     manifest["weekly_bridge_extension"] = verified["weekly_bridge_extension"]
     manifest["bank_response_extension"] = verified["bank_response_extension"]
     manifest["securities_response_extension"] = verified["securities_response_extension"]
+    manifest["insurance_pension_extension"] = verified["insurance_pension_extension"]
     manifest["reviewed_previous_public_sha256"] = REVIEWED_PREVIOUS_PUBLIC_SHA256
     manifest["perspective_source_repository"] = "finance; public HTML is the reviewed reading copy, not another fact ledger"
     PUBLIC_REPORT.write_text(regenerated, encoding="utf-8", newline="\n")

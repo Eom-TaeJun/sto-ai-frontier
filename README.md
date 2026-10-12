@@ -112,3 +112,9 @@ python -m unittest discover -s tests -v
 [일반 금융환경 보고서08J](https://htmlpreview.github.io/?https://raw.githubusercontent.com/Eom-TaeJun/sto-ai-frontier/main/reports/financial-environment-response.html#korea-securities-asset-managers)는 미국의 운용·유통·명의·수탁·유동성 분업을 한국 증권사·운용사의 수입·비용·조달·고객관계로 연결한다. 미래에셋의 해외 발행·홍콩 토큰 클래스, 신한의 계좌관리·시험, KB의 자본 배치, 삼성의 기존ETF 비교 기준을 구분했다.
 
 선정17출처·9개 절·6개 카드는 전수조사나 신규사건17건이 아니다. 실제 회사 행동과 강한 Agent·온체인 담보·AI 고정비 시나리오를 분리해 어느 사업부터 대응할지 제안한다. 미국의 단순 연결 보수 종료 사례, 관리보수·전체비용·파트너 배분, 기존ETF가 유효한 반대 경로도 함께 다룬다. 원장은 finance의 `finance_economics/collection/korea_securities_asset_managers_2026-10-12.json`이며 확인 날짜·읽은 위치·미완료는 근거N을 따른다. 기존08A–08I와 다른 증권업 보고서는 보존했다. 고정 내용 커밋과 해시는 공개 검증JSON에 있다.
+
+## 보험·연기금의 온체인 활용과 ALM · 2026-10-12
+
+[일반 금융환경 보고서08K](https://htmlpreview.github.io/?https://raw.githubusercontent.com/Eom-TaeJun/sto-ai-frontier/main/reports/financial-environment-response.html#insurance-pension-alm)는 미국·한국 보험과 연금의 실제 선택을 장기부채·현금·환율·비용·자본 제약과 연결한다. Aon의 보험료 시험, 미국 연금의 간접투자, 교보·한화의 시험/협력, 국민연금의 원장·AI·외화금고·수탁을 구분했다.
+
+28개 선정 출처·10개 절·9개 카드는 이전 사건 재사용을 포함한다. 공통 토큰 담보, Agent 비교/실행, AI의 사모위험 처리비용 감소라는 세 가지 강한 가정에서 기관별 대응과 판단 변경 신호를 제시한다. 실제 보유·비용·성과와 가설을 분리하고 08A–08J 및 증권업 보고서를 보존했다. 원장은 finance의 `finance_economics/collection/insurance_pensions_2026-10-12.json`, 출처별 확인일과 읽은 범위는 근거O를 따른다. 고정 내용 커밋과 해시는 공개 검증JSON에 있다.
