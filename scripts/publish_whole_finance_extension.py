@@ -15,8 +15,8 @@ import re
 import subprocess
 import sys
 
-FINANCE_COMMIT = "bfdcbe7cddfaa937a9139eaf8fd92d4f54e8c22c"
-REVIEWED_PREVIOUS_PUBLIC_SHA256 = "3ad0c91a7f4ad76980b38c9f1bbb108c0c147fb82d82b4b6a287590fc81ccfcc"
+FINANCE_COMMIT = "43edc91e4d4b792971f35a23a65cb64ebbdb31cb"
+REVIEWED_PREVIOUS_PUBLIC_SHA256 = "dd7595e9e03105806ea5f8828f9c93476de12ebd6788a9bb6d93f86d30e980ea"
 ROOT = Path(__file__).resolve().parents[1]
 REPORT = "finance_economics/reports/financial_environment_response.html"
 BUILDER = "finance_economics/reports/build_financial_system_extension.py"
@@ -46,6 +46,9 @@ WEEKLY_SOURCE = "finance_economics/collection/weekly_hypothesis_bridge_2026-10-1
 WEEKLY_BUILDER = "finance_economics/collection/render_weekly_bridge.py"
 WEEKLY_MARKDOWN = "finance_economics/collection/weekly_hypothesis_bridge_2026-10-12.md"
 WEEKLY_LEDGER = "finance_economics/updates/2026-10-03/monitoring_run_2026-10-12.json"
+BANK_SOURCE = "finance_economics/collection/us_korea_bank_response_2026-10-12.json"
+BANK_BUILDER = "finance_economics/collection/render_bank_response.py"
+BANK_MARKDOWN = "finance_economics/collection/us_korea_bank_response_2026-10-12.md"
 REVIEWED_INPUTS = (REPORT, BUILDER, SOURCE, FINANCE_MANIFEST, MARKDOWN,
                    PERSPECTIVE_SOURCE, PERSPECTIVE_BUILDER, PERSPECTIVE_MARKDOWN, DISCOVERY_SUMMARY,
                    DEMAND_SOURCE, DEMAND_BUILDER, DEMAND_MARKDOWN,
@@ -53,7 +56,8 @@ REVIEWED_INPUTS = (REPORT, BUILDER, SOURCE, FINANCE_MANIFEST, MARKDOWN,
                    JOINT_SOURCE, JOINT_BUILDER, JOINT_MARKDOWN,
                    ONCHAIN_SOURCE, ONCHAIN_BUILDER, ONCHAIN_MARKDOWN,
                    WORKFLOWS_SOURCE, WORKFLOWS_BUILDER, WORKFLOWS_MARKDOWN,
-                   WEEKLY_SOURCE, WEEKLY_BUILDER, WEEKLY_MARKDOWN, WEEKLY_LEDGER)
+                   WEEKLY_SOURCE, WEEKLY_BUILDER, WEEKLY_MARKDOWN, WEEKLY_LEDGER,
+                   BANK_SOURCE, BANK_BUILDER, BANK_MARKDOWN)
 PUBLIC_REPORT = ROOT / "reports/financial-environment-response.html"
 PUBLIC_MANIFEST = ROOT / "reports/financial-environment-response.verification.json"
 
@@ -111,6 +115,8 @@ def compatible_report(module, public, finance, expected_hash):
         raise ValueError("Missing operational workflow comparison")
     if ids.count("weekly-funding-hypotheses") != 1:
         raise ValueError("Missing weekly funding and hypothesis analysis")
+    if ids.count("us-korea-bank-response") != 1:
+        raise ValueError("Missing US-to-Korea bank response comparison")
     return public_base
 
 
@@ -178,6 +184,12 @@ def main():
     if not verified["weekly_bridge_extension"]["prior_08A_to_08G_content_and_evidence_preserved"]:
         raise ValueError("Earlier extensions must remain intact")
 
+    bank = json.loads((checkout / BANK_SOURCE).read_text(encoding="utf-8"))
+    if verified["bank_response_extension"]["source_sha256_normalized_lf"] != digest(normalise((checkout / BANK_SOURCE).read_bytes())) or any(bank["boundaries"].values()):
+        raise ValueError("Bank response source hash or scope mismatch")
+    if bank["actual_response_outcomes"] is not None or not verified["bank_response_extension"]["prior_08A_to_08H_content_and_evidence_preserved"]:
+        raise ValueError("Bank response must preserve prior sections and unobserved outcomes")
+
     protected = ROOT / "reports/digital-finance-agentic-securities.html"
     protected_hash = digest(protected.read_bytes())
     manifest = {
@@ -210,7 +222,7 @@ def main():
         "verification_scope": "Pinned finance inputs, canonical validation and deterministic regeneration, hashes, unchanged base, unique IDs and local fragment links. Browser/source/economic review are recorded separately; these are not product outcome tests.",
         "protected_kyobo_report_sha256": protected_hash
     }
-    manifest["schema_version"] = "1.7"
+    manifest["schema_version"] = "1.8"
     manifest["perspectives_extension"] = verified["perspectives_extension"]
     manifest["demand_extension"] = verified["demand_extension"]
     manifest["economic_extension"] = verified["economic_extension"]
@@ -218,6 +230,7 @@ def main():
     manifest["onchain_extension"] = verified["onchain_extension"]
     manifest["workflows_extension"] = verified["workflows_extension"]
     manifest["weekly_bridge_extension"] = verified["weekly_bridge_extension"]
+    manifest["bank_response_extension"] = verified["bank_response_extension"]
     manifest["reviewed_previous_public_sha256"] = REVIEWED_PREVIOUS_PUBLIC_SHA256
     manifest["perspective_source_repository"] = "finance; public HTML is the reviewed reading copy, not another fact ledger"
     PUBLIC_REPORT.write_text(regenerated, encoding="utf-8", newline="\n")

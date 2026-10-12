@@ -1,22 +1,22 @@
 {
-  "schema_version": "1.7",
+  "schema_version": "1.8",
   "original_report_record_date": "2026-10-05",
   "extension_record_date": "2026-10-08",
   "canonical_repository": "Eom-TaeJun/finance",
   "canonical_repository_visibility": "private_at_publication_check",
-  "canonical_commit": "bfdcbe7cddfaa937a9139eaf8fd92d4f54e8c22c",
+  "canonical_commit": "43edc91e4d4b792971f35a23a65cb64ebbdb31cb",
   "canonical_files": {
     "finance_economics/reports/financial_environment_response.html": {
-      "sha256_normalized_lf": "dd7595e9e03105806ea5f8828f9c93476de12ebd6788a9bb6d93f86d30e980ea"
+      "sha256_normalized_lf": "6cb480e3c2015f750d4393c0207a01714b2e1779648f8c3b5049de22ebb47f45"
     },
     "finance_economics/reports/build_financial_system_extension.py": {
-      "sha256_normalized_lf": "7b85ea32bb2620a361c1750722541524e65d354775ee52ca6bc2b2a30ba0f3fc"
+      "sha256_normalized_lf": "72df912745e470e9c2fdd91cc7215a0c4b1488ba4f068824313ef59876acbb88"
     },
     "finance_economics/updates/2026-10-08/financial_system_hypotheses_source.json": {
       "sha256_normalized_lf": "79c915cafd293d8ef0ea272dde1a7f509ada37f41a848ce951dd40edbdb68900"
     },
     "finance_economics/updates/2026-10-08/financial_system_extension_verification.json": {
-      "sha256_normalized_lf": "63c5f1dc0b3fd97160be5081672b8052425bb470879e25843d6a110a86b121a9"
+      "sha256_normalized_lf": "4be4ab0369b78209a749b688697e0b17af3a33b720d79821eca5eecb1b138c27"
     },
     "finance_economics/updates/2026-10-08/global_finance_system_hypotheses_2026-10-08.md": {
       "sha256_normalized_lf": "dfa07bc309c431fc887b9ff908248331ced12d0a20bf78c56643f711ed8065d3"
@@ -89,10 +89,19 @@
     },
     "finance_economics/updates/2026-10-03/monitoring_run_2026-10-12.json": {
       "sha256_normalized_lf": "3c92da06aaaea2e9c5e6031f7cfb3fa01cdeb05027980f1a8e29d85a386ddc9a"
+    },
+    "finance_economics/collection/us_korea_bank_response_2026-10-12.json": {
+      "sha256_normalized_lf": "a94436aea83d5d81edae169def99f1ccecf3620b1e94a7c60ce503dfb01ed215"
+    },
+    "finance_economics/collection/render_bank_response.py": {
+      "sha256_normalized_lf": "3c27ab8aab6130fe3bd5afba22927b70797341d2c6a6b48f9a91b5a452dd4778"
+    },
+    "finance_economics/collection/us_korea_bank_response_2026-10-12.md": {
+      "sha256_normalized_lf": "8c87cf65a7b338e9cdfedb84b18d6564770e95ca1ffc6a46a8e8d4f4242ef138"
     }
   },
   "public_report": "reports/financial-environment-response.html",
-  "public_report_sha256": "dd7595e9e03105806ea5f8828f9c93476de12ebd6788a9bb6d93f86d30e980ea",
+  "public_report_sha256": "6cb480e3c2015f750d4393c0207a01714b2e1779648f8c3b5049de22ebb47f45",
   "base_report_sha256_normalized_lf": "b05d83c11e01b3447f46e090242b3f9061eae52d5a0dfdf0731c3b6c8c483916",
   "existing_report_preserved_exactly_after_removing_extension": true,
   "prior_date_preserved": "2026-10-05",
@@ -237,6 +246,22 @@
     "Pages_changed": false,
     "schedule_changed": false
   },
-  "reviewed_previous_public_sha256": "3ad0c91a7f4ad76980b38c9f1bbb108c0c147fb82d82b4b6a287590fc81ccfcc",
+  "bank_response_extension": {
+    "record_date": "2026-10-12",
+    "canonical_source_path": "finance_economics/collection/us_korea_bank_response_2026-10-12.json",
+    "renderer_path": "finance_economics/collection/render_bank_response.py",
+    "source_sha256_normalized_lf": "a94436aea83d5d81edae169def99f1ccecf3620b1e94a7c60ce503dfb01ed215",
+    "renderer_sha256_normalized_lf": "3c27ab8aab6130fe3bd5afba22927b70797341d2c6a6b48f9a91b5a452dd4778",
+    "markdown_sha256": "8c87cf65a7b338e9cdfedb84b18d6564770e95ca1ffc6a46a8e8d4f4242ef138",
+    "selected_sources": 16,
+    "sections": 9,
+    "prior_08A_to_08H_content_and_evidence_preserved": true,
+    "scope": "Selected US mechanisms and Korean bank business models, reported financial baselines, actual announced actions and author conditional responses; no all-bank census or digital causal profit attribution.",
+    "causal_effect_estimated": false,
+    "digital_product_net_profit_measured": false,
+    "Pages_changed": false,
+    "schedule_changed": false
+  },
+  "reviewed_previous_public_sha256": "dd7595e9e03105806ea5f8828f9c93476de12ebd6788a9bb6d93f86d30e980ea",
   "perspective_source_repository": "finance; public HTML is the reviewed reading copy, not another fact ledger"
 }

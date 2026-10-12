@@ -100,3 +100,9 @@ python -m unittest discover -s tests -v
 [일반 금융환경 보고서 08H](https://htmlpreview.github.io/?https://raw.githubusercontent.com/Eom-TaeJun/sto-ai-frontier/main/reports/financial-environment-response.html#weekly-funding-hypotheses)에 미국 은행·국채와 한국 자금순환/국제수지의 선정 관측을 기존 전망·대응과 연결했다. 총예금에서 조달 고객·가격·집중으로, 거래량/AUM에서 순수익·보수 배분으로 판단 기준을 구체화한다. 미국·한국 은행·증권/딜러·운용·중앙은행 8개 유형의 대응과 4개 조건부 분기를 비교한다.
 
 5개 공식 출처·15개 지표는 finance의 기존 주간 원장에서 재사용했으며 새 독립 관측으로 합산하지 않는다. 기간·단위가 다른 미국 주간/월말과 한국 분기/월간 자료를 구별하고 강한 AI·달러 접근 가정을 실제 도입이나 인과효과로 확정하지 않는다. 조달비·AI 절감의 수치 예시는 설명용 가정이다. 원장 canonical은 finance의 `finance_economics/collection/weekly_hypothesis_bridge_2026-10-12.json`이며 고정 내용 커밋·해시는 공개 검증 JSON에서 확인한다. 기존 본문·근거와 증권업 보고서는 보존한다.
+
+## 미국 변화와 한국 은행의 수익 대응 · 2026-10-12
+
+[일반 금융환경 보고서 08I](https://htmlpreview.github.io/?https://raw.githubusercontent.com/Eom-TaeJun/sto-ai-frontier/main/reports/financial-environment-response.html#us-korea-bank-response)는 미국 은행·코인 발행자·운용사·플랫폼의 역할과 한국 시중은행·인터넷은행의 실제 선택을 비교한다. KB·신한·카카오·토스·케이뱅크와 광주은행 협업을 예금 조달·신용·지급/FX·제휴 수입으로 연결했다. 고객 잔액이 투자상품으로 옮겨도 어떤 관계 수익을 남길지, 외부 AI가 선택할 때 어떤 은행 기능이 강점을 가질지를 조건부로 분석한다.
+
+16개 선정 공식 출처·9개 절·5개 은행 카드는 전체 은행 조사나 신규 사건16건을 뜻하지 않는다. 잠정 IR·분기/반기·은행/그룹·총수수료/플랫폼 부분집합, MOU·실증·지정·실제 운영을 구분한다. 원장은 finance의 `finance_economics/collection/us_korea_bank_response_2026-10-12.json`이다. 고정 내용 커밋과 해시는 공개 검증 JSON에 있으며 상세 근거 M에서 확인 위치와 미완료를 읽을 수 있다. 기존08A–08H·다른 증권 보고서·예제 데이터는 보존한다.
