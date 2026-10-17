@@ -5,7 +5,8 @@ Only explicit patterns are recognized. A clean result never grants approval.
 import re
 from decimal import Decimal, InvalidOperation
 
-AMOUNT = re.compile(r"발행규모\s*[:：]?\s*([\d,]+(?:\.\d+)?)\s*(억원|백만원|만원|원)")
+AMOUNT = re.compile(r"발행규모\s*[:：]?\s*([+-]?[0-9,.]*)\s*(억원|백만원|만원|원)")
+AMOUNT_NUMBER = re.compile(r"(?:[0-9]+|[0-9]{1,3}(?:,[0-9]{3})+)(?:\.[0-9]+)?")
 UNITS = {"억원": Decimal(100000000), "백만원": Decimal(1000000), "만원": Decimal(10000), "원": Decimal(1)}
 GUARANTEE = re.compile(r"(?:원금|수익)(?:과\s*수익)?(?:을|를)?\s*(?:보장합니다|보장한다|보장됩니다)")
 EQUIVALENCE = re.compile(r"토큰증권(?:과|은)\s*가상자산(?:은|과)?\s*동일(?:합니다|하다)")
@@ -29,6 +30,11 @@ def review_document(document):
         flag("TERM_EQUIVALENCE_REVIEW", match, "증권 여부와 토큰 형태를 동일 개념으로 처리했는지 검토")
     for match in AMOUNT.finditer(text):
         ref = document.get("amount_source_ref")
+        # Recognize malformed numeric tokens too, so they remain review items.
+        if not AMOUNT_NUMBER.fullmatch(match.group(1)):
+            flag("AMOUNT_VALUE_INVALID", match, "문서의 발행금액 숫자 형식이 유효하지 않음", ref)
+            continue
+        amount = Decimal(match.group(1).replace(",", "")) * UNITS[match.group(2)]
         expected = document.get("expected_amount_won")
         if expected is None or not ref:
             flag("AMOUNT_EVIDENCE_MISSING", match, "대조할 발행금액 근거가 없음", ref)
@@ -40,7 +46,7 @@ def review_document(document):
                 valid = False
             if not valid:
                 flag("AMOUNT_EVIDENCE_INVALID", match, "금액 근거 값이 유효하지 않음", ref)
-            elif Decimal(match.group(1).replace(",", "")) * UNITS[match.group(2)] != baseline:
+            elif amount != baseline:
                 flag("AMOUNT_MISMATCH", match, "같은 의미의 발행규모가 근거 값과 다름", ref)
     for match in DSCR.finditer(text):
         value = Decimal(match.group(1))
