@@ -13,6 +13,17 @@ EQUIVALENCE = re.compile(r"토큰증권(?:과|은)\s*가상자산(?:은|과)?\s*
 DSCR = re.compile(r"DSCR\s*[:=]\s*([0-9]+(?:\.[0-9]+)?)", re.IGNORECASE)
 
 
+def _nonnegative_decimal(value):
+    """Return a finite numeric baseline, or None for invalid evidence."""
+    try:
+        baseline = Decimal(str(value))
+        if not isinstance(value, bool) and baseline.is_finite() and baseline >= 0:
+            return baseline
+    except (InvalidOperation, ValueError, TypeError):
+        pass
+    return None
+
+
 def review_document(document):
     if document.get("synthetic") is not True:
         raise ValueError("This prototype accepts explicitly synthetic documents only")
@@ -39,12 +50,8 @@ def review_document(document):
         if expected is None or not ref:
             flag("AMOUNT_EVIDENCE_MISSING", match, "대조할 발행금액 근거가 없음", ref)
         else:
-            try:
-                baseline = Decimal(str(expected))
-                valid = not isinstance(expected, bool) and baseline.is_finite() and baseline >= 0
-            except (InvalidOperation, ValueError, TypeError):
-                valid = False
-            if not valid:
+            baseline = _nonnegative_decimal(expected)
+            if baseline is None:
                 flag("AMOUNT_EVIDENCE_INVALID", match, "금액 근거 값이 유효하지 않음", ref)
             elif amount != baseline:
                 flag("AMOUNT_MISMATCH", match, "같은 의미의 발행규모가 근거 값과 다름", ref)
@@ -57,12 +64,8 @@ def review_document(document):
         if expected is None or not ref:
             flag("DSCR_EVIDENCE_MISSING", match, "DSCR 산식·기간·근거 확인 필요", ref)
         else:
-            try:
-                baseline = Decimal(str(expected))
-                valid = not isinstance(expected, bool) and baseline.is_finite() and baseline >= 0
-            except (InvalidOperation, ValueError, TypeError):
-                valid = False
-            if not valid:
+            baseline = _nonnegative_decimal(expected)
+            if baseline is None:
                 flag("DSCR_EVIDENCE_INVALID", match, "DSCR 근거 값이 유효하지 않음", ref)
             elif value != baseline:
                 flag("DSCR_MISMATCH", match, "DSCR이 제공된 구조화 근거와 다름", ref)
