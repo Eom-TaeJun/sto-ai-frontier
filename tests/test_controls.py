@@ -1,7 +1,10 @@
 import copy
 import json
+import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
+import run
 from src.screening import screen_asset
 from src.token_design import design_token
 from src.disclosure_review import review_document
@@ -12,10 +15,10 @@ AS_OF = "2026-10-04"
 
 class ControlsTest(unittest.TestCase):
     def setUp(self):
-        self.assets = json.loads((ROOT / "data/synthetic/rwa_samples.json").read_text())
+        self.assets = json.loads((ROOT / "data/synthetic/rwa_samples.json").read_text(encoding="utf-8"))
         self.bond = copy.deepcopy(self.assets[3])
-        self.docs = json.loads((ROOT / "data/synthetic/disclosure_samples.json").read_text())
-        self.policy = json.loads((ROOT / "data/policy_snapshot.json").read_text())
+        self.docs = json.loads((ROOT / "data/synthetic/disclosure_samples.json").read_text(encoding="utf-8"))
+        self.policy = json.loads((ROOT / "data/policy_snapshot.json").read_text(encoding="utf-8"))
 
     def test_high_cashflow_cannot_override_failed_rights(self):
         self.bond["gates"]["rights_verified"] = False
@@ -115,6 +118,61 @@ class ControlsTest(unittest.TestCase):
         doc["amount_source_ref"] = "SYN-test"
         doc["expected_amount_won"] = "nan"
         self.assertEqual(review_document(doc)["findings"][0]["code"], "AMOUNT_EVIDENCE_INVALID")
+
+    def test_malformed_amounts_remain_review_findings(self):
+        for value in (",", ",,,", "1,00", "1,,000", "1,", ".5", "1.", "1..0", "1.2.3", "", "-100", "+100"):
+            with self.subTest(value=value):
+                doc = copy.deepcopy(self.docs[0])
+                doc["text"] = f"발행규모 {value}억원"
+                result = review_document(doc)
+                self.assertEqual([f["code"] for f in result["findings"]], ["AMOUNT_VALUE_INVALID"])
+                self.assertEqual(result["review_status"], "FLAGS_REQUIRE_REVIEW")
+                self.assertFalse(result["approved"])
+                finding = result["findings"][0]
+                start, end = finding["span"]
+                self.assertEqual(doc["text"][start:end], finding["quote"])
+
+    def test_valid_amount_formats_still_compare_to_evidence(self):
+        for value, baseline in (("100", 10000000000), ("1,000", 100000000000), ("1,000.25", 100025000000), ("0.5", 50000000)):
+            with self.subTest(value=value):
+                doc = copy.deepcopy(self.docs[0])
+                doc["text"] = f"발행규모 {value}억원"
+                doc["expected_amount_won"] = baseline
+                self.assertEqual(review_document(doc)["findings"], [])
+                doc["expected_amount_won"] = baseline + 1
+                self.assertEqual(review_document(doc)["findings"][0]["code"], "AMOUNT_MISMATCH")
+
+    def test_malformed_amount_does_not_abort_document_batch(self):
+        valid = copy.deepcopy(self.docs[1])
+        malformed = copy.deepcopy(valid)
+        malformed["document_id"] = "MALFORMED"
+        malformed["text"] = "발행규모 ,억원"
+        results = [review_document(doc) for doc in (valid, malformed, valid)]
+        self.assertEqual(len(results), 3)
+        self.assertEqual(results[0]["findings"], [])
+        self.assertEqual(results[1]["findings"][0]["code"], "AMOUNT_VALUE_INVALID")
+        self.assertEqual(results[2]["findings"], [])
+        self.assertTrue(all(result["approval_required"] for result in results))
+        self.assertFalse(any(result["approved"] for result in results))
+
+    def test_run_writes_reports_with_malformed_document_in_batch(self):
+        malformed = copy.deepcopy(self.docs[1])
+        malformed["document_id"] = "MALFORMED"
+        malformed["text"] = "발행규모 ,억원"
+        documents = self.docs[:1] + [malformed] + self.docs[1:]
+        inputs = {"rwa_samples.json": self.assets, "disclosure_samples.json": documents}
+        with tempfile.TemporaryDirectory(dir=ROOT) as directory:
+            output = Path(directory)
+            with patch.object(run, "read", side_effect=inputs.__getitem__), patch.object(run, "OUT", output), patch("builtins.print"):
+                run.main()
+            reviews = json.loads((output / "disclosure_review.json").read_text(encoding="utf-8"))
+            summary = json.loads((output / "run_summary.json").read_text(encoding="utf-8"))
+            self.assertEqual(len(reviews), len(documents))
+            self.assertEqual(reviews[1]["findings"][0]["code"], "AMOUNT_VALUE_INVALID")
+            self.assertEqual(reviews[2], review_document(self.docs[1]))
+            self.assertEqual(summary["documents"], len(documents))
+            self.assertEqual(summary["disclosure_approvals"], 0)
+            self.assertFalse(any(result["approved"] for result in reviews))
 
     def test_clean_text_still_requires_human_approval(self):
         result = review_document(self.docs[1])
